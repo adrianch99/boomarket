@@ -9,6 +9,7 @@ const bcrypt = require('bcryptjs');
 const app = express();
 const PORT = 3000;
 const pedidosRoutes = require('./routes/pedidosRoutes');
+const path = require('path');
 
 app.use(bodyParser.json());
 app.use('/api/pedidos', pedidosRoutes);
@@ -21,6 +22,11 @@ app.use(session({
     saveUninitialized: false
 }));
 
+
+// Redirigir la raíz del sitio a dashboard.html
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'dashboard.html'));
+});
 
 // Registro de usuario
 app.post('/api/register', async (req, res) => {
