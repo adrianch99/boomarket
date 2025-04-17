@@ -33,7 +33,7 @@
             const email = form.elements[1].value;
             const password = form.elements[2].value;
 
-            const res = await fetch('http://localhost:3000/api/register', {
+            const res = await fetch('https://the-store-qw0r.onrender.comapi/register', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ nombre, email, password })
@@ -47,6 +47,8 @@
             }
         });
     </script>
+    <script src="funciones.js"></script>
+
 
 </body>
 
