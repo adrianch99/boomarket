@@ -69,7 +69,7 @@ app.post('/api/login', async (req, res) => {
 
         res.status(200).json({ message: 'Inicio de sesión exitoso', user });
     } catch (err) {
-        console.error('Error en login:', err.message);
+        console.error('Error en login:', err);
         res.status(500).json({ message: 'Error en el servidor' });
     }
 });
