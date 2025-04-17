@@ -1,4 +1,4 @@
-require('dotenv').config(); // Asegúrate de tener dotenv instalado
+require('dotenv').config(); 
 const { Pool } = require('pg');
 
 const pool = new Pool({
