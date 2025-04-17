@@ -76,7 +76,7 @@ app.post('/api/login', async (req, res) => {
 
 
 // Obtener todos los productos
-app.get('https://the-store-qw0r.onrender.com/api/productos', async (req, res) => {
+app.get('/api/productos', async (req, res) => {
     try {
         const result = await pool.query('SELECT * FROM productos ORDER BY id DESC');
         res.json(result.rows);
