@@ -23,11 +23,6 @@ app.use(session({
 }));
 
 
-// Redirigir la raíz del sitio a dashboard.html
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'dashboard.html'));
-});
-
 // Registro de usuario
 app.post('/api/register', async (req, res) => {
     const { nombre, email, password } = req.body;
@@ -81,7 +76,7 @@ app.post('/api/login', async (req, res) => {
 
 
 // Obtener todos los productos
-app.get('/api/productos', async (req, res) => {
+app.get('https://the-store-qw0r.onrender.com/api/productos', async (req, res) => {
     try {
         const result = await pool.query('SELECT * FROM productos ORDER BY id DESC');
         res.json(result.rows);
