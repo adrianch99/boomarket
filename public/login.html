@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Iniciar Sesión | The Store</title>
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="auth-container">
+            <h2>Iniciar Sesión</h2>
+
+            <form id="login-form">
+                <input type="email" placeholder="Correo electrónico" required>
+                <input type="password" placeholder="Contraseña" required>
+                <button type="submit" class="btn">Entrar</button>
+            </form>
+
+            <p class="switch">¿No tienes cuenta? <a href="registro.html">Regístrate aquí</a></p>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('login-form');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const email = form.elements[0].value;
+            const password = form.elements[1].value;
+
+            const res = await fetch('http://localhost:3000/api/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password })
+            });
+
+            const data = await res.json();
+            alert(data.message);
+
+            if (res.ok) {
+                localStorage.setItem('user', JSON.stringify(data.user));
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+
+</body>
+
+</html>

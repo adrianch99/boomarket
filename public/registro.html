@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Registrarse | The Store</title>
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="auth-container">
+        <h2>Crear Cuenta</h2>
+
+        <form id="register-form">
+            <input type="text" placeholder="Nombre completo" required>
+            <input type="email" placeholder="Correo electrónico" required>
+            <input type="password" placeholder="Contraseña" required>
+            <button type="submit" class="btn">Registrarse</button>
+        </form>
+
+        <p class="switch">¿Ya tienes cuenta? <a href="login.html">Inicia sesión</a></p>
+    </div>
+
+    <script>
+        const form = document.getElementById('register-form');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const nombre = form.elements[0].value;
+            const email = form.elements[1].value;
+            const password = form.elements[2].value;
+
+            const res = await fetch('http://localhost:3000/api/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ nombre, email, password })
+            });
+
+            const data = await res.json();
+            alert(data.message);
+
+            if (res.ok) {
+                window.location.href = 'login.html';
+            }
+        });
+    </script>
+
+</body>
+
+</html>

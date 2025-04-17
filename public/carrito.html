@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Carrito de Compras</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<header>
+  <nav>
+    <div class="nav-main">
+      <div class="logo">The store</div>
+
+      <ul class="menu">
+        <li>
+          <a href="index.html">productos</a>
+        </li>
+        <li>
+          <a href="carrito.html">carrito</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<body>
+
+  <h1>🛒 Carrito de Compras</h1><br>
+
+  <div id="carrito-container"></div>
+  <h2 id="total">Total: $0</h2>
+  <button class="btn" onclick="vaciarCarrito()">Vaciar carrito</button>
+
+  <div id="carrito-productos"></div>
+
+  <h2>Datos de Envío</h2>
+  <form id="form-envio">
+    <input type="text" id="nombre" placeholder="Nombre y apellidos" ...>
+    <input type="text" id="direccion" placeholder="direccion" ...>
+    <input type="tel" id="telefono" placeholder="Telefono" ...>
+    <input type="email" id="email" placeholder="Email" ...>
+    <input type="text" id="departamento" placeholder="Departamento" ...>
+    <input type="text" id="ciudad" placeholder="Ciudad" ...>
+    <button class="btn" type="submit">Realizar pedido</button>
+  </form>
+
+  <script src="carrito.js"></script>
+  <script src="funciones.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,227 @@
+body {
+    margin: 0;
+    padding: 0px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f2f4f7;
+    display:block;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+nav {
+    justify-content: center;
+    background: white;
+    box-shadow: 0 5px 15px rgba(16, 185, 129, 0.6);
+}
+
+.logo {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #1e88e5;
+}
+
+.menu a {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #1e88e5;
+    letter-spacing: 0.1rem;
+    display: block;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s linear;
+}
+
+.menu a:hover {
+    background: #1F2937;
+    color: rgba(16, 185, 129, 0.6);
+    padding-left: 1.5rem;
+}
+
+@media (min-width: 800px) {
+    .nav-main {
+        max-width: 1170px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem;
+    }
+
+    .menu {
+        height: auto;
+        display: flex;
+    }
+
+    .menu a {
+        padding: 0;
+        margin: 0 0.5rem;
+    }
+
+    .menu a:hover {
+        padding: 0;
+        background: transparent;
+    }
+}
+
+h1 {
+    margin-bottom: 10px;
+    color: black;
+}
+
+.brand {
+    color: #1e88e5;
+}
+
+.subtitle {
+    margin-bottom: 2rem;
+    color: #666;
+}
+
+.botones {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #1e88e5;
+    color: white;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #1565c0;
+}
+
+.btn-secondary {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.btn-secondary:hover {
+    background-color: #e0e0e0;
+}
+
+.divider {
+    position: relative;
+    margin: 20px 0;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.divider span {
+    background: white;
+    padding: 0 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.divider::before {
+    content: '';
+    height: 1px;
+    width: 100%;
+    background: #ddd;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 0;
+}
+
+.google-btn {
+    display: flex;
+    justify-content: center;
+}
+
+.auth-container,
+.dashboard-container {
+    background-color: white;
+    padding: 2rem 3rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    margin: auto;
+    margin-top: 80px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.2s;
+}
+
+input:focus {
+    border-color: #1e88e5;
+}
+
+.switch {
+    margin-top: 1.2rem;
+    color: #555;
+}
+
+.switch a {
+    color: #1e88e5;
+    text-decoration: none;
+}
+
+#carrito-container {
+    display:flex;
+    gap: 1rem;
+    padding: 20px;
+    justify-content: center;
+}
+
+.productos-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 20px;
+    justify-content: center;
+}
+
+.producto {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    width: 250px;
+    border-radius: 10px;
+    text-align: center;
+    background: #f9f9f9;
+    transition: all 0.3s ease;
+}
+
+.producto:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 10px #aaa;
+}
+
+.producto img {
+    max-width: 100%;
+    border-radius: 8px;
+}
