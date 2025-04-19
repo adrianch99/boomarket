@@ -204,6 +204,7 @@ input:focus {
     gap: 1rem;
     padding: 20px;
     justify-content: center;
+    color:black;
 }
 
 .producto {

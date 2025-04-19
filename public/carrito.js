@@ -2,9 +2,17 @@ document.addEventListener('DOMContentLoaded', () => {
   mostrarCarrito();
 });
 
-function mostrarCarrito() {
+async function mostrarCarrito() {
+  const userId = localStorage.getItem('user_id');
+  if (!userId) {
+    document.getElementById('carrito-container').innerHTML = '<p>Debes iniciar sesión para ver tu carrito.</p>';
+    return;
+  }
+
+  const response = await fetch(`http://localhost:3000/api/carrito/${userId}`);
+  const carrito = await response.json();
+
   const container = document.getElementById('carrito-container');
-  const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
   container.innerHTML = '';
 
   let total = 0;
@@ -15,7 +23,7 @@ function mostrarCarrito() {
     return;
   }
 
-  carrito.forEach((item, index) => {
+  carrito.forEach((item) => {
     const subtotal = item.precio * item.cantidad;
     total += subtotal;
 
@@ -25,12 +33,8 @@ function mostrarCarrito() {
         <h3>${item.nombre}</h3>
         <img src="${item.imagen}" width="100">
         <p>Precio: $${item.precio}</p>
-        <p>
-          Cantidad:
-          <input type="number" min="1" value="${item.cantidad}" onchange="cambiarCantidad(${index}, this.value)">
-        </p>
+        <p>Cantidad: ${item.cantidad}</p>
         <p>Subtotal: $${subtotal}</p>
-        <button class="btn" onclick="eliminarItem(${index})">Eliminar</button>
         <hr>
       `;
     container.appendChild(div);
@@ -39,21 +43,29 @@ function mostrarCarrito() {
   document.getElementById('total').textContent = `Total: $${total}`;
 }
 
-function cambiarCantidad(index, cantidad) {
-  const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-  carrito[index].cantidad = parseInt(cantidad);
-  localStorage.setItem('carrito', JSON.stringify(carrito));
-  mostrarCarrito();
+
+
+function cambiarCantidad(productoId, cantidad) {
+  const user = JSON.parse(localStorage.getItem('user'));
+  fetch(`http://localhost:3000/api/carrito/${user.id}/actualizar`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ producto_id: productoId, cantidad })
+  }).then(() => mostrarCarrito());
 }
 
-function eliminarItem(index) {
-  const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-  carrito.splice(index, 1);
-  localStorage.setItem('carrito', JSON.stringify(carrito));
-  mostrarCarrito();
+function eliminarItem(productoId) {
+  const user = JSON.parse(localStorage.getItem('user'));
+  fetch(`http://localhost:3000/api/carrito/${user.id}/eliminar`, {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ producto_id: productoId })
+  }).then(() => mostrarCarrito());
 }
 
 function vaciarCarrito() {
-  localStorage.removeItem('carrito');
-  mostrarCarrito();
+  const user = JSON.parse(localStorage.getItem('user'));
+  fetch(`http://localhost:3000/api/carrito/${user.id}/vaciar`, {
+    method: 'DELETE'
+  }).then(() => mostrarCarrito());
 }

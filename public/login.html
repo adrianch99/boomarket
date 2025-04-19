@@ -32,7 +32,7 @@
             const email = form.elements[0].value;
             const password = form.elements[1].value;
 
-            const res = await fetch('https://the-store-qw0r.onrender.com/api/login', {
+            const res = await fetch('http://localhost:3000/api/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password })
@@ -42,7 +42,7 @@
             alert(data.message);
 
             if (res.ok) {
-                localStorage.setItem('user', JSON.stringify(data.user));
+                localStorage.setItem('user_id', data.user.id);
                 window.location.href = 'productos.html';
             }
         });

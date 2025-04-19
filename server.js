@@ -9,7 +9,6 @@ const bcrypt = require('bcryptjs');
 const app = express();
 const PORT = 3000;
 const pedidosRoutes = require('./routes/pedidosRoutes');
-const path = require('path');
 
 app.use(bodyParser.json());
 app.use('/api/pedidos', pedidosRoutes);
@@ -75,7 +74,7 @@ app.post('/api/login', async (req, res) => {
 });
 
 
-// Obtener todos los productos
+// Obtener todos los productos en admin
 app.get('/api/productos', async (req, res) => {
     try {
         const result = await pool.query('SELECT * FROM productos ORDER BY id DESC');
@@ -85,7 +84,7 @@ app.get('/api/productos', async (req, res) => {
     }
 });
 
-// Agregar nuevo producto
+// Agregar nuevo producto en admin
 app.post('/api/productos', async (req, res) => {
     const { nombre, descripcion, precio, imagen, userId } = req.body;
 
@@ -101,7 +100,7 @@ app.post('/api/productos', async (req, res) => {
     }
 });
 
-// Eliminar producto
+// Eliminar producto en admin
 app.delete('/api/productos/:id', async (req, res) => {
     const { id } = req.params;
 
@@ -113,7 +112,7 @@ app.delete('/api/productos/:id', async (req, res) => {
     }
 });
 
-// Editar producto
+// Editar producto en admin
 app.put('/api/productos/:id', async (req, res) => {
     const { id } = req.params;
     const { nombre, descripcion, precio, imagen } = req.body;
@@ -126,6 +125,85 @@ app.put('/api/productos/:id', async (req, res) => {
         res.json({ message: 'Producto actualizado con éxito' });
     } catch (err) {
         res.status(500).json({ message: 'Error al actualizar producto' });
+    }
+});
+
+//agrgar producto al carrito
+app.post('/api/carrito/agregar', async (req, res) => {
+    const { producto_id, cantidad, user_id } = req.body;
+
+    try {
+        await pool.query(
+            'INSERT INTO carrito (producto_id, cantidad, user_id) VALUES ($1, $2, $3)',
+            [producto_id, cantidad, user_id]
+        );
+        res.status(200).json({ message: 'Producto agregado al carrito' });
+    } catch (error) {
+        console.error('Error al agregar al carrito:', error);
+        res.status(500).json({ error: 'Error interno del servidor' });
+    }
+});
+
+// Obtener carrito de un usuario
+app.get('/api/carrito/:user_id', async (req, res) => {
+    const { user_id } = req.params;
+    try {
+        const result = await pool.query(`
+        SELECT c.producto_id AS id, p.nombre, p.precio, p.imagen, c.cantidad
+        FROM carrito c
+        JOIN productos p ON c.producto_id = p.id
+        WHERE c.user_id = $1
+      `, [user_id]);
+        res.json(result.rows);
+    } catch (error) {
+        console.error('Error al obtener carrito:', error);
+        res.status(500).json({ message: 'Error al obtener carrito' });
+    }
+});
+
+// Actualizar cantidad de producto
+app.put('/api/carrito/actualizar', async (req, res) => {
+    const { user_id, producto_id, cantidad } = req.body;
+    try {
+        await pool.query(`
+        UPDATE carrito
+        SET cantidad = $1
+        WHERE user_id = $2 AND producto_id = $3
+      `, [cantidad, user_id, producto_id]);
+        res.json({ message: 'Cantidad actualizada' });
+    } catch (error) {
+        console.error('Error al actualizar cantidad:', error);
+        res.status(500).json({ message: 'Error al actualizar cantidad' });
+    }
+});
+
+// Eliminar un producto del carrito
+app.delete('/api/carrito/:user_id/:producto_id', async (req, res) => {
+    const { user_id, producto_id } = req.params;
+    try {
+        await pool.query(`
+        DELETE FROM carrito
+        WHERE user_id = $1 AND producto_id = $2
+      `, [user_id, producto_id]);
+        res.json({ message: 'Producto eliminado' });
+    } catch (error) {
+        console.error('Error al eliminar producto:', error);
+        res.status(500).json({ message: 'Error al eliminar producto' });
+    }
+});
+
+// Vaciar carrito de un usuario
+app.delete('/api/carrito/vaciar/:user_id', async (req, res) => {
+    const { user_id } = req.params;
+    try {
+        await pool.query(`
+        DELETE FROM carrito
+        WHERE user_id = $1
+      `, [user_id]);
+        res.json({ message: 'Carrito vaciado' });
+    } catch (error) {
+        console.error('Error al vaciar carrito:', error);
+        res.status(500).json({ message: 'Error al vaciar carrito' });
     }
 });
 

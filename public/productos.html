@@ -22,6 +22,7 @@
                     <a href="carrito.html">carrito</a>
                 </li>
             </ul>
+            <button onclick="cerrarSesion()" class="btn">Cerrar sesión</button>
         </div>
     </nav>
 </header>
@@ -34,7 +35,15 @@
         </main>
     </div>
 
-    <script src="index.js"></script>
+    <script>
+        function cerrarSesion() {
+            localStorage.removeItem('user_id');
+            alert('Sesión cerrada');
+            window.location.href = 'login.html';
+        }
+    </script>
+    <script src="productos.js"></script>
+    
 </body>
 
 </html>

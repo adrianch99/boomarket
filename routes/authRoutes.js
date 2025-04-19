@@ -2,8 +2,6 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../db');
 const bcrypt = require('bcryptjs');
-const nodemailer = require('nodemailer');
-const crypto = require('crypto');
 
 // Registro
 router.post('/register', async (req, res) => {
