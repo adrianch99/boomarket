@@ -162,15 +162,36 @@ app.get('/api/carrito/:user_id', async (req, res) => {
     }
 });
 
-// Actualizar cantidad de producto
-app.put('/api/carrito/actualizar', async (req, res) => {
-    const { user_id, producto_id, cantidad } = req.body;
+// Vaciar todo el carrito de un usuario
+app.delete('/api/carrito/:user_id/vaciar', async (req, res) => {
+    const { user_id } = req.params;
+
+    try {
+        await pool.query(`
+        DELETE FROM carrito
+        WHERE user_id = $1
+      `, [user_id]);
+
+        res.json({ message: 'Carrito vaciado' });
+    } catch (error) {
+        console.error('Error al vaciar carrito:', error);
+        res.status(500).json({ message: 'Error al vaciar carrito' });
+    }
+});
+
+
+// Actualizar cantidad de un producto del carrito
+app.put('/api/carrito/:user_id/:producto_id', async (req, res) => {
+    const { user_id, producto_id } = req.params;
+    const { cantidad } = req.body;
+
     try {
         await pool.query(`
         UPDATE carrito
         SET cantidad = $1
         WHERE user_id = $2 AND producto_id = $3
       `, [cantidad, user_id, producto_id]);
+
         res.json({ message: 'Cantidad actualizada' });
     } catch (error) {
         console.error('Error al actualizar cantidad:', error);
@@ -181,30 +202,17 @@ app.put('/api/carrito/actualizar', async (req, res) => {
 // Eliminar un producto del carrito
 app.delete('/api/carrito/:user_id/:producto_id', async (req, res) => {
     const { user_id, producto_id } = req.params;
+
     try {
         await pool.query(`
         DELETE FROM carrito
         WHERE user_id = $1 AND producto_id = $2
       `, [user_id, producto_id]);
+
         res.json({ message: 'Producto eliminado' });
     } catch (error) {
         console.error('Error al eliminar producto:', error);
         res.status(500).json({ message: 'Error al eliminar producto' });
-    }
-});
-
-// Vaciar carrito de un usuario
-app.delete('/api/carrito/vaciar/:user_id', async (req, res) => {
-    const { user_id } = req.params;
-    try {
-        await pool.query(`
-        DELETE FROM carrito
-        WHERE user_id = $1
-      `, [user_id]);
-        res.json({ message: 'Carrito vaciado' });
-    } catch (error) {
-        console.error('Error al vaciar carrito:', error);
-        res.status(500).json({ message: 'Error al vaciar carrito' });
     }
 });
 

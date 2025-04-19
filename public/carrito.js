@@ -30,42 +30,49 @@ async function mostrarCarrito() {
     const div = document.createElement('div');
     div.classList.add('producto-carrito');
     div.innerHTML = `
-        <h3>${item.nombre}</h3>
-        <img src="${item.imagen}" width="100">
-        <p>Precio: $${item.precio}</p>
-        <p>Cantidad: ${item.cantidad}</p>
-        <p>Subtotal: $${subtotal}</p>
-        <hr>
-      `;
+  <h3>${item.nombre}</h3>
+  <img src="${item.imagen}" width="100">
+  <p>Precio: $${item.precio}</p>
+  <p>
+    Cantidad:
+    <input type="number" min="1" value="${item.cantidad}" onchange="cambiarCantidad(${item.id}, this.value)">
+  </p>
+  <p>Subtotal: $${subtotal}</p>
+  <button onclick="eliminarItem(${item.id})">Eliminar</button>
+  <hr>
+`;
+
     container.appendChild(div);
   });
 
   document.getElementById('total').textContent = `Total: $${total}`;
 }
 
-
-
-function cambiarCantidad(productoId, cantidad) {
-  const user = JSON.parse(localStorage.getItem('user'));
-  fetch(`/api/carrito/${user.id}/actualizar`, {
-    method: 'PUT',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ producto_id: productoId, cantidad })
-  }).then(() => mostrarCarrito());
-}
-
-function eliminarItem(productoId) {
-  const user = JSON.parse(localStorage.getItem('user'));
-  fetch(`/api/carrito/${user.id}/eliminar`, {
-    method: 'DELETE',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ producto_id: productoId })
-  }).then(() => mostrarCarrito());
-}
-
 function vaciarCarrito() {
-  const user = JSON.parse(localStorage.getItem('user'));
-  fetch(`/api/carrito/${user.id}/vaciar`, {
+  const userId = localStorage.getItem('user_id');
+
+  fetch(`/api/carrito/${userId}/vaciar`, {
     method: 'DELETE'
   }).then(() => mostrarCarrito());
 }
+
+
+function cambiarCantidad(productoId, nuevaCantidad) {
+  const userId = localStorage.getItem('user_id');
+
+  fetch(`/api/carrito/${userId}/${productoId}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ cantidad: nuevaCantidad })
+  }).then(() => mostrarCarrito());
+}
+
+
+function eliminarItem(productoId) {
+  const userId = localStorage.getItem('user_id');
+
+  fetch(`/api/carrito/${userId}/${productoId}`, {
+    method: 'DELETE'
+  }).then(() => mostrarCarrito());
+}
+
