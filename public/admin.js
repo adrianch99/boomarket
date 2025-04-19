@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const container = document.getElementById('pedidos-container');
 
     try {
-        const res = await fetch('http://localhost:3000/api/pedidos');
+        const res = await fetch('/api/pedidos');
         const pedidos = await res.json();
 
         if (pedidos.length === 0) {
@@ -50,7 +50,7 @@ async function exportarPDF() {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
 
-    const res = await fetch('http://localhost:3000/api/pedidos');
+    const res = await fetch('/api/pedidos');
     const pedidos = await res.json();
 
     let y = 10;
@@ -81,7 +81,7 @@ async function exportarPDF() {
 }
 
 async function marcarEnviado(id) {
-    await fetch(`http://localhost:3000/api/pedidos/${id}/enviado`, {
+    await fetch(`/api/pedidos/${id}/enviado`, {
         method: 'PUT'
     });
     alert('Pedido marcado como enviado');

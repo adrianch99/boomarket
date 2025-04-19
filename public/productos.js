@@ -35,7 +35,7 @@ function agregarAlCarrito(productoId) {
     return;
   }
 
-  fetch('http://localhost:3000/api/carrito/agregar', {
+  fetch('/api/carrito/agregar', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

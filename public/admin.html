@@ -51,7 +51,7 @@
 
         async function cargarProductos() {
             tabla.innerHTML = '';
-            const res = await fetch('http://localhost:3000/api/productos');
+            const res = await fetch('/api/productos');
             const productos = await res.json();
 
             productos.forEach(p => {
@@ -76,7 +76,7 @@
             e.preventDefault();
             const data = Object.fromEntries(new FormData(form));
 
-            const res = await fetch('http://localhost:3000/api/productos', {
+            const res = await fetch('/api/productos', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
@@ -90,7 +90,7 @@
         async function eliminarProducto(id) {
             if (!confirm('¿Eliminar este producto?')) return;
 
-            await fetch(`http://localhost:3000/api/productos/${id}`, {
+            await fetch(`/api/productos/${id}`, {
                 method: 'DELETE'
             });
             cargarProductos();
@@ -103,7 +103,7 @@
             const nuevoPrecio = prompt("Nuevo precio:", precio);
             const nuevaImagen = prompt("Nueva imagen (URL):", imagen);
 
-            await fetch(`http://localhost:3000/api/productos/${id}`, {
+            await fetch(`/api/productos/${id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({

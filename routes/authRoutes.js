@@ -50,11 +50,4 @@ router.post('/login', async (req, res) => {
     }
 });
 
-
-// Logout
-router.post('/logout', (req, res) => {
-    req.session.destroy();
-    res.json({ mensaje: 'Sesión cerrada' });
-});
-
 module.exports = router;

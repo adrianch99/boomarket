@@ -9,7 +9,7 @@ async function mostrarCarrito() {
     return;
   }
 
-  const response = await fetch(`http://localhost:3000/api/carrito/${userId}`);
+  const response = await fetch(`/api/carrito/${userId}`);
   const carrito = await response.json();
 
   const container = document.getElementById('carrito-container');
@@ -47,7 +47,7 @@ async function mostrarCarrito() {
 
 function cambiarCantidad(productoId, cantidad) {
   const user = JSON.parse(localStorage.getItem('user'));
-  fetch(`http://localhost:3000/api/carrito/${user.id}/actualizar`, {
+  fetch(`/api/carrito/${user.id}/actualizar`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ producto_id: productoId, cantidad })
@@ -56,7 +56,7 @@ function cambiarCantidad(productoId, cantidad) {
 
 function eliminarItem(productoId) {
   const user = JSON.parse(localStorage.getItem('user'));
-  fetch(`http://localhost:3000/api/carrito/${user.id}/eliminar`, {
+  fetch(`/api/carrito/${user.id}/eliminar`, {
     method: 'DELETE',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ producto_id: productoId })
@@ -65,7 +65,7 @@ function eliminarItem(productoId) {
 
 function vaciarCarrito() {
   const user = JSON.parse(localStorage.getItem('user'));
-  fetch(`http://localhost:3000/api/carrito/${user.id}/vaciar`, {
+  fetch(`/api/carrito/${user.id}/vaciar`, {
     method: 'DELETE'
   }).then(() => mostrarCarrito());
 }
