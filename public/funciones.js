@@ -1,34 +1,3 @@
-document.getElementById('form-envio').addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-
-    const datosEnvio = {
-        nombre: e.target.nombre.value,
-        direccion: e.target.direccion.value,
-        telefono: e.target.telefono.value,
-        email: e.target.email.value,
-        departamento: e.target.departamento.value,
-        ciudad: e.target.ciudad.value,
-        productos: carrito // 👈 este array irá directo al jsonb
-    };
-
-    try {
-        const res = await fetch('/api/pedidos', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(datosEnvio)
-        });
-
-        const data = await res.json();
-        alert(data.message);
-        localStorage.removeItem('carrito');
-        e.target.reset();
-    } catch (error) {
-        alert('Error al enviar pedido');
-    }
-});
-
 
 async function cargarPedidos() {
     try {

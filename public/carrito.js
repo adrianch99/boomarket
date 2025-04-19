@@ -76,3 +76,42 @@ function eliminarItem(productoId) {
   }).then(() => mostrarCarrito());
 }
 
+async function realizarPedido() {
+  const userId = localStorage.getItem('user_id');
+
+  const carrito = await fetch(`/api/carrito/${userId}`).then(res => res.json());
+
+  if (carrito.length === 0) {
+    alert('Tu carrito está vacío');
+    return;
+  }
+
+  const nombre = document.getElementById('nombre').value;
+  const direccion = document.getElementById('direccion').value;
+  const telefono = document.getElementById('telefono').value;
+  const email = document.getElementById('email').value;
+  const departamento = document.getElementById('departamento').value;
+  const ciudad = document.getElementById('ciudad').value;
+
+  const res = await fetch('/api/pedidos', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      nombre,
+      direccion,
+      telefono,
+      email,
+      departamento,
+      ciudad,
+      productos: carrito
+    })
+  });
+
+  const data = await res.json();
+  alert(data.message);
+
+  if (res.ok) {
+    await fetch(`/api/carrito/${userId}/vaciar`, { method: 'DELETE' });
+    window.location.href = 'productos.html';
+  }
+}

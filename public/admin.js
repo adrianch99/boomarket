@@ -46,6 +46,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 });
 
+
 async function exportarPDF() {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();

@@ -9,7 +9,7 @@ router.post('/', async (req, res) => {
     try {
         await pool.query(
             'INSERT INTO pedidos (nombre, direccion, telefono, email, departamento, ciudad, productos) VALUES ($1, $2, $3, $4, $5, $6, $7)',
-            [nombre, direccion, telefono, email, departamento, ciudad, JSON.stringify(productos)] // 👈 convertir a texto JSON
+            [nombre, direccion, telefono, email, departamento, ciudad, JSON.stringify(productos)]
         );
 
 
@@ -25,7 +25,7 @@ router.post('/', async (req, res) => {
 router.get('/', async (req, res) => {
     try {
         const result = await pool.query('SELECT * FROM pedidos ORDER BY id DESC');
-        res.json(result.rows); // 👈 productos ya vendrán como JSON
+        res.json(result.rows);
     } catch (err) {
         console.error('Error al obtener pedidos:', err.message);
         res.status(500).json({ message: 'Error al obtener pedidos' });
