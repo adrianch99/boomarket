@@ -7,7 +7,8 @@ const authRoutes = require('./routes/authRoutes');
 const session = require('express-session');
 const bcrypt = require('bcryptjs');
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
+
 const pedidosRoutes = require('./routes/pedidosRoutes');
 
 app.use(bodyParser.json());
