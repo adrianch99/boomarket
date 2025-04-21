@@ -27,22 +27,22 @@ async function mostrarCarrito() {
     const subtotal = item.precio * item.cantidad;
     total += subtotal;
 
-    const div = document.createElement('div');
-    div.classList.add('producto-carrito');
-    div.innerHTML = `
+    const card = document.createElement('div');
+    card.classList.add('producto-carrito');
+    card.innerHTML = `
   <h3>${item.nombre}</h3>
   <img src="${item.imagen}" width="100">
-  <p>Precio: $${item.precio}</p>
-  <p>
+  <p><strong>Precio: $${item.precio}</strong></p>
+  <p><strong>
     Cantidad:
     <input type="number" min="1" value="${item.cantidad}" onchange="cambiarCantidad(${item.id}, this.value)">
-  </p>
-  <p>Subtotal: $${subtotal}</p>
-  <button onclick="eliminarItem(${item.id})">Eliminar</button>
+  </strong></p>
+  <p><strong>Subtotal: $${subtotal}</strong></p>
+  <button class="btn" onclick="eliminarItem(${item.id})">Eliminar</button>
   <hr>
 `;
 
-    container.appendChild(div);
+    container.appendChild(card);
   });
 
   document.getElementById('total').textContent = `Total: $${total}`;

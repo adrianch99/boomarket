@@ -3,50 +3,51 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Bienvenido a The Store</title>
-    <link rel="stylesheet" href="estilo.css">
-    <link rel="stylesheet" href="style.css">
+    <title>The Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles4.css">
 
 </head>
 
-<body>
-    <div class="main">
-        <div class="dashboard-container">
-            <h1>🛍️ Bienvenido a <span class="brand">The Store</span></h1>
-            <p class="subtitle">Comienza ahora tu experiencia de compra</p>
-
-            <div class="botones">
-                <button onclick="window.location.href='login.html'" class="btn">Iniciar Sesión</button>
-                <button onclick="window.location.href='registro.html'" class="btn btn-secondary">Registrarse</button>
+<header>
+    <nav>
+        <div class="nav-main">
+            <div class="logo">The store</div>
+            <div class="busqueda-container">
+                <input type="text" id="busquedaInput" placeholder="Buscar productos..." />
             </div>
 
-            <div class="divider"><span>o continúa con</span></div>
 
-            <div id="google-signin" class="google-btn"></div>
+            <div class="menu">
+
+                <a href="">Productos</a>
+
+                <a href="login.html">Inicia Sesión</a>
+
+                <a href="registro.html">Registrate</a>
+
+            </div>
         </div>
+    </nav>
+</header>
+
+<body onload="document.body.classList.add('loaded')">
+    <div class="main">
+        <main>
+            <h1>Productos en venta</h1>
+            <div id="lista-productos" class="productos-container"></div>
+        </main>
     </div>
 
-    <!-- SDK de Google -->
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script>
-        window.onload = () => {
-            google.accounts.id.initialize({
-                client_id: "TU_CLIENT_ID_GOOGLE",
-                callback: handleGoogleSignIn
-            });
-
-            google.accounts.id.renderButton(
-                document.getElementById("google-signin"),
-                { theme: "outline", size: "large" }
-            );
-        };
-
-        function handleGoogleSignIn(response) {
-            console.log("Credencial de Google:", response.credential);
-            alert("¡Inicio de sesión exitoso con Google!");
-            // Redirige al home o dashboard del usuario si quieres
+        function cerrarSesion() {
+            localStorage.removeItem('user_id');
+            alert('Sesión cerrada');
+            window.location.href = 'login.html';
         }
     </script>
+    <script src="productos.js"></script>
+
 </body>
 
 </html>

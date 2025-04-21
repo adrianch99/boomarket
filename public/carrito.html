@@ -4,7 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <title>Carrito de Compras</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="menu.css">
 
 </head>
 
@@ -13,30 +15,37 @@
     <div class="nav-main">
       <div class="logo">The store</div>
 
-      <ul class="menu">
-        <li>
-          <a href="productos.html">productos</a>
-        </li>
-        <li>
-          <a href="carrito.html">carrito</a>
-        </li>
-      </ul>
-    </div>
+      <div class="menu">
+
+        <a href="productos.html">Productos</a>
+
+        <a href="">Carrito</a>
+
+        <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+        <div class="menu-list" id="menu-list">
+
+          <a href="pedidosUsuario.html">Tus Pedidos</a>
+
+          <button onclick="cerrarSesion()" class="btn">Cerrar sesión</button>
+
+        </div>
+      </div>
   </nav>
 </header>
 
-<body>
+<body onload="document.body.classList.add('loaded')">
 
-  <h1>🛒 Carrito de Compras</h1><br>
+  <h1>Carrito de Compras</h1><br>
 
   <div id="carrito-container"></div>
   <h2 id="total">Total: $0</h2>
-  <button class="btn" onclick="vaciarCarrito()">Vaciar carrito</button>
+  <div class="btn-container">
+    <button class="btn" onclick="vaciarCarrito()">Vaciar carrito</button>
 
-  <div id="carrito-productos"></div>
+  </div>
 
-  <h2>Datos de Envío</h2>
   <form id="form-envio">
+    <h2>Datos de Envío</h2>
     <input type="text" id="nombre" placeholder="Nombre y apellidos" ...>
     <input type="text" id="direccion" placeholder="direccion" ...>
     <input type="tel" id="telefono" placeholder="Telefono" ...>
@@ -46,9 +55,23 @@
     <button class="btn" type="button" onclick="realizarPedido()">Realizar pedido</button>
   </form>
 
-  <script src="carrito.js"></script>
-  <script src="funciones.js"></script>
 
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu-list');
+
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('active');
+    });
+
+    // Cierra el menú si haces clic fuera
+    document.addEventListener('click', function (event) {
+      if (!toggle.contains(event.target) && !menu.contains(event.target)) {
+        menu.classList.remove('active');
+      }
+    });
+  </script>
+  <script src="carrito.js"></script>
 
 </body>
 

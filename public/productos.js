@@ -15,8 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
             <h3>${p.nombre}</h3>
             <p>${p.descripcion}</p>
             <p><strong>$${p.precio}</strong></p>
-            <button class="btn" onclick="agregarAlCarrito(${p.id})">Añadir al carrito 🛒</button>
-          `;
+            <button class="btn" onclick="agregarAlCarrito(${p.id})">Añadir al carrito</button>
+             `;
 
         contenedor.appendChild(card);
       });
@@ -31,7 +31,7 @@ function agregarAlCarrito(productoId) {
   const userId = localStorage.getItem('user_id');
 
   if (!userId) {
-    alert('Debes iniciar sesión para agregar productos al carrito.');
+    alert('Debes iniciar sesión o registrarte para agregar productos al carrito.');
     return;
   }
 
@@ -55,3 +55,15 @@ function agregarAlCarrito(productoId) {
       alert('Hubo un problema al agregar el producto');
     });
 }
+
+document.getElementById('busquedaInput').addEventListener('input', (e) => {
+  const valor = e.target.value.toLowerCase();
+  const productos = document.querySelectorAll('.producto');
+
+  productos.forEach(producto => {
+    const nombre = producto.querySelector('h3').textContent.toLowerCase();
+    producto.style.display = nombre.includes(valor) ? 'block' : 'none';
+  });
+});
+
+

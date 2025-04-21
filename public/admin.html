@@ -20,6 +20,11 @@
             <button type="submit" class="btn">Guardar</button>
         </form>
 
+        <h1>Pedidos Recibidos</h1>
+        <button onclick="exportarPDF()">Exportar pedidos a PDF</button>
+        <div id="pedidos-container"></div>
+
+
         <h2>Lista de Productos</h2>
         <table id="tabla-productos">
             <thead>
@@ -36,9 +41,6 @@
         </table>
     </div>
 
-    <h1>📦 Pedidos Recibidos</h1>
-    <button onclick="exportarPDF()">Exportar pedidos a PDF</button>
-    <div id="pedidos-container"></div>
 
     <script>
         const tabla = document.querySelector('#tabla-productos tbody');
@@ -118,12 +120,7 @@
         }
     </script>
     <script src="funciones.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="admin.js"></script>
-
-    <script>
-        window.addEventListener('DOMContentLoaded', cargarPedidos);
-    </script>
 
 </body>
 

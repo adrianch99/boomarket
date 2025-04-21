@@ -1,4 +1,3 @@
-
 async function cargarPedidos() {
     try {
         const res = await fetch('/api/pedidos');
