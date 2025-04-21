@@ -71,6 +71,14 @@
       }
     });
   </script>
+
+  <script>
+    function cerrarSesion() {
+      localStorage.removeItem('user_id');
+      alert('Sesión cerrada');
+      window.location.href = 'login.html';
+    }
+  </script>
   <script src="carrito.js"></script>
 
 </body>
