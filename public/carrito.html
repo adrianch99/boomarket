@@ -7,14 +7,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="menu.css">
+  <link rel="stylesheet" href="header.css">
 
 </head>
 
 <header>
   <nav>
     <div class="nav-main">
-      <div class="logo">The store</div>
-
+      <div class="logo">
+        <img src="img/logo-boomarket.svg" alt="Boomarket logo" />
+      </div>
       <div class="menu">
 
         <a href="productos.html">Productos</a>
@@ -25,7 +27,7 @@
         <div class="menu-list" id="menu-list">
 
           <a href="pedidosUsuario.html">Tus Pedidos</a>
-
+          <a href="">Contactanos</a>
           <button onclick="cerrarSesion()" class="btn">Cerrar sesión</button>
 
         </div>
@@ -47,7 +49,7 @@
   <form id="form-envio">
     <h2>Datos de Envío</h2>
     <input type="text" id="nombre" placeholder="Nombre y apellidos" ...>
-    <input type="text" id="direccion" placeholder="direccion" ...>
+    <input type="text" id="direccion" placeholder="direccion, barrio..." ...>
     <input type="tel" id="telefono" placeholder="Telefono" ...>
     <input type="email" id="email" placeholder="Email" ...>
     <input type="text" id="departamento" placeholder="Departamento" ...>

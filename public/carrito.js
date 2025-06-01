@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 async function mostrarCarrito() {
   const userId = localStorage.getItem('user_id');
   if (!userId) {
-    document.getElementById('carrito-container').innerHTML = '<p>Debes iniciar sesión para ver tu carrito.</p>';
+    document.getElementById('carrito-container').innerHTML = '<p>Debes iniciar sesión o registarte para ver tu carrito.</p>';
     return;
   }
 
@@ -108,7 +108,7 @@ async function realizarPedido() {
   });
 
   const data = await res.json();
-  alert(data.message);
+  alert("Pedido realizado exitosamente. Pronto nos comunicaremos con usted");
 
   if (res.ok) {
     await fetch(`/api/carrito/${userId}/vaciar`, { method: 'DELETE' });

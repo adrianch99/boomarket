@@ -1,0 +1,50 @@
+/* Asegura que todo esté en línea y bien distribuido */
+.nav-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background-color: white;
+    /* o #f2f4f7 según prefieras */
+}
+
+/* Logo alineado a la izquierda */
+.logo img {
+    height: 210px;
+    display: block;
+    margin-left: -250px; /* Ajusta según sea necesario */
+    margin-right: -250px;
+    margin-top: -57px; /* Ajusta según sea necesario */
+}
+
+/* Centrar el buscador si deseas */
+.busqueda-container {
+    flex: 1;
+    text-align: center;
+}
+
+.busqueda-container input {
+    width: 60%;
+    padding: 8px 12px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* Menú alineado a la derecha */
+.menu {
+    display: flex;
+    gap: 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #003087;
+    font-weight: bold;
+    transition: color 0.3s;
+    font-size: 1.3rem;
+}
+
+.menu a:hover {
+    color: #0056b3;
+}

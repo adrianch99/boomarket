@@ -37,68 +37,13 @@ h2 {
     font-size: 2rem;
 }
 
-.subtitle {
-    margin-bottom: 2rem;
+.brand {
     color: #666;
 }
 
-
-/* --- NAVBAR --- */
-nav {
-    background: white;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-    padding: 1rem 2rem;
-    position: sticky;
-    top: 0;
-    z-index: 999;
-}
-
-.nav-main {
-    max-width: 1200px;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #003087;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.menu {
-    display: flex;
-    gap: 2rem;
-}
-
-.menu a {
-    color: #003087;
-    font-weight: 600;
-    font-size: 1.3rem;
-    position: relative;
-    transition: all 0.3s ease;
-}
-
-.menu a::after {
-    content: '';
-    width: 0%;
-    height: 2px;
-    background: #003087;
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    transition: width 0.3s ease;
-}
-
-.menu a:hover::after {
-    width: 100%;
-}
-
-.menu a:hover {
-    color: gray;
+.subtitle {
+    margin-bottom: 2rem;
+    color: #666;
 }
 
 /* --- BOTONES --- */
