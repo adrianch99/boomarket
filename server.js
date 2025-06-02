@@ -76,13 +76,36 @@ app.post('/api/login', async (req, res) => {
 
 // Obtener todos los productos en admin
 app.get('/api/productos', async (req, res) => {
+    const { categoria } = req.query;
+
+    // Categorías permitidas
+    const categoriasPermitidas = ['belleza', 'tecnologia', 'hogar', 'cocina', 'fitness'];
+
     try {
-        const result = await pool.query('SELECT * FROM productos ORDER BY id DESC');
+        let result;
+
+        if (categoria) {
+            const categoriaLower = categoria.toLowerCase();
+
+            if (!categoriasPermitidas.includes(categoriaLower)) {
+                return res.status(400).json({ message: 'Categoría no válida' });
+            }
+
+            result = await pool.query(
+                'SELECT * FROM productos WHERE LOWER(categoria) = $1 ORDER BY id DESC',
+                [categoriaLower]
+            );
+        } else {
+            result = await pool.query('SELECT * FROM productos ORDER BY id DESC');
+        }
+
         res.json(result.rows);
     } catch (err) {
+        console.error(err);
         res.status(500).json({ message: 'Error al obtener productos' });
     }
 });
+
 
 // Agregar nuevo producto en admin
 app.post('/api/productos', async (req, res) => {

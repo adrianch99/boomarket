@@ -1,31 +1,45 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const contenedor = document.getElementById('lista-productos');
+  const categoriasContenedores = {
+    belleza: document.getElementById('productos-belleza'),
+    tecnologia: document.getElementById('productos-tecnologia'),
+    moda: document.getElementById('productos-hogar'),
+    moda: document.getElementById('productos-cocina'),
+    moda: document.getElementById('productos-fitness'),
+  };
 
   fetch('/api/productos')
     .then(res => res.json())
     .then(productos => {
-      contenedor.innerHTML = '';
+      // Limpiar los contenedores
+      Object.values(categoriasContenedores).forEach(c => c.innerHTML = '');
 
       productos.forEach(p => {
+        const categoria = p.categoria?.toLowerCase();
+
+        if (!categoriasContenedores[categoria]) return;
+
         const card = document.createElement('div');
         card.classList.add('producto');
 
         card.innerHTML = `
-            <img src="${p.imagen}" alt="${p.nombre}" width="200">
-            <h3>${p.nombre}</h3>
-            <p>${p.descripcion}</p>
-            <p><strong>$${p.precio}</strong></p>
-            <button class="btn" onclick="agregarAlCarrito(${p.id})">Añadir al carrito</button>
-             `;
+          <img src="${p.imagen}" alt="${p.nombre}" width="200">
+          <h3>${p.nombre}</h3>
+          <p>${p.descripcion}</p>
+          <p><strong>$${p.precio}</strong></p>
+          <button class="btn" onclick="agregarAlCarrito(${p.id})">Añadir al carrito</button>
+        `;
 
-        contenedor.appendChild(card);
+        categoriasContenedores[categoria].appendChild(card);
       });
     })
     .catch(err => {
-      contenedor.innerHTML = `<p>Error al cargar productos.</p>`;
-      console.error(err);
+      console.error('Error al cargar productos:', err);
+      Object.values(categoriasContenedores).forEach(c => {
+        c.innerHTML = `<p>Error al cargar productos.</p>`;
+      });
     });
 });
+
 
 function agregarAlCarrito(productoId) {
   const userId = localStorage.getItem('user_id');
