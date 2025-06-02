@@ -115,12 +115,12 @@ app.delete('/api/productos/:id', async (req, res) => {
 // Editar producto en admin
 app.put('/api/productos/:id', async (req, res) => {
     const { id } = req.params;
-    const { nombre, descripcion, precio, imagen } = req.body;
+    const { nombre, descripcion, precio, imagen, categoria } = req.body;
 
     try {
         await pool.query(
-            'UPDATE productos SET nombre = $1, descripcion = $2, precio = $3, imagen = $4 WHERE id = $5',
-            [nombre, descripcion, precio, imagen, id]
+            'UPDATE productos SET nombre = $1, descripcion = $2, precio = $3, imagen = $4, categoria = $5 WHERE id = $6',
+            [nombre, descripcion, precio, imagen, categoria, id]
         );
         res.json({ message: 'Producto actualizado con éxito' });
     } catch (err) {

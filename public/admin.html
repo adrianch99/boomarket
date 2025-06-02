@@ -16,7 +16,7 @@
             <input type="text" placeholder="Nombre" name="nombre" required>
             <input type="text" placeholder="Descripción" name="descripcion">
             <input type="number" step="0.01" placeholder="Precio" name="precio" required>
-            <input type="text" placeholder="URL de imagen" name="imagen">
+            <input type="text" placeholder="URL de imagen" name="imagen" required>
             <button type="submit" class="btn">Guardar</button>
         </form>
 
@@ -99,11 +99,13 @@
         }
 
         // Editar producto
-        async function editarProducto(id, nombre, descripcion, precio, imagen) {
+        async function editarProducto(id, nombre, descripcion, precio, imagen, categoria) {
             const nuevoNombre = prompt("Nuevo nombre:", nombre);
             const nuevaDescripcion = prompt("Nueva descripción:", descripcion);
             const nuevoPrecio = prompt("Nuevo precio:", precio);
             const nuevaImagen = prompt("Nueva imagen (URL):", imagen);
+            const nuevaCategoria = prompt("Nueva categoria:", categoria);
+
 
             await fetch(`/api/productos/${id}`, {
                 method: 'PUT',
@@ -112,7 +114,8 @@
                     nombre: nuevoNombre,
                     descripcion: nuevaDescripcion,
                     precio: nuevoPrecio,
-                    imagen: nuevaImagen
+                    imagen: nuevaImagen,
+                    categoria: nuevaCategoria
                 })
             });
 
