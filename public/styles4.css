@@ -68,22 +68,46 @@ h2 {
 }
 
 /* --- PRODUCTOS --- */
+.categoria-wrapper {
+    padding: 2rem;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
 .productos-container {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
     gap: 2rem;
-    padding: 2rem;
-    justify-content: center;
-    align-items: stretch; /* Para que todas las tarjetas tengan igual altura */
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Opcional: Estética del scroll */
+.productos-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.productos-container::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 48, 135, 0.5);
+    border-radius: 4px;
+}
+
+/* Para que las tarjetas se alineen bien al hacer scroll */
+.producto {
+    scroll-snap-align: start;
+    flex: 0 0 auto; /* Impide que se achiquen */
+    width: 300px;
 }
 
 .producto {
     width: 300px;
     height: 500px;
-    /* Altura fija para que todos los productos tengan el mismo alto*/
     background: white;
     border-radius: 16px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
     padding: 1.5rem;
     text-align: center;
     transition: transform 0.4s ease, box-shadow 0.4s ease;
