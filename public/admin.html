@@ -65,7 +65,7 @@
           <td>$${p.precio}</td>
           <td><img src="${p.imagen}" width="60"/></td>
           <td>
-            <button onclick="editarProducto(${p.id}, '${p.nombre}', '${p.descripcion}', ${p.precio}, '${p.imagen}')">✏️</button>
+            <button onclick="editarProducto(${p.id}, '${p.nombre}', '${p.descripcion}', ${p.precio}, '${p.imagen}', '${p.categoria}')">✏️</button>
             <button onclick="eliminarProducto(${p.id})">🗑️</button>
           </td>
         `;
@@ -122,7 +122,6 @@
             cargarProductos();
         }
     </script>
-    <script src="funciones.js"></script>
     <script src="admin.js"></script>
 
 </body>
