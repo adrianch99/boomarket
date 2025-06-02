@@ -2,9 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const categoriasContenedores = {
     belleza: document.getElementById('productos-belleza'),
     tecnologia: document.getElementById('productos-tecnologia'),
-    moda: document.getElementById('productos-hogar'),
-    moda: document.getElementById('productos-cocina'),
-    moda: document.getElementById('productos-fitness'),
+    hogar: document.getElementById('productos-hogar'),
+    cocina: document.getElementById('productos-cocina'),
+    fitness: document.getElementById('productos-fitness'),
   };
 
   fetch('/api/productos')
