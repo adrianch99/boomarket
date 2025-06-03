@@ -172,6 +172,9 @@ h2 {
 }
 
 /* Contenedores con borde por categoría */
+#productos-belleza {
+    background-color:#ff9800;
+}
 #productos-belleza .producto {
     border-left: 5px solid #e91e63; /* rosa vibrante */
 }
