@@ -225,6 +225,7 @@ h2 {
     display: block;
     margin: 1rem auto 0 auto;
     text-align: center;
+    align-items: center;
     color: #1e3a8a;
     font-weight: bold;
     text-decoration: underline;
