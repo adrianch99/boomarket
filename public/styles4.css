@@ -241,7 +241,8 @@ h2 {
 }
 
 .busqueda-container {
-    flex: 1;
+    align-items: center;
+    align-content: center;
     text-align: center;
 }
 
@@ -250,7 +251,7 @@ h2 {
     padding: 8px 12px;
     font-size: 16px;
     border-radius: 6px;
-    border: 1px solid #ccc;
+    border: 1px solid #002060;
 }
 
 
