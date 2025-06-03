@@ -23,6 +23,7 @@
     display: none;
     animation: fadeInDown 0.3s ease-out forwards;
     width: 100%;
+    z-index: 1000;
 }
 
 .menu-list.active {
