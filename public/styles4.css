@@ -77,7 +77,6 @@ h2 {
     display: flex;
     flex-direction: row;
     gap: 2rem;
-    width: 100%;
     overflow-x: auto;
     padding-bottom: 1rem;
     scroll-snap-type: x mandatory;
@@ -115,7 +114,7 @@ h2 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-top: 12px;
+    margin-top: 10px;
     margin-bottom: 10px;
 }
 
