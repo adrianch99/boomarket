@@ -86,7 +86,6 @@ h2 {
 /*Estética del scroll */
 .productos-container::-webkit-scrollbar {
     height: 8px;
-    margin-bottom: 3px;
 }
 
 .productos-container::-webkit-scrollbar-thumb {
