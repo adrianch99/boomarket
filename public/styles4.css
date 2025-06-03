@@ -239,6 +239,11 @@ h2 {
     padding-bottom: 2rem;
 }
 
+.busqueda-container {
+    flex: 1;
+    text-align: center;
+}
+
 
 
 /* --- RESPONSIVE --- */
