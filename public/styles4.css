@@ -115,7 +115,7 @@ h2 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-top: 10px;
+    margin-top: 12px;
     margin-bottom: 10px;
 }
 
@@ -172,47 +172,52 @@ h2 {
 }
 
 /* Contenedores con borde por categoría */
-#productos-belleza {
-    background-color:#ff9800;
+#productos-belleza,
+#productos-tecnologia,
+#productos-hogar,
+#productos-fitness,
+#productos-cocina {
+    border-top: 2px solid grey;
+    border-bottom: 2px solid grey;
 }
 #productos-belleza .producto {
-    border-left: 5px solid #e91e63; /* rosa vibrante */
+    border-left: 5px solid #003087; /* rosa vibrante */
 }
 
 #productos-tecnologia .producto {
-    border-left: 5px solid #2196f3; /* azul tecnológico */
+    border-left: 5px solid #003087; /* azul tecnológico */
 }
 
 #productos-hogar .producto {
-    border-left: 5px solid #9c27b0; /* morado elegante */
+    border-left: 5px solid #003087; /* morado elegante */
 }
 
 #productos-fitness .producto {
-    border-left: 5px solid #4caf50; /* verde fresco */
+    border-left: 5px solid #003087; /* verde fresco */
 }
 
 #productos-cocina .producto {
-    border-left: 5px solid #ff9800; /* naranja vibrante */
+    border-left: 5px solid #003087; /* naranja vibrante */
 }
 
 #productos-belleza .producto {
-    box-shadow: 0 0 10px rgba(233, 30, 99, 0.2);
+    box-shadow: 0 0 10px rgba(2, 6, 241, 0.2);
 }
 
 #productos-tecnologia .producto {
-    box-shadow: 0 0 10px rgba(33, 150, 243, 0.2);
+    box-shadow: 0 0 10px rgba(2, 6, 241, 0.2);
 }
 
 #productos-hogar .producto {
-    box-shadow: 0 0 10px rgba(156, 39, 176, 0.2);
+    box-shadow: 0 0 10px rgba(2, 6, 241, 0.2);
 }
 
 #productos-fitness .producto {
-    box-shadow: 0 0 10px rgba(76, 175, 80, 0.2);
+    box-shadow: 0 0 10px rgba(2, 6, 241, 0.2);
 }
 
 #productos-cocina .producto {
-    box-shadow: 0 0 10px rgba(255, 152, 0, 0.2);
+    box-shadow: 0 0 10px rgba(2, 6, 241, 0.2);
 }
 
 
