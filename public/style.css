@@ -218,36 +218,6 @@ h2 {
     margin-top: 80px;
 }
 
-/*#carrito-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    padding: 2rem;
-    justify-content: center;
-}
-
-.producto-carrito {
-    width: 280px;
-    background: white;
-    border-radius: 16px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-    padding: 1.5rem;
-    text-align: center;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    position: relative;
-}
-
-.producto-carrito:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 30px rgba(0, 48, 135, 0.25);
-}
-
-.producto-carrito img {
-    width: 100%;
-    border-radius: 12px;
-    margin-bottom: 1rem;
-}/*
-
 /* --- FORMULARIOS --- */
 form {
     background: white;

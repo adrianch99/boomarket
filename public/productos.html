@@ -30,7 +30,7 @@
                 <div class="menu-list" id="menu-list">
                     <a href="pedidosUsuario.html">Tus Pedidos</a>
                     <a href="">Contactanos</a>
-                    <button onclick="cerrarSesion()" class="btn">Cerrar sesión</button>
+                    <button onclick="cerrarSesion()" class="btn-cerrarsesion">Cerrar sesión</button>
                 </div>
             </div>
         </div>
@@ -38,11 +38,23 @@
 </header>
 
 <body onload="document.body.classList.add('loaded')">
-    <div class="main">
-        <main>
-            <h1>Productos en venta</h1>
-            <div id="lista-productos" class="productos-container"></div>
-        </main>
+    <div class="categoria-wrapper">
+        <div id="productos-belleza" class="productos-container">
+                    <h2>Belleza</h2>
+
+        </div>
+
+        <h2>Tecnología</h2>
+        <div id="productos-tecnologia" class="productos-container"></div>
+
+        <h2>Hogar</h2>
+        <div id="productos-hogar" class="productos-container"></div>
+
+        <h2>Cocina</h2>
+        <div id="productos-cocina" class="productos-container"></div>
+
+        <h2>Fitness</h2>
+        <div id="productos-fitness" class="productos-container"></div>
     </div>
 
     <script>

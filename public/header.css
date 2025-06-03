@@ -1,23 +1,20 @@
-/* Asegura que todo esté en línea y bien distribuido */
 .nav-main {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 15px 30px;
     background-color: white;
-    /* o #f2f4f7 según prefieras */
+    box-shadow: 0 0 13px rgba(2, 6, 241, 0.2);
 }
 
-/* Logo alineado a la izquierda */
 .logo img {
     height: 210px;
     display: block;
-    margin-left: -250px; /* Ajusta según sea necesario */
+    margin-left: -250px; 
     margin-right: -250px;
-    margin-top: -57px; /* Ajusta según sea necesario */
+    margin-top: -57px;
 }
 
-/* Centrar el buscador si deseas */
 .busqueda-container {
     flex: 1;
     text-align: center;
@@ -31,7 +28,6 @@
     border: 1px solid #ccc;
 }
 
-/* Menú alineado a la derecha */
 .menu {
     display: flex;
     gap: 20px;
@@ -46,5 +42,6 @@
 }
 
 .menu a:hover {
-    color: #0056b3;
+    transform: scale(1.1);
+    color: gray;
 }
