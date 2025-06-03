@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Productos por Categoría</title>
+    <link rel="stylesheet" href="styles4.css">
+    <link rel="stylesheet" href="menu.css">
+</head>
+
+<body class="loaded">
+    <!-- Menú de navegación aquí si lo tienes -->
+
+    <h1 id="titulo-categoria">Categoría</h1>
+    <input type="text" id="busquedaInput" placeholder="Buscar productos..."
+        style="margin:2rem auto;display:block;max-width:400px;">
+
+    <div class="categoria-wrapper">
+        <div id="productos-categoria" class="productos-container"></div>
+    </div>
+
+    <script>
+        // Obtener la categoría de la URL
+        function getCategoriaFromURL() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('cat') || '';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const categoria = getCategoriaFromURL();
+            const titulo = document.getElementById('titulo-categoria');
+            titulo.textContent = categoria.charAt(0).toUpperCase() + categoria.slice(1);
+
+            fetch('/api/productos')
+                .then(res => res.json())
+                .then(productos => {
+                    const productosCat = productos.filter(p => p.categoria?.toLowerCase() === categoria);
+                    const contenedor = document.getElementById('productos-categoria');
+                    contenedor.innerHTML = '';
+                    productosCat.forEach(p => {
+                        const card = document.createElement('div');
+                        card.classList.add('producto');
+                        card.innerHTML = `
+                        <img src="${p.imagen}" alt="${p.nombre}" width="200">
+                        <h3>${p.nombre}</h3>
+                        <p>${p.descripcion}</p>
+                        <p><strong>$${p.precio}</strong></p>
+                        <button class="btn" onclick="agregarAlCarrito(${p.id})">Añadir al carrito</button>
+                    `;
+                        contenedor.appendChild(card);
+                    });
+                })
+                .catch(err => {
+                    document.getElementById('productos-categoria').innerHTML = '<p>Error al cargar productos.</p>';
+                });
+        });
+
+        // Función para agregar al carrito (puedes reutilizar la de productos.js)
+        function agregarAlCarrito(productoId) {
+            const userId = localStorage.getItem('user_id');
+            if (!userId) {
+                alert('Debes iniciar sesión o registrarte para agregar productos al carrito.');
+                return;
+            }
+            fetch('/api/carrito/agregar', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    producto_id: productoId,
+                    cantidad: 1,
+                    user_id: userId
+                })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    alert('Producto agregado al carrito');
+                })
+                .catch(err => {
+                    alert('Hubo un problema al agregar el producto');
+                });
+        }
+
+        // Búsqueda en la categoría
+        document.addEventListener('input', function (e) {
+            if (e.target.id === 'busquedaInput') {
+                const valor = e.target.value.toLowerCase();
+                const productos = document.querySelectorAll('.producto');
+                productos.forEach(producto => {
+                    const nombre = producto.querySelector('h3').textContent.toLowerCase();
+                    producto.style.display = nombre.includes(valor) ? 'block' : 'none';
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -219,6 +219,16 @@ h2 {
     box-shadow: 0 0 10px rgba(2, 6, 241, 0.2);
 }
 
+.ver-todos {
+    display: block;
+    margin: 1rem auto 0 auto;
+    text-align: center;
+    color: #1e3a8a;
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 
 
 /* --- RESPONSIVE --- */

@@ -13,23 +13,38 @@ document.addEventListener('DOMContentLoaded', () => {
       // Limpiar los contenedores
       Object.values(categoriasContenedores).forEach(c => c.innerHTML = '');
 
+      // Agrupar productos por categoría
+      const productosPorCategoria = {};
       productos.forEach(p => {
         const categoria = p.categoria?.toLowerCase();
+        if (!productosPorCategoria[categoria]) productosPorCategoria[categoria] = [];
+        productosPorCategoria[categoria].push(p);
+      });
 
-        if (!categoriasContenedores[categoria]) return;
-
-        const card = document.createElement('div');
-        card.classList.add('producto');
-
-        card.innerHTML = `
-          <img src="${p.imagen}" alt="${p.nombre}" width="200">
-          <h3>${p.nombre}</h3>
-          <p>${p.descripcion}</p>
-          <p><strong>$${p.precio}</strong></p>
-          <button class="btn" onclick="agregarAlCarrito(${p.id})">Añadir al carrito</button>
-        `;
-
-        categoriasContenedores[categoria].appendChild(card);
+      // Mostrar solo 6 productos y el enlace "Ver todos"
+      Object.keys(categoriasContenedores).forEach(categoria => {
+        const contenedor = categoriasContenedores[categoria];
+        const productosCat = productosPorCategoria[categoria] || [];
+        productosCat.slice(0, 6).forEach(p => {
+          const card = document.createElement('div');
+          card.classList.add('producto');
+          card.innerHTML = `
+            <img src="${p.imagen}" alt="${p.nombre}" width="200">
+            <h3>${p.nombre}</h3>
+            <p>${p.descripcion}</p>
+            <p><strong>$${p.precio}</strong></p>
+            <button class="btn" onclick="agregarAlCarrito(${p.id})">Añadir al carrito</button>
+          `;
+          contenedor.appendChild(card);
+        });
+        // Enlace "Ver todos"
+        if (productosCat.length > 6) {
+          const verTodos = document.createElement('a');
+          verTodos.href = `categoria.html?cat=${categoria}`;
+          verTodos.className = 'ver-todos';
+          verTodos.textContent = 'Ver todos los productos';
+          contenedor.appendChild(verTodos);
+        }
       });
     })
     .catch(err => {
