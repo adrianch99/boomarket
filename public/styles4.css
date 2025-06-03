@@ -244,6 +244,14 @@ h2 {
     text-align: center;
 }
 
+.busqueda-container input {
+    width: 60%;
+    padding: 8px 12px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
 
 
 /* --- RESPONSIVE --- */
