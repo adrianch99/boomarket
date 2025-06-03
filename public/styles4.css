@@ -96,7 +96,8 @@ h2 {
 /* Para que las tarjetas se alineen bien al hacer scroll */
 .producto {
     scroll-snap-align: start;
-    flex: 0 0 auto; /* Impide que se achiquen */
+    flex: 0 0 auto;
+    /* Impide que se achiquen */
     width: 300px;
 }
 
@@ -179,24 +180,25 @@ h2 {
     border-top: 2px solid grey;
     border-bottom: 2px solid grey;
 }
+
 #productos-belleza .producto {
-    border-left: 5px solid #003087; 
+    border-left: 5px solid #003087;
 }
 
 #productos-tecnologia .producto {
-    border-left: 5px solid #003087; 
+    border-left: 5px solid #003087;
 }
 
 #productos-hogar .producto {
-    border-left: 5px solid #003087; 
+    border-left: 5px solid #003087;
 }
 
 #productos-fitness .producto {
-    border-left: 5px solid #003087; 
+    border-left: 5px solid #003087;
 }
 
 #productos-cocina .producto {
-    border-left: 5px solid #003087; 
+    border-left: 5px solid #003087;
 }
 
 #productos-belleza .producto {
@@ -227,6 +229,14 @@ h2 {
     font-weight: bold;
     text-decoration: underline;
     cursor: pointer;
+}
+
+/* Grid para mostrar productos en filas y columnas en categoria.html */
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    padding-bottom: 2rem;
 }
 
 
