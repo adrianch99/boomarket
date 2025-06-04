@@ -3,7 +3,7 @@
     position: relative;
     align-items: center;
     justify-content: space-between;
-    padding: 15px 30px;
+    padding: 15px 20px;
     background-color: white;
     box-shadow: 0 0 13px rgba(2, 6, 241, 0.2);
 }
@@ -26,7 +26,7 @@
     padding: 8px 12px;
     font-size: 16px;
     border-radius: 6px;
-    border: 1px solid #ccc;
+    border: 1.7px solid #002060;
 }
 
 .menu {
