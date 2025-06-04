@@ -40,9 +40,9 @@
     <!-- Menú de navegación aquí si lo tienes -->
 
     <h1 id="titulo-categoria">Categoría</h1>
-    <div class="busqueda-container">
+    <!--<div class="busqueda-container">
         <input type="text" id="busquedaInput" placeholder="Buscar productos..." />
-    </div>
+    </div>-->
     <div class="categoria-wrapper">
         <div id="productos-categoria" class="productos-grid"></div>
     </div>
@@ -83,7 +83,7 @@
                 });
         });
 
-        // Función para agregar al carrito (puedes reutilizar la de productos.js)
+        // Función para agregar al carrito
         function agregarAlCarrito(productoId) {
             const userId = localStorage.getItem('user_id');
             if (!userId) {
