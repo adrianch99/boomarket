@@ -21,7 +21,8 @@
 
             <div class="menu">
                 <a href="dashboard.html">Login</a>
-                <a href="https://wa.me/3507801334" target="_blank" rel="noopener">Contactanos</a>
+                <a href="https://wa.me/3507801334?text=Hola%2C%20quiero%20hablar%20con%20el%20chatbot%20de%20Boomarket"
+                    target="_blank" rel="noopener">Contactanos</a>
             </div>
         </div>
     </nav>
@@ -46,10 +47,45 @@
 
     </div>
 
-    <a href="https://wa.me/3507801334" class="whatsapp-float" target="_blank" rel="noopener"
+    <!--<a href="https://wa.me/3507801334" class="whatsapp-float" target="_blank" rel="noopener"
         title="Chatea con nosotros en WhatsApp">
         <img src="img/WhatsApp.svg" alt="WhatsApp" style="width:80px;height:80px;">
+    </a>-->
+
+    <!-- ...existing code... -->
+
+    <!-- Ventana emergente del chatbot -->
+    <div id="chatbot-popup"
+        style="display:none; position:fixed; bottom:110px; right:30px; background:#25d366; color:white; padding:18px 22px; border-radius:16px; box-shadow:0 2px 8px rgba(0,0,0,0.18); z-index:9999; font-family:sans-serif;">
+        👋 ¿Necesitas ayuda? <br>
+        <b>¡Chatea con nuestro chatbot de Boomarket!</b>
+        <br>
+        <a href="https://wa.me/3507801334?text=Hola%2C%20quiero%20hablar%20con%20el%20chatbot%20de%20Boomarket"
+            target="_blank" rel="noopener" style="color:#fff; text-decoration:underline; font-weight:bold;">Ir a
+            WhatsApp</a>
+        <span id="cerrar-popup"
+            style="position:absolute; top:6px; right:12px; cursor:pointer; font-size:18px;">&times;</span>
+    </div>
+
+    <a href="https://wa.me/3507801334?text=Hola%2C%20quiero%20hablar%20con%20el%20chatbot%20de%20Boomarket"
+        class="whatsapp-float" target="_blank" rel="noopener" title="Chatea con nuestro chatbot en WhatsApp">
+        <img src="img/WhatsApp.svg" alt="WhatsApp" style="width:80px;height:80px;">
     </a>
+
+    <script src="productos.js"></script>
+    <script>
+        // Mostrar el popup después de 5 segundos
+        setTimeout(function () {
+            document.getElementById('chatbot-popup').style.display = 'block';
+        }, 5000);
+
+        // Cerrar el popup al hacer clic en la X
+        document.getElementById('cerrar-popup').onclick = function () {
+            document.getElementById('chatbot-popup').style.display = 'none';
+        };
+    </script>
+
+    <!-- ...existing code... -->
 
     <script src="productos.js"></script>
 
