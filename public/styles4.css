@@ -267,6 +267,20 @@ h2 {
     transform: scale(1.1);
 }
 
+footer {
+    background: white;
+    color: black;
+    padding: 2rem;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+footer a {
+    text-decoration: underline;
+    color: #002060;
+    font-size: 1rem;
+}
+
 
 /* --- RESPONSIVE --- */
 @media (max-width: 768px) {
