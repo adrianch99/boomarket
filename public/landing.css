@@ -1,0 +1,287 @@
+header {
+    background: #003087;
+    padding: 20px;
+    text-align: center;
+    margin-top: 45px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin: 0;
+    color: white;
+}
+
+section {
+    margin-bottom: 50px;
+}
+
+.section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+    color: black;
+    background: white;
+}
+
+.hero h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.hero a {
+    background: #25d366;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 1.2em;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.hero a:hover {
+    background: #1e9e4a;
+}
+
+.features {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #f2f4f7;
+}
+
+.feature {
+    max-width: 300px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.feature img {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.cta {
+    text-align: center;
+    padding: 50px 20px;
+    background: white;
+    color: black;
+}
+
+.cta a {
+    background: #25d366;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 1.2em;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.cta a:hover {
+    background: #1e9e4a;
+}
+
+.social-links {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.social-links a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #003087;
+    font-size: 1.5em;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #25d366;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #003087;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    z-index: 1000;
+}
+
+.navbar a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: color 0.3s;
+}
+
+.navbar a:hover {
+    color: #25d366;
+}
+
+.testimonials {
+    text-align: center;
+    padding: 50px 20px;
+    background: #f9f9f9;
+}
+
+.testimonial {
+    margin: 20px auto;
+    max-width: 600px;
+    font-style: italic;
+    color: #555;
+}
+
+.testimonial h4 {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #003087;
+}
+
+.subscribe {
+    text-align: center;
+    padding: 50px 20px;
+    color: #003087;
+}
+
+.subscribe input {
+    padding: 10px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    width: 250px;
+}
+
+.subscribe button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background: #25d366;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.subscribe button:hover {
+    background: #1e9e4a;
+}
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 2000;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin: 50px auto;
+}
+
+.carousel-item {
+    display: none;
+    text-align: center;
+}
+
+.carousel-item img {
+    width: 100%;
+    max-width: 400px;
+    /* Ajusta el ancho máximo */
+    max-height: 300px;
+    /* Ajusta la altura máxima */
+    height: auto;
+    /* Mantiene la proporción de la imagen */
+    margin: 0 auto;
+    /* Centra la imagen */
+    display: block;
+    object-fit: contain;
+    /* Ajusta el contenido dentro del área definida */
+}
+
+
+.carousel-item.active {
+    display: block;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px 20px;
+    background: #f2f4f7;
+    text-align: center;
+}
+
+.stat h3 {
+    font-size: 2.5em;
+    color: #003087;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #003087;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 50%;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.5em;
+    display: none;
+    z-index: 1000;
+}
+
+.back-to-top:hover {
+    background: #25d366;
+}
+
+.show {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

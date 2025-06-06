@@ -244,6 +244,26 @@ input:focus {
     box-shadow: 0 0 5px rgba(0, 48, 135, 0.5);
 }
 
+
+footer {
+    background: #002060;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+}
+
+footer a:hover {
+    color: #25d366;
+    text-decoration: underline;
+}
+
 /* --- RESPONSIVE --- */
 @media (max-width: 768px) {
     .nav-main {
