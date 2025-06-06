@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Boomarket</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles4.css">
+    <link rel="stylesheet" href="header.css">
+</head>
+
+<header>
+    <nav>
+        <div class="nav-main">
+            <div class="logo">
+                <a href="catalogo.html">
+                    <img src="img/logo-boomarket.svg" alt="Boomarket logo" />
+                </a>
+            </div>
+            <div class="busqueda-container">
+                <input type="text" id="busquedaInput" placeholder="Buscar productos..." />
+            </div>
+
+            <div class="menu">
+                <a href="dashboard.html">Login</a>
+                <a href="sobre-nosotros.html">Sobre nosotros</a>
+                <a href="https://wa.me/3507801334?text=Hola%2C%20quiero%20hablar%20con%20un%20asesor%20de%20Boomarket"
+                    target="_blank" rel="noopener">Contactanos</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<body onload="document.body.classList.add('loaded')">
+    <div class="categoria-wrapper">
+        <h2>Belleza</h2>
+        <div id="productos-belleza" class="productos-container"></div>
+
+        <h2>Tecnología</h2>
+        <div id="productos-tecnologia" class="productos-container"></div>
+
+        <h2>Hogar</h2>
+        <div id="productos-hogar" class="productos-container"></div>
+
+        <h2>Cocina</h2>
+        <div id="productos-cocina" class="productos-container"></div>
+
+        <h2>Fitness</h2>
+        <div id="productos-fitness" class="productos-container"></div>
+
+    </div>
+    <footer>
+        <p>© 2025 Boomarket. Todos los derechos reservados.</p>
+        <p>Desarrollado por <a href="" target="_blank" rel="noopener">Softciety</a></p>
+    </footer>
+
+
+    <!-- Ventana emergente del chatbot -->
+    <div id="chatbot-popup"
+        style="display:none; position:fixed; bottom:110px; right:30px; background:#25d366; color:white; padding:18px 22px; border-radius:16px; box-shadow:0 2px 8px rgba(0,0,0,0.18); z-index:9999; font-family:sans-serif;">
+        👋 ¿Necesitas ayuda? <br>
+        <b>¡Chatea con nuestros asesores de Boomarket!</b>
+        <br>
+        <a href="https://wa.me/3507801334?text=Hola%2C%20quiero%20hablar%20con%20un%20asesor%20de%20Boomarket"
+            target="_blank" rel="noopener" style="color: #002060; text-decoration:underline; font-weight:bold;">Ir a
+            WhatsApp</a>
+        <span id="cerrar-popup"
+            style="position:absolute; top:6px; right:12px; cursor:pointer; font-size:25px;">&times;</span>
+    </div>
+
+    <a href="https://wa.me/3507801334?text=Hola%2C%20quiero%20hablar%20con%20un%20asesor%20de%20Boomarket"
+        class="whatsapp-float" target="_blank" rel="noopener" title="Chatea con nuestros asesores en WhatsApp">
+        <img src="img/WhatsApp.svg" alt="WhatsApp" style="width:80px;height:80px;">
+    </a>
+
+    <script>
+        // Mostrar el popup después de 6 segundos
+        setTimeout(function () {
+            document.getElementById('chatbot-popup').style.display = 'block';
+        }, 6000);
+
+        // Cerrar el popup al hacer clic en la X
+        document.getElementById('cerrar-popup').onclick = function () {
+            document.getElementById('chatbot-popup').style.display = 'none';
+        };
+    </script>
+
+    <script src="productos.js"></script>
+
+</body>
+
+</html>
