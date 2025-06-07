@@ -15,7 +15,8 @@ body.loaded {
 
 /* --- SECCIONES --- */
 h1,
-h2 {
+h2,
+h3 {
     text-align: center;
     margin: 2rem 0;
     font-weight: bold;
