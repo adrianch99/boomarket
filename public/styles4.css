@@ -505,34 +505,43 @@ footer a {
     }
 
     .productos-container {
+        display: flex;
+        flex-direction: row;
+        /* Mantener disposición horizontal */
         gap: 0.5rem;
-        /* Reducir aún más el espacio entre productos */
-        padding: 0.5rem;
-        /* Ajustar el padding */
-        width: calc(100% - 1rem);
-        /* Asegurar que el contenedor no exceda el ancho de la pantalla */
-        margin: 0 auto;
-        /* Centrar el contenedor */
+        /* Reducir el espacio entre productos */
+        overflow-x: auto;
+        /* Activar scroll horizontal */
+        padding-bottom: 0.5rem;
+        /* Ajustar el padding inferior */
+        scroll-snap-type: x mandatory;
+        /* Mantener el scroll suave */
+        -webkit-overflow-scrolling: touch;
+        /* Mejorar la experiencia en dispositivos táctiles */
     }
 
     .producto {
-        width: 100%;
-        /* Hacer que los productos ocupen todo el ancho */
+        flex: 0 0 auto;
+        /* Evitar que los productos se achiquen */
+        width: 260px;
+        /* Reducir el ancho para pantallas pequeñas */
         height: auto;
         /* Ajustar la altura automáticamente */
-        padding: 0.6rem;
-        /* Reducir el padding */
-        margin: 0 auto;
-        /* Centrar los productos */
+        padding: 0.8rem;
+        /* Ajustar el padding */
+        margin: 0;
+        /* Eliminar márgenes adicionales */
     }
 
     .producto img {
-        height: 150px;
-        /* Reducir la altura de las imágenes */
+        height: auto;
+        /* Ajustar la altura automáticamente */
         width: 100%;
-        /* Asegurar que las imágenes no excedan el ancho */
-        object-fit: cover;
-        /* Ajustar el contenido dentro del área definida */
+        /* Mantener el ancho completo */
+        object-fit: contain;
+        /* Mostrar las imágenes completas sin recortar */
+        border-radius: 12px;
+        /* Mantener bordes redondeados */
     }
 
     .producto h3 {
