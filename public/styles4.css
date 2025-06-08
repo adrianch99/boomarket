@@ -191,6 +191,7 @@ h2 {
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 2rem;
     padding-bottom: 2rem;
+    justify-content: center;
 }
 
 .busqueda-container {
@@ -222,7 +223,7 @@ h2 {
 
 footer {
     background: #002060;
-    color: black;
+    color: white;
     padding: 2rem;
     text-align: center;
     font-size: 0.9rem;
@@ -276,48 +277,26 @@ footer a {
 
     .productos-container {
         display: flex;
-        /* Mantener disposición horizontal */
         flex-direction: row;
-        /* Productos en fila */
         gap: 1rem;
-        /* Espacio entre productos */
         overflow-x: auto;
-        /* Activar scroll horizontal */
         padding-bottom: 1rem;
-        /* Ajustar el padding inferior */
         scroll-snap-type: x mandatory;
-        /* Mantener el scroll suave */
         -webkit-overflow-scrolling: touch;
-        /* Mejorar la experiencia en dispositivos táctiles */
     }
 
     .producto {
         flex: 0 0 auto;
-        /* Evitar que los productos se achiquen */
         width: 300px;
-        /* Mantener el ancho fijo de los productos */
         height: 500px;
-        /* Mantener altura uniforme */
         background: white;
-        /* Fondo uniforme */
-        border-radius: 16px;
-        /* Bordes redondeados */
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-        /* Sombra para destacar */
         overflow: hidden;
-        /* Evitar que el contenido se desborde */
         padding: 1.5rem;
-        /* Ajustar el padding interno */
         text-align: center;
-        /* Centrar el contenido */
         display: flex;
-        /* Usar flexbox para alinear contenido */
         flex-direction: column;
-        /* Alinear elementos verticalmente */
         justify-content: space-between;
-        /* Espacio uniforme entre elementos */
         scroll-snap-align: start;
-        /* Asegurar que los productos se alineen al hacer scroll */
     }
 
     .producto img {
@@ -391,7 +370,7 @@ footer a {
     }
 
     .busqueda-container input {
-        width: 90%;
+        width: 100%;
         /* Ajustar el ancho del campo de búsqueda */
         font-size: 0.9rem;
         /* Reducir el tamaño de la fuente */
@@ -489,7 +468,7 @@ footer a {
 
 
     .busqueda-container input {
-        width: 95%;
+        width: 100%;
         /* Ajustar el ancho del campo de búsqueda */
         font-size: 0.8rem;
         /* Reducir el tamaño de la fuente */

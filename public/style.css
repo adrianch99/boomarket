@@ -279,7 +279,6 @@ footer a:hover {
     }
 }
 
-/* ...existing code... */
 
 /* --- Responsividad --- */
 @media (max-width: 768px) {
@@ -320,7 +319,7 @@ footer a:hover {
         gap: 1rem;
         /* Reducir el espacio entre productos */
         padding: 1rem;
-        /* Ajustar el padding */
+        /* Ajustar el padding */   
     }
 
     .producto-carrito {
@@ -330,6 +329,7 @@ footer a:hover {
         /* Ajustar la altura automáticamente */
         padding: 1rem;
         /* Reducir el padding interno */
+        margin-bottom: 10px;
     }
 
     .producto-carrito img {
@@ -364,6 +364,7 @@ footer a:hover {
         /* Reducir el padding interno */
         margin-top: 50px;
         /* Ajustar el margen superior */
+        justify-content: center;
     }
 
     form {
@@ -434,6 +435,7 @@ footer a:hover {
         /* Ajustar la altura automáticamente */
         padding: 0.8rem;
         /* Reducir el padding interno */
+        margin-bottom: 10px;
     }
 
     .producto-carrito img {
@@ -468,6 +470,7 @@ footer a:hover {
         /* Reducir el padding interno */
         margin-top: 30px;
         /* Ajustar el margen superior */
+        justify-content: center;
     }
 
     form {
@@ -491,5 +494,3 @@ footer a:hover {
         /* Ajustar el padding */
     }
 }
-
-/* ...existing code... */
