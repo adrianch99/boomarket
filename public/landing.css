@@ -212,6 +212,7 @@ section {
     cursor: pointer;
     transition: transform 0.2s;
 }
+
 .whatsapp-float:hover {
     transform: scale(1.1);
 }
@@ -262,27 +263,38 @@ section {
     color: #003087;
 }
 
-.back-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #003087;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 50%;
-    text-align: center;
-    text-decoration: none;
-    font-size: 1.5em;
-    display: none;
-    z-index: 1000;
-}
 
-.back-to-top:hover {
-    background: #25d366;
-}
 
 .show {
     display: block;
+}
+
+#chatbot-popup {
+    display: none;
+    position: fixed;
+    bottom: 110px;
+    right: 30px;
+    background: #25d366;
+    color: white;
+    padding: 18px 22px;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+    z-index: 9999;
+    font-family: sans-serif;
+}
+
+#chatbot-popup a {
+    color: #002060;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+#cerrar-popup {
+    position: absolute;
+    top: 6px;
+    right: 12px;
+    cursor: pointer;
+    font-size: 25px;
 }
 
 @keyframes fadeIn {
@@ -292,5 +304,209 @@ section {
 
     to {
         opacity: 1;
+    }
+}
+
+
+/* ...existing code... */
+
+/* Mejoras para pantallas pequeñas */
+@media (max-width: 768px) {
+    header {
+        padding: 30px;
+        margin-top: 35px;
+    }
+
+    header h1 {
+        font-size: 2.5em;
+        /* Más grande para mayor legibilidad */
+    }
+
+    .hero {
+        padding: 40px 20px;
+    }
+
+    .hero h2 {
+        font-size: 2.2em;
+        /* Aumentado para destacar */
+    }
+
+    .hero p {
+        font-size: 1.3em;
+        /* Más grande para facilitar la lectura */
+    }
+
+    .hero a {
+        font-size: 1.3em;
+        padding: 15px 30px;
+        /* Botones más grandes y cómodos */
+    }
+
+    .features {
+        flex-direction: column;
+        padding: 30px 15px;
+    }
+
+    .feature {
+        margin-bottom: 30px;
+    }
+
+    .cta {
+        padding: 30px 20px;
+    }
+
+    .social-links a {
+        font-size: 1.6em;
+        /* Íconos más grandes */
+    }
+
+    .navbar {
+        font-size: 1em;
+        /* Tamaño de fuente legible */
+        padding: 10px 0;
+        /* Ajustar el padding */
+        display: flex;
+        /* Usar flexbox para organizar los enlaces */
+        justify-content: center;
+        /* Centrar los enlaces */
+        align-items: center;
+        /* Alinear verticalmente */
+    }
+
+    .navbar a {
+        margin: 0 15px;
+        /* Espaciado uniforme entre los enlaces */
+        text-decoration: none;
+        /* Asegurar que no haya subrayado */
+        font-size: 1em;
+        /* Tamaño de fuente consistente */
+    }
+
+
+    .testimonials {
+        padding: 30px 20px;
+    }
+
+    .subscribe input {
+        width: 100%;
+        margin-bottom: 20px;
+        font-size: 1.3em;
+        /* Inputs más grandes */
+    }
+
+    .subscribe button {
+        width: 100%;
+        font-size: 1.3em;
+        /* Botones más grandes */
+    }
+
+    .stats {
+        flex-direction: column;
+        padding: 30px 15px;
+    }
+
+    .stat h3 {
+        font-size: 2.5em;
+        /* Números más grandes para destacar */
+    }
+
+    #chatbot-popup {
+        bottom: 50px; /* Ajustar la posición inferior */
+        right: 20px; /* Ajustar la posición derecha */
+        padding: 12px 16px; /* Reducir el padding */
+        font-size: 0.9em; /* Reducir el tamaño de la fuente */
+        width: 250px; /* Ajustar el ancho */
+    }
+
+    #cerrar-popup {
+        font-size: 20px; /* Reducir el tamaño del botón de cierre */
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2em;
+        /* Ajustado para pantallas muy pequeñas */
+    }
+
+    .hero h2 {
+        font-size: 2em;
+    }
+
+    .hero p {
+        font-size: 1.2em;
+    }
+
+    .hero a {
+        font-size: 1.2em;
+        padding: 12px 25px;
+    }
+
+    .features {
+        padding: 20px 10px;
+    }
+
+    .cta {
+        padding: 20px 10px;
+    }
+
+    .social-links a {
+        font-size: 1.5em;
+        /* Íconos más visibles */
+    }
+
+    .navbar {
+        font-size: 0.9em;
+        /* Reducir el tamaño de la fuente */
+        padding: 5px 0;
+        /* Reducir el padding */
+        flex-wrap: wrap;
+        /* Permitir que los enlaces se ajusten en varias líneas si es necesario */
+    }
+
+    .navbar a {
+        margin: 5px 10px;
+        /* Ajustar el margen para pantallas muy pequeñas */
+        font-size: 0.9em;
+        /* Tamaño de fuente más compacto */
+    }
+
+    .testimonials {
+        padding: 20px 10px;
+    }
+
+    .subscribe input {
+        font-size: 1.2em;
+    }
+
+    .subscribe button {
+        font-size: 1.2em;
+    }
+
+    .stats {
+        padding: 20px 10px;
+    }
+
+    .stat h3 {
+        font-size: 2em;
+        /* Números destacados */
+    }
+
+    .back-to-top {
+        font-size: 1.5em;
+        /* Botón más visible */
+        padding: 10px 15px;
+    }
+
+    #chatbot-popup {
+        bottom: 30px; /* Ajustar la posición inferior */
+        right: 15px; /* Ajustar la posición derecha */
+        padding: 10px 14px; /* Reducir aún más el padding */
+        font-size: 0.8em; /* Reducir el tamaño de la fuente */
+        width: 200px; /* Ajustar el ancho para pantallas muy pequeñas */
+    }
+
+    #cerrar-popup {
+        font-size: 18px; /* Reducir el tamaño del botón de cierre */
     }
 }

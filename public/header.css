@@ -11,7 +11,7 @@
 .logo img {
     height: 210px;
     display: block;
-    margin-left: -250px; 
+    margin-left: -250px;
     margin-right: -250px;
     margin-top: -57px;
 }
@@ -45,4 +45,90 @@
 .menu a:hover {
     transform: scale(1.1);
     color: gray;
+}
+
+/* ...existing code... */
+
+/* --- Responsividad --- */
+/* ...existing code... */
+
+/* --- Responsividad --- */
+@media (max-width: 768px) {
+    .nav-main {
+        flex-direction: column;
+        /* Cambiar a disposición vertical */
+        align-items: center;
+        /* Centrar los elementos */
+        padding: 10px;
+        /* Reducir el padding */
+    }
+
+    .logo img {
+        height: 150px;
+        /* Reducir el tamaño del logo */
+        margin: 0;
+        /* Eliminar márgenes negativos */
+    }
+
+    .busqueda-container input {
+        width: 80%;
+        /* Ajustar el ancho del campo de búsqueda */
+        font-size: 14px;
+        /* Reducir el tamaño de la fuente */
+        padding: 6px 10px;
+        /* Ajustar el padding */
+    }
+
+    .menu {
+        display: flex;
+        /* Mantener disposición horizontal */
+        flex-wrap: wrap;
+        /* Permitir que los enlaces se ajusten si no caben */
+        gap: 10px;
+        /* Reducir el espacio entre enlaces */
+        justify-content: center;
+        /* Centrar los enlaces horizontalmente */
+    }
+
+    .menu a {
+        font-size: 1.1rem;
+        /* Reducir el tamaño de la fuente */
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-main {
+        padding: 8px;
+        /* Reducir aún más el padding */
+    }
+
+    .logo img {
+        height: 120px;
+        /* Reducir el tamaño del logo para pantallas muy pequeñas */
+    }
+
+    .busqueda-container input {
+        width: 90%;
+        /* Ajustar el ancho del campo de búsqueda */
+        font-size: 12px;
+        /* Reducir el tamaño de la fuente */
+        padding: 5px 8px;
+        /* Ajustar el padding */
+    }
+
+    .menu {
+        display: flex;
+        /* Mantener disposición horizontal */
+        flex-wrap: wrap;
+        /* Permitir que los enlaces se ajusten si no caben */
+        gap: 5px;
+        /* Reducir aún más el espacio entre enlaces */
+        justify-content: center;
+        /* Centrar los enlaces horizontalmente */
+    }
+
+    .menu a {
+        font-size: 1rem;
+        /* Reducir el tamaño de la fuente */
+    }
 }
