@@ -278,3 +278,218 @@ footer a:hover {
         transform: translateY(0);
     }
 }
+
+/* ...existing code... */
+
+/* --- Responsividad --- */
+@media (max-width: 768px) {
+    body {
+        font-size: 0.9rem;
+        /* Reducir el tamaño de la fuente */
+        margin: 0;
+        /* Eliminar márgenes que puedan causar desplazamiento */
+        overflow-x: hidden;
+        /* Evitar desplazamiento horizontal */
+    }
+
+    h1 {
+        font-size: 2rem;
+        /* Ajustar el tamaño del título */
+    }
+
+    h2 {
+        font-size: 1.8rem;
+        /* Ajustar el tamaño del subtítulo */
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        /* Ajustar el tamaño de los subtítulos */
+    }
+
+    .btn {
+        padding: 0.8rem;
+        /* Botones más compactos */
+        font-size: 0.9rem;
+        /* Reducir el tamaño de la fuente */
+    }
+
+    #carrito-container {
+        flex-wrap: wrap;
+        /* Permitir que los productos se ajusten en varias filas */
+        gap: 1rem;
+        /* Reducir el espacio entre productos */
+        padding: 1rem;
+        /* Ajustar el padding */
+    }
+
+    .producto-carrito {
+        width: 100%;
+        /* Hacer que los productos ocupen todo el ancho disponible */
+        height: auto;
+        /* Ajustar la altura automáticamente */
+        padding: 1rem;
+        /* Reducir el padding interno */
+    }
+
+    .producto-carrito img {
+        height: 200px;
+        /* Reducir la altura de las imágenes */
+        width: 100%;
+        /* Mantener el ancho completo */
+        object-fit: contain;
+        /* Mostrar las imágenes completas sin recortar */
+    }
+
+    .producto-carrito h3 {
+        font-size: 1.2rem;
+        /* Reducir el tamaño del título */
+    }
+
+    .producto-carrito p {
+        font-size: 1rem;
+        /* Reducir el tamaño de la descripción */
+    }
+
+    .producto-carrito .btn {
+        font-size: 0.9rem;
+        /* Reducir el tamaño de los botones */
+        padding: 0.6rem;
+        /* Ajustar el padding de los botones */
+    }
+
+    .auth-container,
+    .dashboard-container {
+        padding: 1.5rem;
+        /* Reducir el padding interno */
+        margin-top: 50px;
+        /* Ajustar el margen superior */
+    }
+
+    form {
+        padding: 1.5rem;
+        /* Reducir el padding interno */
+        max-width: 100%;
+        /* Asegurar que el formulario ocupe todo el ancho disponible */
+    }
+
+    input {
+        font-size: 0.9rem;
+        /* Reducir el tamaño de la fuente */
+        padding: 0.6rem;
+        /* Ajustar el padding interno */
+    }
+
+    footer {
+        font-size: 0.8rem;
+        /* Reducir el tamaño de la fuente en el footer */
+        padding: 1rem;
+        /* Ajustar el padding */
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 0.8rem;
+        /* Reducir el tamaño de la fuente */
+        margin: 0;
+        /* Eliminar márgenes que puedan causar desplazamiento */
+        overflow-x: hidden;
+        /* Evitar desplazamiento horizontal */
+    }
+
+    h1 {
+        font-size: 1.8rem;
+        /* Ajustar el tamaño del título */
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        /* Ajustar el tamaño del subtítulo */
+    }
+
+    h3 {
+        font-size: 1.2rem;
+        /* Ajustar el tamaño de los subtítulos */
+    }
+
+    .btn {
+        padding: 0.6rem;
+        /* Botones más compactos */
+        font-size: 0.8rem;
+        /* Reducir el tamaño de la fuente */
+    }
+
+    #carrito-container {
+        gap: 0.5rem;
+        /* Reducir aún más el espacio entre productos */
+        padding: 0.5rem;
+        /* Ajustar el padding */
+    }
+
+    .producto-carrito {
+        width: 100%;
+        /* Hacer que los productos ocupen todo el ancho disponible */
+        height: auto;
+        /* Ajustar la altura automáticamente */
+        padding: 0.8rem;
+        /* Reducir el padding interno */
+    }
+
+    .producto-carrito img {
+        height: 150px;
+        /* Reducir la altura de las imágenes */
+        width: 100%;
+        /* Mantener el ancho completo */
+        object-fit: contain;
+        /* Mostrar las imágenes completas sin recortar */
+    }
+
+    .producto-carrito h3 {
+        font-size: 1rem;
+        /* Reducir el tamaño del título */
+    }
+
+    .producto-carrito p {
+        font-size: 0.9rem;
+        /* Reducir el tamaño de la descripción */
+    }
+
+    .producto-carrito .btn {
+        font-size: 0.8rem;
+        /* Reducir el tamaño de los botones */
+        padding: 0.5rem;
+        /* Ajustar el padding de los botones */
+    }
+
+    .auth-container,
+    .dashboard-container {
+        padding: 1rem;
+        /* Reducir el padding interno */
+        margin-top: 30px;
+        /* Ajustar el margen superior */
+    }
+
+    form {
+        padding: 1rem;
+        /* Reducir el padding interno */
+        max-width: 100%;
+        /* Asegurar que el formulario ocupe todo el ancho disponible */
+    }
+
+    input {
+        font-size: 0.8rem;
+        /* Reducir el tamaño de la fuente */
+        padding: 0.5rem;
+        /* Ajustar el padding interno */
+    }
+
+    footer {
+        font-size: 0.7rem;
+        /* Reducir el tamaño de la fuente en el footer */
+        padding: 0.5rem;
+        /* Ajustar el padding */
+    }
+}
+
+/* ...existing code... */
