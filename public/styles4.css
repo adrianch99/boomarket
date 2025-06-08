@@ -413,8 +413,9 @@ footer a {
 
     .productos-container {
         display: flex;
-        flex-direction: row;
         /* Mantener disposición horizontal */
+        flex-direction: row;
+        /* Productos en fila */
         gap: 1rem;
         /* Espacio entre productos */
         overflow-x: auto;
@@ -432,33 +433,98 @@ footer a {
         /* Evitar que los productos se achiquen */
         width: 300px;
         /* Mantener el ancho fijo de los productos */
-        height: auto;
-        /* Ajustar la altura automáticamente */
-        padding: 1rem;
-        /* Ajustar el padding */
-        margin: 0;
-        /* Eliminar márgenes adicionales */
+        height: 500px;
+        /* Mantener altura uniforme */
+        background: white;
+        /* Fondo uniforme */
+        border-radius: 16px;
+        /* Bordes redondeados */
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        /* Sombra para destacar */
+        overflow: hidden;
+        /* Evitar que el contenido se desborde */
+        padding: 1.5rem;
+        /* Ajustar el padding interno */
+        text-align: center;
+        /* Centrar el contenido */
+        display: flex;
+        /* Usar flexbox para alinear contenido */
+        flex-direction: column;
+        /* Alinear elementos verticalmente */
+        justify-content: space-between;
+        /* Espacio uniforme entre elementos */
+        scroll-snap-align: start;
+        /* Asegurar que los productos se alineen al hacer scroll */
     }
 
     .producto img {
-        height: auto;
-        /* Ajustar la altura automáticamente */
         width: 100%;
-        /* Mantener el ancho completo */
+        /* Asegurar que las imágenes ocupen todo el ancho */
+        height: 250px;
+        /* Mantener altura uniforme */
         object-fit: contain;
         /* Mostrar las imágenes completas sin recortar */
         border-radius: 12px;
-        /* Mantener bordes redondeados */
+        /* Bordes redondeados */
+        margin-bottom: 1rem;
+        /* Espacio debajo de la imagen */
     }
 
     .producto h3 {
-        font-size: 1rem;
-        /* Reducir el tamaño del título */
+        font-size: 1.2rem;
+        /* Tamaño uniforme para los títulos */
+        margin: 0.5rem 0;
+        /* Espaciado uniforme */
+        min-height: 20px;
+        /* Asegurar que todos los títulos ocupen el mismo espacio */
+        color: #1e3a8a;
+        /* Color del texto */
     }
 
     .producto p {
+        font-size: 1rem;
+        /* Tamaño uniforme para las descripciones */
+        color: #333;
+        /* Color del texto */
+        min-height: 20px;
+        /* Igual altura para la descripción */
+        margin-bottom: 1rem;
+        /* Espaciado debajo de la descripción */
+    }
+
+    .producto .btn-container {
+        display: flex;
+        /* Usar flexbox para los botones */
+        flex-direction: column;
+        /* Alinear botones verticalmente */
+        gap: 0.5rem;
+        /* Espacio entre botones */
+        margin-top: auto;
+        /* Empujar los botones hacia abajo */
+    }
+
+    .producto .btn {
+        padding: 0.6rem;
+        /* Ajustar el padding de los botones */
         font-size: 0.9rem;
-        /* Reducir el tamaño de la descripción */
+        /* Tamaño uniforme para los botones */
+        background: #1e3a8a;
+        /* Fondo del botón */
+        color: white;
+        /* Color del texto */
+        border: none;
+        /* Sin bordes */
+        border-radius: 10px;
+        /* Bordes redondeados */
+        cursor: pointer;
+        /* Mostrar cursor de interacción */
+        transition: background 0.3s ease;
+        /* Transición suave */
+    }
+
+    .producto .btn:hover {
+        background: #0f256e;
+        /* Color de fondo al pasar el cursor */
     }
 
     .busqueda-container input {
@@ -506,8 +572,9 @@ footer a {
 
     .productos-container {
         display: flex;
-        flex-direction: row;
         /* Mantener disposición horizontal */
+        flex-direction: row;
+        /* Productos en fila */
         gap: 0.5rem;
         /* Reducir el espacio entre productos */
         overflow-x: auto;
@@ -525,50 +592,54 @@ footer a {
         /* Evitar que los productos se achiquen */
         width: 260px;
         /* Reducir el ancho para pantallas pequeñas */
-        height: auto;
-        /* Ajustar la altura automáticamente */
-        padding: 0.8rem;
-        /* Ajustar el padding */
-        margin: 0;
-        /* Eliminar márgenes adicionales */
+        height: 450px;
+        /* Ajustar altura uniforme */
+        padding: 1rem;
+        /* Ajustar el padding interno */
     }
 
     .producto img {
-        height: auto;
-        /* Ajustar la altura automáticamente */
+        height: 200px;
+        /* Reducir altura de las imágenes */
         width: 100%;
         /* Mantener el ancho completo */
         object-fit: contain;
         /* Mostrar las imágenes completas sin recortar */
-        border-radius: 12px;
-        /* Mantener bordes redondeados */
     }
 
     .producto h3 {
-        font-size: 0.9rem;
-        /* Reducir el tamaño del título */
+        font-size: 1rem;
+        /* Reducir tamaño del título */
     }
 
     .producto p {
-        font-size: 0.8rem;
-        /* Reducir el tamaño de la descripción */
+        font-size: 0.9rem;
+        /* Reducir tamaño de la descripción */
     }
 
-    .busqueda-container input {
-        width: 95%;
-        /* Ajustar el ancho del campo de búsqueda */
+    .producto .btn {
         font-size: 0.8rem;
-        /* Reducir el tamaño de la fuente */
-        margin: 0 auto;
-        /* Centrar el campo de búsqueda */
-    }
-
-    footer {
-        font-size: 0.7rem;
-        /* Reducir el tamaño de la fuente en el footer */
+        /* Reducir tamaño de los botones */
         padding: 0.5rem;
-        /* Ajustar el padding */
+        /* Ajustar el padding de los botones */
     }
-}
+
 
 /* ...existing code... */
+
+.busqueda-container input {
+    width: 95%;
+    /* Ajustar el ancho del campo de búsqueda */
+    font-size: 0.8rem;
+    /* Reducir el tamaño de la fuente */
+    margin: 0 auto;
+    /* Centrar el campo de búsqueda */
+}
+
+footer {
+    font-size: 0.7rem;
+    /* Reducir el tamaño de la fuente en el footer */
+    padding: 0.5rem;
+    /* Ajustar el padding */
+}
+}
