@@ -277,7 +277,7 @@ footer a {
     .productos-grid {
         display: block;
         justify-content: center;
-        
+
     }
 
     .productos-container {
@@ -408,6 +408,12 @@ footer a {
         /* Botones más compactos */
     }
 
+    .productos-grid {
+        display: block;
+        /* Cambiar a bloque para mejor disposición en pantallas pequeñas */
+        justify-content: center;
+        /* Centrar los productos */
+    }
     .productos-container {
         display: flex;
         /* Mantener disposición horizontal */
