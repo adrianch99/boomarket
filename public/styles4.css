@@ -458,6 +458,8 @@ footer a {
         /* Mantener el ancho completo */
         object-fit: contain;
         /* Mostrar las imágenes completas sin recortar */
+        border-radius: 10px;
+        /* Bordes redondeados */
     }
 
     .producto h3 {
