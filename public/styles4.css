@@ -280,8 +280,9 @@ footer a {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajustar columnas automáticamente */
         gap: 1rem; /* Reducir espacio entre productos */
         padding: 1rem; /* Ajustar el padding */
-        justify-content: center; /* Centrar los productos horizontalmente */
+        justify-content: start; /* Centrar los productos horizontalmente */
         align-items: center; /* Centrar los productos verticalmente */
+        margin: 0 auto; /* Centrar el contenedor */
     }
 
     .productos-container {
@@ -419,8 +420,9 @@ footer a {
         padding: 0.5rem; /* Ajustar el padding */
         justify-content: center; /* Centrar los productos horizontalmente */
         align-items: center; /* Centrar los productos verticalmente */
+        margin: 0 auto; /* Centrar el contenedor */
     }
-    
+
     .productos-container {
         display: flex;
         /* Mantener disposición horizontal */
