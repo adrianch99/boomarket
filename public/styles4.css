@@ -283,6 +283,7 @@ footer a {
         justify-content: start; /* Centrar los productos horizontalmente */
         align-items: center; /* Centrar los productos verticalmente */
         margin-left: auto;
+        width: 100%;
     }
 
     .productos-container {
@@ -421,6 +422,7 @@ footer a {
         justify-content: center; /* Centrar los productos horizontalmente */
         align-items: center; /* Centrar los productos verticalmente */
         margin-left: auto;
+        width: 100%;
     }
 
     .productos-container {
