@@ -47,20 +47,12 @@
     color: gray;
 }
 
-/* ...existing code... */
-
-/* --- Responsividad --- */
-/* ...existing code... */
-
 /* --- Responsividad --- */
 @media (max-width: 768px) {
     .nav-main {
         flex-direction: column;
-        /* Cambiar a disposición vertical */
         align-items: center;
-        /* Centrar los elementos */
         padding: 10px;
-        /* Reducir el padding */
     }
 
     .logo img {
@@ -71,12 +63,14 @@
     }
 
     .busqueda-container input {
-        width: 80%;
+        width: 100%;
         /* Ajustar el ancho del campo de búsqueda */
         font-size: 14px;
         /* Reducir el tamaño de la fuente */
         padding: 6px 10px;
         /* Ajustar el padding */
+        border-radius: none;
+        margin-bottom: 6px;
     }
 
     .menu {

@@ -272,7 +272,14 @@ footer a {
     .btn {
         padding: 0.7rem;
         font-size: 0.9rem;
-        /* Botones más compactos */
+    }
+
+    .productos-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.5rem;
+        padding-bottom: 1.5rem;
+        justify-content: center;
     }
 
     .productos-container {
@@ -369,15 +376,6 @@ footer a {
         /* Color de fondo al pasar el cursor */
     }
 
-    .busqueda-container input {
-        width: 100%;
-        /* Ajustar el ancho del campo de búsqueda */
-        font-size: 0.9rem;
-        /* Reducir el tamaño de la fuente */
-        margin: 0 auto;
-        /* Centrar el campo de búsqueda */
-    }
-
     footer {
         font-size: 0.8rem;
         /* Reducir el tamaño de la fuente en el footer */
@@ -464,16 +462,6 @@ footer a {
         /* Reducir tamaño de los botones */
         padding: 0.5rem;
         /* Ajustar el padding de los botones */
-    }
-
-
-    .busqueda-container input {
-        width: 100%;
-        /* Ajustar el ancho del campo de búsqueda */
-        font-size: 0.8rem;
-        /* Reducir el tamaño de la fuente */
-        margin: 0 auto;
-        /* Centrar el campo de búsqueda */
     }
 
     footer {
