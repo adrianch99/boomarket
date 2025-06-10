@@ -146,7 +146,7 @@ section {
     color: white;
     margin: 0 15px;
     text-decoration: none;
-    font-size: 1.2em;
+    font-size: 1.4em;
     transition: color 0.3s;
 }
 
@@ -308,9 +308,6 @@ section {
 }
 
 
-/* ...existing code... */
-
-/* Mejoras para pantallas pequeñas */
 @media (max-width: 768px) {
     header {
         padding: 30px;
@@ -349,6 +346,7 @@ section {
 
     .feature {
         margin-bottom: 30px;
+        margin-left: 35px;
     }
 
     .cta {
@@ -361,25 +359,22 @@ section {
     }
 
     .navbar {
-        font-size: 1em;
-        /* Tamaño de fuente legible */
+        position: fixed;
+        top: 0;
+        width: 100%;
+        text-align: center;
+        z-index: 1000;
+        font-size: 1.2em;
         padding: 10px 0;
-        /* Ajustar el padding */
         display: flex;
-        /* Usar flexbox para organizar los enlaces */
         justify-content: center;
-        /* Centrar los enlaces */
         align-items: center;
-        /* Alinear verticalmente */
     }
 
     .navbar a {
         margin: 0 15px;
-        /* Espaciado uniforme entre los enlaces */
         text-decoration: none;
-        /* Asegurar que no haya subrayado */
-        font-size: 1em;
-        /* Tamaño de fuente consistente */
+        font-size: 1.2em;
     }
 
 
@@ -391,13 +386,11 @@ section {
         width: 100%;
         margin-bottom: 20px;
         font-size: 1.3em;
-        /* Inputs más grandes */
     }
 
     .subscribe button {
         width: 100%;
         font-size: 1.3em;
-        /* Botones más grandes */
     }
 
     .stats {
@@ -407,26 +400,24 @@ section {
 
     .stat h3 {
         font-size: 2.5em;
-        /* Números más grandes para destacar */
     }
 
     #chatbot-popup {
-        bottom: 50px; /* Ajustar la posición inferior */
-        right: 20px; /* Ajustar la posición derecha */
-        padding: 12px 16px; /* Reducir el padding */
-        font-size: 0.9em; /* Reducir el tamaño de la fuente */
-        width: 250px; /* Ajustar el ancho */
+        bottom: 50px;
+        right: 20px;
+        padding: 12px 16px;
+        font-size: 0.9em;
+        width: 250px;
     }
 
     #cerrar-popup {
-        font-size: 20px; /* Reducir el tamaño del botón de cierre */
+        font-size: 20px;
     }
 }
 
 @media (max-width: 480px) {
     header h1 {
         font-size: 2em;
-        /* Ajustado para pantallas muy pequeñas */
     }
 
     .hero h2 {
@@ -452,22 +443,27 @@ section {
 
     .social-links a {
         font-size: 1.5em;
-        /* Íconos más visibles */
     }
 
     .navbar {
-        font-size: 0.9em;
-        /* Reducir el tamaño de la fuente */
-        padding: 5px 0;
-        /* Reducir el padding */
         flex-wrap: wrap;
-        /* Permitir que los enlaces se ajusten en varias líneas si es necesario */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        z-index: 1000;
+        font-size: 1em;
+        padding: 5px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .navbar a {
         margin: 5px 10px;
         /* Ajustar el margen para pantallas muy pequeñas */
-        font-size: 0.9em;
+        font-size: 1em;
         /* Tamaño de fuente más compacto */
     }
 
@@ -499,14 +495,20 @@ section {
     }
 
     #chatbot-popup {
-        bottom: 30px; /* Ajustar la posición inferior */
-        right: 15px; /* Ajustar la posición derecha */
-        padding: 10px 14px; /* Reducir aún más el padding */
-        font-size: 0.8em; /* Reducir el tamaño de la fuente */
-        width: 200px; /* Ajustar el ancho para pantallas muy pequeñas */
+        bottom: 30px;
+        /* Ajustar la posición inferior */
+        right: 15px;
+        /* Ajustar la posición derecha */
+        padding: 10px 14px;
+        /* Reducir aún más el padding */
+        font-size: 0.8em;
+        /* Reducir el tamaño de la fuente */
+        width: 200px;
+        /* Ajustar el ancho para pantallas muy pequeñas */
     }
 
     #cerrar-popup {
-        font-size: 18px; /* Reducir el tamaño del botón de cierre */
+        font-size: 18px;
+        /* Reducir el tamaño del botón de cierre */
     }
 }
