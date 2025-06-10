@@ -1,11 +1,3 @@
-/*.menu-toggle {
-    font-size: 2.7rem;
-    cursor: pointer;
-    user-select: none;
-    transition: transform 0.3s ease;
-    color: #1e3a8a;
-}*/
-
 .menu-list {
     position: absolute;
     top: 100%;
