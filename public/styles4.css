@@ -313,7 +313,7 @@ footer a {
         width: 100%;
         /* Asegurar que las imágenes ocupen todo el ancho */
         height: 250px;
-        /* Mantener altura uniforme */
+        /* Mantener altura uniforme 
         object-fit: contain;
         /* Mostrar las imágenes completas sin recortar */
         border-radius: 12px;
@@ -455,10 +455,10 @@ footer a {
         height: 200px;
         /* Reducir altura de las imágenes */
         width: 100%;
-        /* Mantener el ancho completo */
+        /* Mantener el ancho completo 
         object-fit: contain;
         /* Mostrar las imágenes completas sin recortar */
-        border-radius: 20px;
+        border-radius: 13px;
         /* Bordes redondeados */
     }
 
