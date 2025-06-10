@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
       Object.keys(categoriasContenedores).forEach(categoria => {
         const contenedor = categoriasContenedores[categoria];
         const productosCat = productosPorCategoria[categoria] || [];
-        productosCat.slice(0, 6).forEach(p => {
+        productosCat.slice(0, 15).forEach(p => {
           const card = document.createElement('div');
           card.classList.add('producto');
           card.innerHTML = `
