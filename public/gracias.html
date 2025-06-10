@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gracias - Altum Studio</title>
+    <title>Gracias - Boomarket</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap"
         rel="stylesheet" />
@@ -13,8 +13,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Montserrat', sans-serif;
-            background-color: #144D4D;
-            color: #F6F1EB;
+            background-color: #f2f4f7;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -24,18 +23,17 @@
         }
 
         .box {
-            background: #F6F1EB;
+            background: white;
             padding: 60px 40px;
             border-radius: 16px;
-            border: 2px solid #C99A6B;
-            box-shadow: 0 0 25px rgba(201, 154, 107, 0.5);
+            border: 4px solid #003087;
             max-width: 600px;
         }
 
         h1 {
             font-family: 'Playfair Display', serif;
             font-size: 2.8rem;
-            color: #144D4D;
+            color: #003087;
             margin-bottom: 20px;
         }
 
@@ -46,7 +44,7 @@
         }
 
         .btn-volver {
-            background: linear-gradient(135deg, #144D4D, #0d8f75);
+            background: #003087;
             color: #F6F1EB;
             padding: 14px 36px;
             font-weight: 700;
@@ -60,9 +58,48 @@
         }
 
         .btn-volver:hover {
-            background: linear-gradient(135deg, #C99A6B, #b78745);
-            color: #144D4D;
-            box-shadow: 0 0 18px rgba(201, 154, 107, 0.7);
+            background: gray;
+            color: #003087;
+        }
+
+        @media (max-width: 768px) {
+            .box {
+                padding: 40px 20px;
+                width: 80%;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .btn-volver {
+                padding: 12px 24px;
+                font-size: 0.9rem;
+            }
+        }
+
+         @media (max-width: 480px) {
+            .box {
+                padding: 40px 20px;
+                width: 70%;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .btn-volver {
+                padding: 12px 24px;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
