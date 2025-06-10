@@ -32,20 +32,29 @@
 .menu {
     display: flex;
     gap: 20px;
+    align-items: center;
+    justify-content: center;
 }
 
 .menu a {
     text-decoration: none;
-    color: #003087;
-    font-weight: bold;
     transition: color 0.3s;
     font-size: 1.3rem;
+    color: #002060;
+    font-weight: bold;
 }
 
 .menu a:hover {
-    transform: scale(1.1);
     color: gray;
+    /* Cambiar el color al pasar el mouse */
 }
+
+.menu img {
+    height: 40px;
+    width: 40px;
+    margin-right: 5px;
+}
+
 
 /* --- Responsividad --- */
 @media (max-width: 768px) {
@@ -57,72 +66,92 @@
 
     .logo img {
         height: 150px;
-        /* Reducir el tamaño del logo */
         margin: 0;
-        /* Eliminar márgenes negativos */
+    }
+
+    .busqueda-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40%;
+        margin-bottom: 10px;
     }
 
     .busqueda-container input {
-        width: 100%;
-        /* Ajustar el ancho del campo de búsqueda */
+        width: 70%;
         font-size: 14px;
-        /* Reducir el tamaño de la fuente */
         padding: 6px 10px;
-        /* Ajustar el padding */
-        border-radius: none;
-        margin-bottom: 10px;
+        border-radius: 6px;
+        margin-right: 10px;
     }
 
     .menu {
         display: flex;
-        /* Mantener disposición horizontal */
         flex-wrap: wrap;
-        /* Permitir que los enlaces se ajusten si no caben */
         gap: 10px;
-        /* Reducir el espacio entre enlaces */
         justify-content: center;
-        /* Centrar los enlaces horizontalmente */
     }
 
     .menu a {
         font-size: 1.1rem;
-        /* Reducir el tamaño de la fuente */
+    }
+
+    .menu img {
+        height: 30px;
+        width: 30px;
+        margin-right: 5px;
     }
 }
 
 @media (max-width: 480px) {
     .nav-main {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
         padding: 8px;
-        /* Reducir aún más el padding */
+        width: 100%;
     }
 
     .logo img {
-        height: 120px;
-        /* Reducir el tamaño del logo para pantallas muy pequeñas */
+        height: 80px;
+        margin-left: -70px;
+        margin-right: -70px;
+        margin-top: -5px;
+    }
+
+    .busqueda-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex: 1;    
     }
 
     .busqueda-container input {
-        width: 90%;
-        /* Ajustar el ancho del campo de búsqueda */
-        font-size: 12px;
-        /* Reducir el tamaño de la fuente */
-        padding: 5px 8px;
-        /* Ajustar el padding */
+        font-size: 14px;
+        width: 80%;
+        border-radius: 4px;
     }
 
     .menu {
         display: flex;
-        /* Mantener disposición horizontal */
-        flex-wrap: wrap;
-        /* Permitir que los enlaces se ajusten si no caben */
-        gap: 5px;
-        /* Reducir aún más el espacio entre enlaces */
+        align-items: center;
         justify-content: center;
-        /* Centrar los enlaces horizontalmente */
+    }
+
+    .menu img {
+        height: 24px;
+        width: 24px;
+        margin-right: 5px;
     }
 
     .menu a {
         font-size: 1rem;
-        /* Reducir el tamaño de la fuente */
+        color: #002060;
+        font-weight: bold;
+    }
+
+    .btn-cerrarsesion {
+        font-size: 1rem;
     }
 }
