@@ -5,6 +5,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         const res = await fetch('/api/pedidos');
         const pedidos = await res.json();
 
+        if (!Array.isArray(pedidos)) {
+            throw new Error('La respuesta del servidor no es un array');
+        }
+
         if (pedidos.length === 0) {
             container.innerHTML = '<p>No hay pedidos aún.</p>';
             return;
@@ -15,26 +19,25 @@ document.addEventListener('DOMContentLoaded', async () => {
         pedidos.forEach(pedido => {
             const productos = Array.isArray(pedido.productos) ? pedido.productos : [];
             html += `
-          <tr>
-            <td>${pedido.nombre}</td>
-            <td>${pedido.direccion}</td>
-            <td>${pedido.telefono}</td>
-            <td>${pedido.email}</td>
-            <td>${pedido.departamento}</td>
-            <td>${pedido.ciudad}</td>
-
-            <td>
-              <ul>
-                ${pedido.productos.map(p =>
+              <tr>
+                <td>${pedido.nombre}</td>
+                <td>${pedido.direccion}</td>
+                <td>${pedido.telefono}</td>
+                <td>${pedido.email}</td>
+                <td>${pedido.departamento}</td>
+                <td>${pedido.ciudad}</td>
+                <td>
+                  <ul>
+                    ${productos.map(p =>
                 `<li> id: ${p.id}, ${p.nombre} x ${p.cantidad} ($${p.precio})</li>`
             ).join('')}
-              </ul>
-            </td>
-            <td>
-              ${pedido.enviado ? '✅ Enviado' : `<button onclick="marcarEnviado(${pedido.id})">Marcar como enviado</button>`}
-            </td>
-          </tr>
-        `;
+                  </ul>
+                </td>
+                <td>
+                  ${pedido.enviado ? '✅ Enviado' : `<button onclick="marcarEnviado(${pedido.id})">Marcar como enviado</button>`}
+                </td>
+              </tr>
+            `;
         });
 
         html += '</table>';
@@ -42,9 +45,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     } catch (err) {
         container.innerHTML = '<p>Error al cargar pedidos.</p>';
-        console.error(err);
+        console.error('Error al cargar pedidos:', err);
     }
-
 });
 
 

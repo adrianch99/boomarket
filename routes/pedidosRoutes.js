@@ -25,14 +25,11 @@ router.post('/', async (req, res) => {
 router.get('/', async (req, res) => {
     try {
         const result = await pool.query('SELECT * FROM pedidos ORDER BY id DESC');
-        const pedidos = result.rows.map(pedido => ({
-            ...pedido,
-            productos: JSON.parse(pedido.productos) 
-        }));
-        res.json(pedidos);
+        console.log('Pedidos obtenidos:', result.rows); // Agrega este log para depurar
+        res.json(result.rows);
     } catch (err) {
-        console.error('Error al obtener pedidos:', err.message);
-        res.status(500).json({ message: 'Error al obtener pedidos' });
+        console.error('Error al obtener pedidos:', err.message, err.stack);
+        res.status(500).json({ message: 'Error al obtener pedidos', error: err.message });
     }
 });
 
