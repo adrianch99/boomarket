@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         let html = '<table border="1" cellpadding="10"><tr><th>Nombres</th><th>Dirección</th><th>Teléfono</th><th>Email</th><th>Departamento</th><th>Ciudad</th><th>Productos</th><th>Estado</th></tr>';
 
         pedidos.forEach(pedido => {
+            const productos = Array.isArray(pedido.productos) ? pedido.productos : [];
             html += `
           <tr>
             <td>${pedido.nombre}</td>
