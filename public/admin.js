@@ -90,6 +90,47 @@ async function exportarPDF() {
     doc.save('pedidos.pdf');
 }
 
+async function exportarExcel() {
+    try {
+        const res = await fetch('/api/pedidos');
+        const pedidos = await res.json();
+
+        if (!Array.isArray(pedidos) || pedidos.length === 0) {
+            alert('No hay datos para exportar.');
+            return;
+        }
+
+        // Crear los datos para el archivo Excel
+        const datos = [];
+        pedidos.forEach((pedido, index) => {
+            datos.push({
+                Pedido: `Pedido ${index + 1}`,
+                Nombre: pedido.nombre,
+                Dirección: pedido.direccion,
+                Teléfono: pedido.telefono,
+                Email: pedido.email,
+                Departamento: pedido.departamento,
+                Ciudad: pedido.ciudad,
+                Productos: pedido.productos.map(p => `${p.nombre} x ${p.cantidad} ($${p.precio})`).join(', '),
+                Estado: pedido.enviado ? 'Enviado' : 'Pendiente'
+            });
+        });
+
+        // Crear una hoja de cálculo
+        const worksheet = XLSX.utils.json_to_sheet(datos);
+
+        // Crear un libro de trabajo
+        const workbook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(workbook, worksheet, 'Pedidos');
+
+        // Exportar el archivo Excel
+        XLSX.writeFile(workbook, 'pedidos.xlsx');
+    } catch (err) {
+        console.error('Error al exportar a Excel:', err);
+        alert('Hubo un problema al exportar a Excel. Verifica la consola para más detalles.');
+    }
+}
+
 async function marcarEnviado(id) {
     await fetch(`/api/pedidos/${id}/enviado`, {
         method: 'PUT'
