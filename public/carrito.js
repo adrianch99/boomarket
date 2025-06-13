@@ -15,16 +15,22 @@ async function mostrarCarrito() {
     return;
   }
 
+  // Obtener datos de los productos desde la base de datos
+  const productos = await fetch('/api/productos').then(res => res.json());
+
   carrito.forEach((item) => {
-    const subtotal = item.precio * item.cantidad;
+    const producto = productos.find(p => p.id === item.id);
+    if (!producto) return;
+
+    const subtotal = producto.precio * item.cantidad;
     total += subtotal;
 
     const card = document.createElement('div');
     card.classList.add('producto-carrito');
     card.innerHTML = `
-      <h3>${item.nombre}</h3>
-      <img src="${item.imagen}" width="100">
-      <p><strong>Precio: $${item.precio}</strong></p>
+      <h3>${producto.nombre}</h3>
+      <img src="${producto.imagen}" width="100">
+      <p><strong>Precio: $${producto.precio}</strong></p>
       <p><strong>
         Cantidad:
         <input type="number" min="1" value="${item.cantidad}" onchange="cambiarCantidad(${item.id}, this.value)">
@@ -64,9 +70,7 @@ function eliminarItem(productoId) {
 }
 
 async function realizarPedido() {
-  const userId = localStorage.getItem('user_id');
-
-  const carrito = await fetch(`/api/carrito/${userId}`).then(res => res.json());
+  const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
   if (carrito.length === 0) {
     alert('Tu carrito está vacío');
@@ -94,11 +98,11 @@ async function realizarPedido() {
     })
   });
 
-  const data = await res.json();
-  alert("Pedido realizado exitosamente. Pronto nos comunicaremos con usted");
-
   if (res.ok) {
-    await fetch(`/api/carrito/${userId}/vaciar`, { method: 'DELETE' });
+    alert("Pedido realizado exitosamente. Pronto nos comunicaremos con usted");
+    localStorage.removeItem('carrito');
     window.location.href = 'productos.html';
+  } else {
+    alert("Hubo un problema al realizar el pedido. Inténtalo nuevamente.");
   }
 }
