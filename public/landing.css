@@ -19,9 +19,6 @@ header h1 {
     color: white;
 }
 
-section {
-    margin-bottom: 50px;
-}
 
 .section {
     opacity: 0;
@@ -43,7 +40,7 @@ section {
 
 .hero h2 {
     font-size: 2.5em;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .hero p {
@@ -95,7 +92,7 @@ section {
 .cta {
     text-align: center;
     padding: 50px 20px;
-    background: white;
+    background: #f2f4f7;
     color: black;
 }
 
@@ -114,22 +111,18 @@ section {
 }
 
 .social-links {
+    padding: 50px 20px;
+    justify-content: space-between;
     text-align: center;
-    margin-top: 30px;
-    margin-bottom: 50px;
+    background-color: #f2f4f7;
 }
 
 .social-links a {
     margin: 0 10px;
     text-decoration: none;
-    color: #003087;
     font-size: 1.5em;
-    transition: color 0.3s;
 }
 
-.social-links a:hover {
-    color: #25d366;
-}
 
 .navbar {
     position: fixed;
@@ -157,7 +150,7 @@ section {
 .testimonials {
     text-align: center;
     padding: 50px 20px;
-    background: #f9f9f9;
+    background: #f2f4f7;
 }
 
 .testimonial {
@@ -177,6 +170,7 @@ section {
     text-align: center;
     padding: 50px 20px;
     color: #003087;
+    background-color: white;
 }
 
 .subscribe input {
@@ -219,9 +213,9 @@ section {
 
 .carousel {
     position: relative;
-    width: 100%;
+    padding: 50px 20px;
     overflow: hidden;
-    margin: 50px auto;
+    background: white;
 }
 
 .carousel-item {
@@ -254,7 +248,7 @@ section {
     display: flex;
     justify-content: space-around;
     padding: 50px 20px;
-    background: #f2f4f7;
+    background: white;
     text-align: center;
 }
 
@@ -311,43 +305,42 @@ section {
 @media (max-width: 768px) {
     header {
         padding: 30px;
-        margin-top: 35px;
+        margin-top: 45px;
     }
 
     header h1 {
-        font-size: 2.5em;
-        /* Más grande para mayor legibilidad */
+        font-size: 2.6em;
     }
 
     .hero {
-        padding: 40px 20px;
+        padding: 30px 20px;
     }
 
     .hero h2 {
-        font-size: 2.2em;
-        /* Aumentado para destacar */
+        font-size: 2.8em;
     }
 
     .hero p {
-        font-size: 1.3em;
-        /* Más grande para facilitar la lectura */
+        font-size: 1.4em;
     }
 
     .hero a {
         font-size: 1.3em;
         padding: 15px 30px;
-        /* Botones más grandes y cómodos */
     }
 
     .features {
         flex-direction: column;
-        padding: 30px 15px;
+        padding: 30px 20px;
     }
+
 
     .feature {
         margin-bottom: 30px;
-        margin-left: 35px;
+        display: block;
+        margin-left: 210px;
     }
+
 
     .cta {
         padding: 30px 20px;
@@ -355,7 +348,6 @@ section {
 
     .social-links a {
         font-size: 1.6em;
-        /* Íconos más grandes */
     }
 
     .navbar {
@@ -415,6 +407,7 @@ section {
     }
 }
 
+
 @media (max-width: 480px) {
     header h1 {
         font-size: 2em;
@@ -437,8 +430,15 @@ section {
         padding: 20px 10px;
     }
 
+    .feature {
+        margin-bottom: 30px;
+        margin-left: 50px;
+        display: block;
+    }
+
     .cta {
         padding: 20px 10px;
+        margin-bottom: 30px;
     }
 
     .social-links a {
@@ -462,9 +462,7 @@ section {
 
     .navbar a {
         margin: 5px 10px;
-        /* Ajustar el margen para pantallas muy pequeñas */
         font-size: 1em;
-        /* Tamaño de fuente más compacto */
     }
 
     .testimonials {
@@ -485,30 +483,17 @@ section {
 
     .stat h3 {
         font-size: 2em;
-        /* Números destacados */
-    }
-
-    .back-to-top {
-        font-size: 1.5em;
-        /* Botón más visible */
-        padding: 10px 15px;
     }
 
     #chatbot-popup {
-        bottom: 30px;
-        /* Ajustar la posición inferior */
-        right: 15px;
-        /* Ajustar la posición derecha */
+        bottom: 110px;
+        right: 10px;
         padding: 10px 14px;
-        /* Reducir aún más el padding */
         font-size: 0.8em;
-        /* Reducir el tamaño de la fuente */
         width: 200px;
-        /* Ajustar el ancho para pantallas muy pequeñas */
     }
 
     #cerrar-popup {
         font-size: 18px;
-        /* Reducir el tamaño del botón de cierre */
     }
 }
