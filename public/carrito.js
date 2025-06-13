@@ -3,15 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 async function mostrarCarrito() {
-  const userId = localStorage.getItem('user_id');
-  if (!userId) {
-    document.getElementById('carrito-container').innerHTML = '<p>Debes iniciar sesión o registarte para ver tu carrito.</p>';
-    return;
-  }
-
-  const response = await fetch(`/api/carrito/${userId}`);
-  const carrito = await response.json();
-
+  const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
   const container = document.getElementById('carrito-container');
   container.innerHTML = '';
 
@@ -30,17 +22,17 @@ async function mostrarCarrito() {
     const card = document.createElement('div');
     card.classList.add('producto-carrito');
     card.innerHTML = `
-  <h3>${item.nombre}</h3>
-  <img src="${item.imagen}" width="100">
-  <p><strong>Precio: $${item.precio}</strong></p>
-  <p><strong>
-    Cantidad:
-    <input type="number" min="1" value="${item.cantidad}" onchange="cambiarCantidad(${item.id}, this.value)">
-  </strong></p>
-  <p><strong>Subtotal: $${subtotal}</strong></p>
-  <button class="btn" onclick="eliminarItem(${item.id})">Eliminar</button>
-  <hr>
-`;
+      <h3>${item.nombre}</h3>
+      <img src="${item.imagen}" width="100">
+      <p><strong>Precio: $${item.precio}</strong></p>
+      <p><strong>
+        Cantidad:
+        <input type="number" min="1" value="${item.cantidad}" onchange="cambiarCantidad(${item.id}, this.value)">
+      </strong></p>
+      <p><strong>Subtotal: $${subtotal}</strong></p>
+      <button class="btn" onclick="eliminarItem(${item.id})">Eliminar</button>
+      <hr>
+    `;
 
     container.appendChild(card);
   });
@@ -49,31 +41,26 @@ async function mostrarCarrito() {
 }
 
 function vaciarCarrito() {
-  const userId = localStorage.getItem('user_id');
-
-  fetch(`/api/carrito/${userId}/vaciar`, {
-    method: 'DELETE'
-  }).then(() => mostrarCarrito());
+  localStorage.removeItem('carrito');
+  mostrarCarrito();
 }
-
 
 function cambiarCantidad(productoId, nuevaCantidad) {
-  const userId = localStorage.getItem('user_id');
+  let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+  const producto = carrito.find(item => item.id === productoId);
 
-  fetch(`/api/carrito/${userId}/${productoId}`, {
-    method: 'PUT',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ cantidad: nuevaCantidad })
-  }).then(() => mostrarCarrito());
+  if (producto) {
+    producto.cantidad = parseInt(nuevaCantidad, 10);
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+    mostrarCarrito();
+  }
 }
 
-
 function eliminarItem(productoId) {
-  const userId = localStorage.getItem('user_id');
-
-  fetch(`/api/carrito/${userId}/${productoId}`, {
-    method: 'DELETE'
-  }).then(() => mostrarCarrito());
+  let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+  carrito = carrito.filter(item => item.id !== productoId);
+  localStorage.setItem('carrito', JSON.stringify(carrito));
+  mostrarCarrito();
 }
 
 async function realizarPedido() {

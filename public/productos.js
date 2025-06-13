@@ -57,32 +57,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 function agregarAlCarrito(productoId) {
-  const userId = localStorage.getItem('user_id');
+  // Obtener el carrito desde localStorage
+  let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
-  if (!userId) {
-    alert('Debes iniciar sesión o registrarte para agregar productos al carrito.');
-    return;
+  // Verificar si el producto ya está en el carrito
+  const productoExistente = carrito.find(item => item.id === productoId);
+
+  if (productoExistente) {
+    productoExistente.cantidad += 1; // Incrementar la cantidad
+  } else {
+    carrito.push({ id: productoId, cantidad: 1 }); // Agregar nuevo producto
   }
 
-  fetch('/api/carrito/agregar', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      producto_id: productoId,
-      cantidad: 1,
-      user_id: userId
-    })
-  })
-    .then(res => res.json())
-    .then(data => {
-      alert('Producto agregado al carrito');
-    })
-    .catch(err => {
-      console.error('Error al agregar al carrito:', err);
-      alert('Hubo un problema al agregar el producto');
-    });
+  // Guardar el carrito actualizado en localStorage
+  localStorage.setItem('carrito', JSON.stringify(carrito));
+
+  alert('Producto agregado al carrito');
 }
 
 document.getElementById('busquedaInput').addEventListener('input', (e) => {
