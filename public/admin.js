@@ -51,6 +51,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
 async function exportarPDF() {
+    if (!window.jspdf || !window.jspdf.jsPDF) {
+        console.error('jspdf no está disponible. Verifica que la biblioteca esté correctamente cargada.');
+        alert('Hubo un problema al cargar la biblioteca jspdf. Verifica la consola para más detalles.');
+        return;
+    }
+
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
 
