@@ -7,11 +7,19 @@ router.post('/', async (req, res) => {
     const { nombre, direccion, telefono, email, departamento, ciudad, productos } = req.body;
 
     try {
-        await pool.query(
-            'INSERT INTO pedidos (nombre, direccion, telefono, email, departamento, ciudad, productos) VALUES ($1, $2, $3, $4, $5, $6, $7)',
-            [nombre, direccion, telefono, email, departamento, ciudad, JSON.stringify(productos)]
+        // Supongamos que tienes una tabla de productos con id, nombre y precio
+        const productosConDetalles = await Promise.all(
+            productos.map(async (producto) => {
+                const result = await pool.query('SELECT nombre, precio FROM productos WHERE id = $1', [producto.id]);
+                const detalles = result.rows[0];
+                return { ...producto, ...detalles };
+            })
         );
 
+        await pool.query(
+            'INSERT INTO pedidos (nombre, direccion, telefono, email, departamento, ciudad, productos) VALUES ($1, $2, $3, $4, $5, $6, $7)',
+            [nombre, direccion, telefono, email, departamento, ciudad, JSON.stringify(productosConDetalles)]
+        );
 
         res.status(201).json({ message: 'Pedido guardado exitosamente' });
     } catch (err) {
