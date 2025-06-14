@@ -74,7 +74,7 @@ app.post('/api/login', async (req, res) => {
 });
 
 
-// Obtener todos los productos en admin
+// Obtener todos los productos
 app.get('/api/productos', async (req, res) => {
     const { categoria } = req.query;
 
@@ -109,12 +109,12 @@ app.get('/api/productos', async (req, res) => {
 
 // Agregar nuevo producto en admin
 app.post('/api/productos', async (req, res) => {
-    const { nombre, descripcion, precio, imagen, userId } = req.body;
+    const { nombre, descripcion, precio, imagen, categoria, userId } = req.body;
 
     try {
         const result = await pool.query(
-            'INSERT INTO productos (nombre, descripcion, precio, imagen) VALUES ($1, $2, $3, $4)',
-            [nombre, descripcion, precio, imagen]
+            'INSERT INTO productos (nombre, descripcion, precio, imagen, categoria) VALUES ($1, $2, $3, $4, $5)',
+            [nombre, descripcion, precio, imagen, categoria]
         );
 
         res.status(201).json({ message: 'Producto agregado con éxito' });
