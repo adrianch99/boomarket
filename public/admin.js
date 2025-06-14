@@ -11,37 +11,39 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         if (pedidos.length === 0) {
             container.innerHTML = '<p>No hay pedidos aún.</p>';
-            return;
+        } else {
+            let html = '<table border="1" cellpadding="10"><tr><th>Nombres</th><th>Dirección</th><th>Teléfono</th><th>Email</th><th>Departamento</th><th>Ciudad</th><th>Productos</th><th>Estado</th></tr>';
+
+            pedidos.forEach(pedido => {
+                const productos = Array.isArray(pedido.productos) ? pedido.productos : [];
+                html += `
+                  <tr>
+                    <td>${pedido.nombre}</td>
+                    <td>${pedido.direccion}</td>
+                    <td>${pedido.telefono}</td>
+                    <td>${pedido.email}</td>
+                    <td>${pedido.departamento}</td>
+                    <td>${pedido.ciudad}</td>
+                    <td>
+                      <ul>
+                        ${productos.map(p =>
+                            `<li> id: ${p.id}, ${p.nombre} x ${p.cantidad} ($${p.precio})</li>`
+                        ).join('')}
+                      </ul>
+                    </td>
+                    <td>
+                      ${pedido.enviado ? '✅ Enviado' : `<button onclick="marcarEnviado(${pedido.id})">Marcar como enviado</button>`}
+                    </td>
+                  </tr>
+                `;
+            });
+
+            html += '</table>';
+            container.innerHTML = html;
         }
 
-        let html = '<table border="1" cellpadding="10"><tr><th>Nombres</th><th>Dirección</th><th>Teléfono</th><th>Email</th><th>Departamento</th><th>Ciudad</th><th>Productos</th><th>Estado</th></tr>';
-
-        pedidos.forEach(pedido => {
-            const productos = Array.isArray(pedido.productos) ? pedido.productos : [];
-            html += `
-              <tr>
-                <td>${pedido.nombre}</td>
-                <td>${pedido.direccion}</td>
-                <td>${pedido.telefono}</td>
-                <td>${pedido.email}</td>
-                <td>${pedido.departamento}</td>
-                <td>${pedido.ciudad}</td>
-                <td>
-                  <ul>
-                    ${productos.map(p =>
-                `<li> id: ${p.id}, ${p.nombre} x ${p.cantidad} ($${p.precio})</li>`
-            ).join('')}
-                  </ul>
-                </td>
-                <td>
-                  ${pedido.enviado ? '✅ Enviado' : `<button onclick="marcarEnviado(${pedido.id})">Marcar como enviado</button>`}
-                </td>
-              </tr>
-            `;
-        });
-
-        html += '</table>';
-        container.innerHTML = html;
+        // Cargar pedidos unitarios
+        cargarPedidosUnitarios();
 
     } catch (err) {
         container.innerHTML = '<p>Error al cargar pedidos.</p>';
@@ -56,27 +58,37 @@ function cargarPedidosUnitarios() {
             const tablaPedidos = document.getElementById('tabla-pedidos');
             tablaPedidos.innerHTML = ''; // Limpiar la tabla
 
+            if (pedidos.length === 0) {
+                tablaPedidos.innerHTML = '<p>No hay pedidos unitarios aún.</p>';
+                return;
+            }
+
+            let html = '<table border="1" cellpadding="10"><tr><th>ID</th><th>Producto</th><th>Precio</th><th>Nombre</th><th>Dirección</th><th>Teléfono</th><th>Email</th><th>Departamento</th><th>Ciudad</th></tr>';
+
             pedidos.forEach(pedido => {
-                const fila = document.createElement('tr');
-                fila.innerHTML = `
-                    <td>${pedido.id}</td>
-                    <td>${pedido.nombre_producto}</td>
-                    <td>${pedido.precio_producto}</td>
-                    <td>${pedido.nombre}</td>
-                    <td>${pedido.direccion}</td>
-                    <td>${pedido.telefono}</td>
-                    <td>${pedido.email}</td>
-                    <td>${pedido.departamento}</td>
-                    <td>${pedido.ciudad}</td>
+                html += `
+                    <tr>
+                        <td>${pedido.id}</td>
+                        <td>${pedido.nombre_producto}</td>
+                        <td>${pedido.precio_producto}</td>
+                        <td>${pedido.nombre}</td>
+                        <td>${pedido.direccion}</td>
+                        <td>${pedido.telefono}</td>
+                        <td>${pedido.email}</td>
+                        <td>${pedido.departamento}</td>
+                        <td>${pedido.ciudad}</td>
+                    </tr>
                 `;
-                tablaPedidos.appendChild(fila);
             });
+
+            html += '</table>';
+            tablaPedidos.innerHTML = html;
         })
         .catch(err => {
             console.error('Error al cargar pedidos unitarios:', err);
+            document.getElementById('tabla-pedidos').innerHTML = '<p>Error al cargar pedidos unitarios.</p>';
         });
 }
-
 
 async function exportarPDF() {
     if (!window.jspdf || !window.jspdf.jsPDF) {
@@ -166,5 +178,3 @@ async function marcarEnviado(id) {
     alert('Pedido marcado como enviado');
     location.reload();
 }
-
-
