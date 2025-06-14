@@ -388,12 +388,14 @@ footer a {
 /* Contenedor de notificaciones */
 #notification-container {
     position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
     /* Asegura que esté por encima de otros elementos */
 }
 
