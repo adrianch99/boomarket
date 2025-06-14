@@ -266,6 +266,17 @@ app.post('/api/pedidos-unitarios', async (req, res) => {
     }
 });
 
+// Ruta para obtener los pedidos unitarios
+router.get('/api/pedidos-unitarios', async (req, res) => {
+    try {
+        const result = await pool.query('SELECT * FROM pedidosunitarios');
+        res.status(200).json(result.rows); // Devuelve los pedidos unitarios como JSON
+    } catch (error) {
+        console.error('Error al obtener los pedidos unitarios:', error);
+        res.status(500).json({ error: 'Error al obtener los pedidos unitarios' });
+    }
+});
+
 
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en http://localhost:${PORT}`);
