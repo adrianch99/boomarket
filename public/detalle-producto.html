@@ -68,14 +68,23 @@
                 .then(producto => {
                     const detalle = document.getElementById('producto-detalle');
                     detalle.innerHTML = `
-                    <div class="detalle-container">
-            <img src="${producto.imagen}" alt="${producto.nombre}" width="300">
-            <h2>${producto.nombre}</h2>
-            <p>${producto.descripcion}</p>
-            <p><strong>Precio: $${producto.precio}</strong></p>
-            <button class="btn" onclick="agregarAlCarrito(${producto.id})">Añadir al carrito</button>
-            <button class="btn" onclick="mostrarFormularioCompra(${producto.id}, '${producto.nombre}', ${producto.precio})">Comprar ahora</button></div>
-          `;
+                        <div class="detalle-container">
+                            <img src="${producto.imagen}" alt="${producto.nombre}" width="300">
+                            <div class="descripcion-container">
+                                <h2>${producto.nombre}</h2>
+                                <p>${producto.descripcion}</p>
+                                <p><strong>Precio: $${producto.precio}</strong></p>
+                            </div>
+                            <div class="botonesDet-container">
+                                <button class="btn" onclick="agregarAlCarrito(${producto.id})">
+                                    Añadir al carrito
+                                </button>
+                                <button class="btn" onclick="mostrarFormularioCompra(${producto.id}, '${producto.nombre.replace(/'/g, "\\'")}', ${producto.precio})">
+                                    Comprar ahora
+                                </button>
+                            </div>
+                        </div>
+                    `;
                 })
                 .catch(err => {
                     console.error('Error al cargar los detalles del producto:', err);

@@ -294,6 +294,18 @@ footer a:hover {
     justify-content: center;
 }
 
+.descripcion-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.botonesDet-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
 
 /* --- ANIMACIONES --- */
 @keyframes fadeInDown {
