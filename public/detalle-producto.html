@@ -68,12 +68,13 @@
                 .then(producto => {
                     const detalle = document.getElementById('producto-detalle');
                     detalle.innerHTML = `
+                    <div class="detalle-container">
             <img src="${producto.imagen}" alt="${producto.nombre}" width="300">
             <h2>${producto.nombre}</h2>
             <p>${producto.descripcion}</p>
             <p><strong>Precio: $${producto.precio}</strong></p>
             <button class="btn" onclick="agregarAlCarrito(${producto.id})">Añadir al carrito</button>
-            <button class="btn" onclick="mostrarFormularioCompra(${producto.id}, '${producto.nombre}', ${producto.precio})">Comprar ahora</button>
+            <button class="btn" onclick="mostrarFormularioCompra(${producto.id}, '${producto.nombre}', ${producto.precio})">Comprar ahora</button></div>
           `;
                 })
                 .catch(err => {
@@ -166,6 +167,23 @@
                 });
         }
     </script>
+
+    <script>
+        const toggle = document.getElementById('menu-toggle');
+        const menu = document.getElementById('menu-list');
+
+        toggle.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
+
+        // Cierra el menú si haces clic fuera
+        document.addEventListener('click', function (event) {
+            if (!toggle.contains(event.target) && !menu.contains(event.target)) {
+                menu.classList.remove('active');
+            }
+        });
+    </script>
+
 </body>
 
 </html>

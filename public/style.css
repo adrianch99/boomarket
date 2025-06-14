@@ -286,6 +286,14 @@ footer a:hover {
     font-size: 1rem;
 }
 
+.detalle-container {
+    display: flex;
+    flex-direction: row;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+}
+
 
 /* --- ANIMACIONES --- */
 @keyframes fadeInDown {
