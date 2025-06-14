@@ -270,6 +270,8 @@ h2 {
     /* Botones ocupan todo el ancho del contenedor */
     min-height: 30px;
     /* Asegura que los botones tengan una altura mínima */
+    margin-bottom: 10px;
+    /* Espacio debajo del botón */
     justify-content: space-between;
     /* Alinea el contenido del botón */
     font-size: 1rem;
