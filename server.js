@@ -261,7 +261,7 @@ app.post('/api/pedidos-unitarios', async (req, res) => {
         res.status(201).send({ message: 'Pedido guardado exitosamente' });
     } catch (error) {
         console.error('Error al guardar el pedido:', error);
-        res.status(500).send({ error: 'Error al guardar el pedido' });
+        res.status(500).send({ error: 'Error al guardar el pedido', details: error.message});
     }
 });
 
