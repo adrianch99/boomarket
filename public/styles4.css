@@ -76,7 +76,9 @@ h2 {
 .productos-container {
     display: flex;
     flex-direction: row;
-    gap: 2rem;
+    /* Productos en fila */
+    gap: 1rem;
+    /* Espacio entre productos */
     overflow-x: auto;
     padding-bottom: 1rem;
     scroll-snap-type: x mandatory;
@@ -192,10 +194,10 @@ h2 {
 }
 
 .producto img {
-    width: 100%;
+    width: 110%;
     /* Imagen ocupa todo el ancho */
     height: 180px;
-    /* Altura fija para todas las imágenes */
+    /* Altura fija para todas las imágenes 
     object-fit: contain;
     /* Asegura que la imagen no se recorte */
     border-radius: 8px;
