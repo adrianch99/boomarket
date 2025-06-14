@@ -74,9 +74,7 @@ function agregarAlCarrito(productoId) {
   localStorage.setItem('carrito', JSON.stringify(carrito));
 
   alert('Producto agregado al carrito');
-}router.get('/api/pedidos-unitarios', (req, res) => {
-  res.send('Ruta funcionando correctamente');
-});
+}
 
 // Función para mostrar el formulario de compra en un modal
 function mostrarFormularioCompra(productoId, nombreProducto, precioProducto) {
