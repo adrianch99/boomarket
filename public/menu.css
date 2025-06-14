@@ -1,3 +1,6 @@
+#menu-toggle {
+    cursor: pointer;
+}
 .menu-list {
     position: absolute;
     top: 100%;
