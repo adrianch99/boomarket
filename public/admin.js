@@ -50,31 +50,31 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 function cargarPedidosUnitarios() {
-  fetch('/api/pedidos-unitarios')
-    .then(res => res.json())
-    .then(pedidos => {
-      const tablaPedidos = document.getElementById('tabla-pedidos');
-      tablaPedidos.innerHTML = ''; // Limpiar la tabla
+    fetch('/api/pedidos-unitarios')
+        .then(res => res.json())
+        .then(pedidos => {
+            const tablaPedidos = document.getElementById('tabla-pedidos');
+            tablaPedidos.innerHTML = ''; // Limpiar la tabla
 
-      pedidos.forEach(pedido => {
-        const fila = document.createElement('tr');
-        fila.innerHTML = `
-          <td>${pedido.id}</td>
-          <td>${pedido.nombre_producto}</td>
-          <td>${pedido.precio_producto}</td>
-          <td>${pedido.nombre}</td>
-          <td>${pedido.direccion}</td>
-          <td>${pedido.telefono}</td>
-          <td>${pedido.email}</td>
-          <td>${pedido.departamento}</td>
-          <td>${pedido.ciudad}</td>
-        `;
-        tablaPedidos.appendChild(fila);
-      });
-    })
-    .catch(err => {
-      console.error('Error al cargar pedidos:', err);
-    });
+            pedidos.forEach(pedido => {
+                const fila = document.createElement('tr');
+                fila.innerHTML = `
+                    <td>${pedido.id}</td>
+                    <td>${pedido.nombre_producto}</td>
+                    <td>${pedido.precio_producto}</td>
+                    <td>${pedido.nombre}</td>
+                    <td>${pedido.direccion}</td>
+                    <td>${pedido.telefono}</td>
+                    <td>${pedido.email}</td>
+                    <td>${pedido.departamento}</td>
+                    <td>${pedido.ciudad}</td>
+                `;
+                tablaPedidos.appendChild(fila);
+            });
+        })
+        .catch(err => {
+            console.error('Error al cargar pedidos unitarios:', err);
+        });
 }
 
 

@@ -242,9 +242,10 @@ app.post('/api/pedidos-unitarios', async (req, res) => {
     const { productoId, nombreProducto, precioProducto, datosEnvio } = req.body;
 
     try {
-        await db.query(
+        // Inserta el pedido en la tabla "pedidosunitarios"
+        await pool.query(
             `INSERT INTO pedidosunitarios (producto_id, nombre_producto, precio_producto, nombre, direccion, telefono, email, departamento, ciudad)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+             VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`,
             [
                 productoId,
                 nombreProducto,
@@ -258,15 +259,11 @@ app.post('/api/pedidos-unitarios', async (req, res) => {
             ]
         );
 
-        res.status(201).send({ message: 'Pedido guardado exitosamente' });
+        res.status(201).json({ message: 'Pedido unitario guardado exitosamente' });
     } catch (error) {
-        console.error('Error al guardar el pedido:', error);
-        res.status(500).send({ error: 'Error al guardar el pedido', details: error.message});
+        console.error('Error al guardar el pedido unitario:', error);
+        res.status(500).json({ error: 'Error al guardar el pedido unitario', details: error.message });
     }
-});
-
-app.get('/api/pedidos-unitarios', (req, res) => {
-    res.send('Ruta funcionando correctamente');
 });
 
 
