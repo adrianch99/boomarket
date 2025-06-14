@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <p>${p.descripcion}</p>
             <p><strong>$${p.precio}</strong></p>
             <button class="btn" onclick="agregarAlCarrito(${p.id})">Añadir al carrito</button>
-            <button class="btn comprar-ahora" onclick="mostrarFormularioCompra(${p.id}, '${p.nombre}', ${p.precio})">Comprar ahora</button>
+            <button class="btn" onclick="mostrarFormularioCompra(${p.id}, '${p.nombre}', ${p.precio})">Comprar ahora</button>
           `;
           contenedor.appendChild(card);
         });
