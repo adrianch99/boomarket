@@ -390,7 +390,7 @@ footer a {
 #notification-container {
     position: fixed;
     top: 0;
-    left: 0;
+    left: 0;/*
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
@@ -420,7 +420,7 @@ footer a {
     /* Centra el texto */
     max-width: 500px;
     /* Ancho máximo */
-    width: 90%;
+    width: 40%;
     /* Ancho relativo */
     animation: fade-in 0.5s ease, fade-out 0.5s ease 3.5s;
     /* Animación */
