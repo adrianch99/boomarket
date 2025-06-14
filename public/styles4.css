@@ -250,13 +250,16 @@ h2 {
     /* Botones uno encima del otro */
     gap: 0.3rem;
     /* Espaciado entre los botones */
-    width: 100%;
     /* Los botones ocupan todo el ancho */
 }
 
 .producto .btn {
     padding: 0.8rem;
     /* Espaciado interno */
+    width: 100%;
+    /* Botones ocupan todo el ancho del contenedor */
+    min-height: 30px;
+    /* Asegura que los botones tengan una altura mínima */
     font-size: 1rem;
     /* Tamaño del texto */
     background: #1e3a8a;
