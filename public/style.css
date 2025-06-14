@@ -278,8 +278,10 @@ footer a:hover {
 
 /* Estilo de cada notificación */
 .notification {
-    background-color: #1e3a8a; /* Fondo azul */
-    color: white; /* Texto blanco */
+    background-color: #1e3a8a;
+    /* Fondo azul */
+    color: white;
+    /* Texto blanco */
     padding: 15px 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -287,25 +289,54 @@ footer a:hover {
 }
 
 .detalle-container {
+    background-color: white;
     display: flex;
     flex-direction: row;
     border-radius: 5px;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    /* Ajusta el espacio entre los elementos */
+    padding: 2rem;
+    /* Agrega espacio interno */
+    gap: 2rem;
+    /* Espacio entre los elementos */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* Sombra para un diseño más limpio */
+    max-width: 1200px;
+    /* Limita el ancho máximo */
+    margin: 2rem auto;
+    /* Centra el contenedor */
 }
 
 .descripcion-container {
+    background-color: white;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
+    /* Reduce el espacio entre los elementos */
+    padding: 1rem;
+    /* Espacio interno */
+    flex: 1;
+    /* Permite que este contenedor ocupe más espacio */
+    text-align: left;
+    /* Alinea el texto a la izquierda */
 }
 
 .botonesDet-container {
+    background-color: white;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
+    /* Reduce el espacio entre los botones */
+    padding: 1rem;
+    /* Espacio interno */
+    align-items: center;
+    /* Centra los botones */
+    justify-content: center;
+    /* Centra verticalmente */
+    flex: 0.5;
+    /* Ajusta el tamaño relativo del contenedor */
 }
-
 
 /* --- ANIMACIONES --- */
 @keyframes fadeInDown {
@@ -360,7 +391,7 @@ footer a:hover {
         gap: 1rem;
         /* Reducir el espacio entre productos */
         padding: 1rem;
-        /* Ajustar el padding */   
+        /* Ajustar el padding */
     }
 
     .producto-carrito {
@@ -404,7 +435,7 @@ footer a:hover {
     .dashboard-container {
         padding: 1.5rem;
         justify-content: center;
-        align-items: center;        
+        align-items: center;
     }
 
     form {
