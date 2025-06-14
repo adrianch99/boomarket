@@ -103,70 +103,6 @@ h2 {
     width: 300px;
 }
 
-/*
-.producto {
-    width: 300px;
-    height: 500px;
-    background: white;
-    overflow: hidden;
-    padding: 1.5rem;
-    text-align: center;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.producto img {
-    width: 100%;
-    height: 250px;
-    /* Fuerza todas las imágenes a la misma altura
-    object-fit: cover;
-    border-radius: 12px;
-    margin-bottom: 1rem;
-}
-
-.producto h3 {
-    font-size: 1.2rem;
-    margin: 0.5rem 0;
-    min-height: 20px;
-    /* Asegura que todos los títulos ocupen el mismo espacio *
-    color: #1e3a8a;
-}
-
-.producto p {
-    font-size: 1rem;
-    color: #333;
-    min-height: 20px;
-    /* Igual altura para la descripción *
-    margin-bottom: 1rem;
-}
-
-.producto .btn-container {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-top: auto;
-}
-
-.producto .btn {
-    padding: 0.6rem;
-    font-size: 0.9rem;
-    background: #1e3a8a;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.producto .btn:hover {
-    background: #0f256e;
-}
-*/
 .producto {
     display: flex;
     flex-direction: column;
@@ -175,7 +111,7 @@ h2 {
     /* Espaciado entre los elementos */
     align-items: center;
     /* Centra los elementos horizontalmente */
-    width: 300px;
+    width: 100%;
     /* Ancho fijo para cada producto */
     background: white;
     /* Fondo blanco */
@@ -188,9 +124,9 @@ h2 {
     transition: transform 0.4s ease,
         box-shadow 0.4s ease;
     /* Animación */
-    margin: 10px auto;
+    margin: 0 auto;
     /* Centra el producto verticalmente */
-    height: auto; /* Ajusta la altura automáticamente */
+    height: 100%; /* Ajusta la altura automáticamente */
 }
 
 .producto img {
@@ -322,10 +258,11 @@ h2 {
 .productos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 2rem;
+    gap: 1rem;
     padding-bottom: 2rem;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
+    /* Asegura que los productos se alineen bien */
 }
 
 .busqueda-container {
