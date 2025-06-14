@@ -126,7 +126,8 @@ h2 {
     /* Animación */
     margin: 10px auto;
     /* Centra el producto verticalmente */
-    height: auto; /* Ajusta la altura automáticamente */
+    height: auto;
+    /* Ajusta la altura automáticamente */
 }
 
 .producto img {
@@ -382,6 +383,57 @@ footer a {
 .modal-content button:hover {
     background-color: #0056b3;
     /* Cambia el color al pasar el mouse */
+}
+
+/* Contenedor de notificaciones */
+#notification-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Estilo de cada notificación */
+.notification {
+    background-color: #1e3a8a;
+    /* Fondo azul */
+    color: white;
+    /* Texto blanco */
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 1rem;
+    animation: fade-in 0.5s ease, fade-out 0.5s ease 3.5s;
+    opacity: 0;
+}
+
+/* Animación de entrada */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animación de salida */
+@keyframes fade-out {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
 }
 
 

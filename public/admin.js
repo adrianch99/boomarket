@@ -178,7 +178,7 @@ async function marcarEnviadoUnitario(id) {
     await fetch(`/api/pedidos/${id}/enviadoUnitario`, {
         method: 'PUT'
     });
-    alert('Pedido marcado como enviado');
+    mostrarNotificacion('Pedido unitario marcado como enviado', 'success');
     location.reload();
 }
 
@@ -186,6 +186,21 @@ async function marcarEnviado(id) {
     await fetch(`/api/pedidos/${id}/enviado`, {
         method: 'PUT'
     });
-    alert('Pedido marcado como enviado');
+    mostrarNotificacion('Pedido marcado como enviado', 'success');
     location.reload();
+}
+
+function mostrarNotificacion(mensaje, tipo = 'info') {
+    const container = document.getElementById('notification-container');
+
+    const notificacion = document.createElement('div');
+    notificacion.className = `notification ${tipo}`;
+    notificacion.textContent = mensaje;
+
+    container.appendChild(notificacion);
+
+    // Eliminar la notificación después de 4 segundos
+    setTimeout(() => {
+        notificacion.remove();
+    }, 4000);
 }
