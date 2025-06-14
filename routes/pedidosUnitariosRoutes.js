@@ -9,7 +9,7 @@ router.post('/api/pedidos-unitarios', async (req, res) => {
     try {
         // Inserta el pedido en la tabla "pedidos"
         await db.query(
-            `INSERT INTO pedidosUnitarios (producto_id, nombre_producto, precio_producto, nombre, direccion, telefono, email, departamento, ciudad)
+            `INSERT INTO pedidosunitarios (producto_id, nombre_producto, precio_producto, nombre, direccion, telefono, email, departamento, ciudad)
        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
             [
                 productoId,
