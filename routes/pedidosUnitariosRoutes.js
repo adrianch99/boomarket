@@ -31,4 +31,7 @@ router.post('/api/pedidos-unitarios', async (req, res) => {
     }
 });
 
+router.get('/api/pedidos-unitarios', (req, res) => {
+  res.send('Ruta funcionando correctamente');
+});
 module.exports = router;
