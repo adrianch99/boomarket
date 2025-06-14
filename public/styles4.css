@@ -164,29 +164,30 @@ h2 {
 .producto .btn:hover {
     background: #0f256e;
 }
-
+*/
 .producto {
     display: flex;
-    flex-direction: column; /* Asegura que los elementos estén en una columna */
-justify-content: space-between;
-/* Espaciado entre los elementos */
-align-items: center;
-/* Centra los elementos horizontalmente */
-width: 300px;
-/* Ancho fijo para cada producto */
-background: white;
-/* Fondo blanco */
-padding: 1.5rem;
-/* Espaciado interno */
-border-radius: 12px;
-/* Bordes redondeados */
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-/* Sombra */
-transition: transform 0.4s ease,
-box-shadow 0.4s ease;
-/* Animación */
-margin: 10px auto;
-/* Centra el producto verticalmente */
+    flex-direction: column;
+    /* Asegura que los elementos estén en una columna */
+    justify-content: space-between;
+    /* Espaciado entre los elementos */
+    align-items: center;
+    /* Centra los elementos horizontalmente */
+    width: 300px;
+    /* Ancho fijo para cada producto */
+    background: white;
+    /* Fondo blanco */
+    padding: 1.5rem;
+    /* Espaciado interno */
+    border-radius: 12px;
+    /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Sombra */
+    transition: transform 0.4s ease,
+        box-shadow 0.4s ease;
+    /* Animación */
+    margin: 10px auto;
+    /* Centra el producto verticalmente */
 }
 
 .producto img {
