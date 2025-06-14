@@ -9,11 +9,9 @@ const bcrypt = require('bcryptjs');
 const app = express();
 const PORT = process.env.PORT || 3000;
 const pedidosRoutes = require('./routes/pedidosRoutes');
-const pedidosUnitariosRoutes = require('./routes/pedidosUnitariosRoutes');
 
 app.use(bodyParser.json());
 app.use('/api/pedidos', pedidosRoutes);
-app.use('/api/pedidos-unitarios', pedidosUnitariosRoutes);
 app.use(cors());
 app.use(express.static('public'));
 app.use('/api/auth', authRoutes);
@@ -238,6 +236,37 @@ app.delete('/api/carrito/:user_id/:producto_id', async (req, res) => {
         console.error('Error al eliminar producto:', error);
         res.status(500).json({ message: 'Error al eliminar producto' });
     }
+});
+
+app.post('/api/pedidos-unitarios', async (req, res) => {
+    const { productoId, nombreProducto, precioProducto, datosEnvio } = req.body;
+
+    try {
+        await db.query(
+            `INSERT INTO pedidosunitarios (producto_id, nombre_producto, precio_producto, nombre, direccion, telefono, email, departamento, ciudad)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+            [
+                productoId,
+                nombreProducto,
+                precioProducto,
+                datosEnvio.nombre,
+                datosEnvio.direccion,
+                datosEnvio.telefono,
+                datosEnvio.email,
+                datosEnvio.departamento,
+                datosEnvio.ciudad,
+            ]
+        );
+
+        res.status(201).send({ message: 'Pedido guardado exitosamente' });
+    } catch (error) {
+        console.error('Error al guardar el pedido:', error);
+        res.status(500).send({ error: 'Error al guardar el pedido' });
+    }
+});
+
+app.get('/api/pedidos-unitarios', (req, res) => {
+    res.send('Ruta funcionando correctamente');
 });
 
 
