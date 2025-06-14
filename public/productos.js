@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <p>${p.descripcion}</p>
             <p><strong>$${p.precio}</strong></p>
             <button class="btn" onclick="agregarAlCarrito(${p.id})">Añadir al carrito</button>
+            <button class="btn comprar-ahora" onclick="mostrarFormularioCompra(${p.id}, '${p.nombre}', ${p.precio})">Comprar ahora</button>
           `;
           contenedor.appendChild(card);
         });
@@ -75,6 +76,80 @@ function agregarAlCarrito(productoId) {
   alert('Producto agregado al carrito');
 }
 
+// Función para mostrar el formulario de compra en un modal
+function mostrarFormularioCompra(productoId, nombreProducto, precioProducto) {
+  const modal = document.createElement('div');
+  modal.className = 'modal';
+  modal.innerHTML = `
+    <div class="modal-content">
+      <span class="close-btn" onclick="cerrarModal()">×</span>
+      <h2>Comprar ${nombreProducto}</h2>
+      <form id="form-envio">
+        <input type="text" id="nombre" placeholder="Nombre y apellidos" required>
+        <input type="text" id="direccion" placeholder="Dirección, barrio..." required>
+        <input type="tel" id="telefono" placeholder="Teléfono" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="text" id="departamento" placeholder="Departamento" required>
+        <input type="text" id="ciudad" placeholder="Ciudad" required>
+        <button class="btn" type="button" onclick="realizarCompra(${productoId}, '${nombreProducto}', ${precioProducto})">Realizar compra</button>
+      </form>
+    </div>
+  `;
+  document.body.appendChild(modal);
+}
+
+// Función para cerrar el modal
+function cerrarModal() {
+  const modal = document.querySelector('.modal');
+  if (modal) modal.remove();
+}
+
+// Función para realizar la compra
+function realizarCompra(productoId, nombreProducto, precioProducto) {
+  const datosEnvio = {
+    nombre: document.getElementById('nombre').value,
+    direccion: document.getElementById('direccion').value,
+    telefono: document.getElementById('telefono').value,
+    email: document.getElementById('email').value,
+    departamento: document.getElementById('departamento').value,
+    ciudad: document.getElementById('ciudad').value,
+  };
+
+  if (Object.values(datosEnvio).some(value => !value)) {
+    alert('Por favor, completa todos los campos.');
+    return;
+  }
+
+  const compra = {
+    productoId,
+    nombreProducto,
+    precioProducto,
+    datosEnvio,
+  };
+
+  // Enviar la compra al servidor
+  fetch('/api/pedidos-unitarios', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(compra),
+  })
+    .then(response => {
+      if (response.ok) {
+        alert(`Compra realizada para el producto: ${nombreProducto}`);
+        cerrarModal();
+      } else {
+        alert('Error al realizar la compra.');
+      }
+    })
+    .catch(err => {
+      console.error('Error al enviar la compra:', err);
+      alert('Error al realizar la compra.');
+    });
+}
+
+// Función para filtrar productos por nombre
 document.getElementById('busquedaInput').addEventListener('input', (e) => {
   const valor = e.target.value.toLowerCase();
   const productos = document.querySelectorAll('.producto');

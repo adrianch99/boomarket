@@ -9,9 +9,11 @@ const bcrypt = require('bcryptjs');
 const app = express();
 const PORT = process.env.PORT || 3000;
 const pedidosRoutes = require('./routes/pedidosRoutes');
+const pedidosUnitariosRoutes = require('./routes/pedidosUnitariosRoutes');
 
 app.use(bodyParser.json());
 app.use('/api/pedidos', pedidosRoutes);
+app.use('/api/pedidos-unitarios', pedidosUnitariosRoutes);
 app.use(cors());
 app.use(express.static('public'));
 app.use('/api/auth', authRoutes);
