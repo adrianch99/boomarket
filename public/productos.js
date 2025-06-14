@@ -29,14 +29,20 @@ document.addEventListener('DOMContentLoaded', () => {
           const card = document.createElement('div');
           card.classList.add('producto');
           card.innerHTML = `
+          <a href="detalle-producto.html?id=${p.id}" class="producto-link">
             <img src="${p.imagen}" alt="${p.nombre}" width="200">
-            <h3>${p.nombre}</h3>
             <p>${p.descripcion}</p>
             <p><strong>$${p.precio}</strong></p>
-            <button class="btn" onclick="agregarAlCarrito(${p.id})">Añadir al carrito</button>
-            <button class="btn" onclick="mostrarFormularioCompra(${p.id}, '${p.nombre}', ${p.precio})">Comprar ahora</button>
+            </a>
           `;
           contenedor.appendChild(card);
+
+          // Agregar evento de clic al contenedor para redirigir
+          card.addEventListener('click', (e) => {
+            if (!e.target.classList.contains('btn')) {
+              window.location.href = `detalle-producto.html?id=${p.id}`;
+            }
+          });
         });
         // Enlace "Ver todos"
         if (productosCat.length > 6) {
@@ -140,7 +146,7 @@ function realizarCompra(productoId, nombreProducto, precioProducto) {
         mostrarNotificacion(`Compra realizada exitosamente para el producto: ${nombreProducto} Pronto nos comunicaremos con usted`, 'success');
         cerrarModal();
       } else {
-      mostrarNotificacion('Error al realizar la compra.', 'error');
+        mostrarNotificacion('Error al realizar la compra.', 'error');
       }
     })
     .catch(err => {
