@@ -277,6 +277,16 @@ app.get('/api/pedidos-unitarios', async (req, res) => {
     }
 });
 
+app.get('/api/productos/:id', (req, res) => {
+    const productoId = req.params.id;
+    const producto = productos.find(p => p.id === parseInt(productoId));
+    if (producto) {
+        res.json(producto);
+    } else {
+        res.status(404).json({ error: 'Producto no encontrado' });
+    }
+});
+
 
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en http://localhost:${PORT}`);
