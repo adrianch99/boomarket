@@ -188,6 +188,7 @@ h2 {
     /* Animación */
     margin: 10px auto;
     /* Centra el producto verticalmente */
+    height: auto; /* Ajusta la altura automáticamente */
 }
 
 .producto img {
@@ -221,8 +222,14 @@ h2 {
     /* Tamaño de la descripción */
     color: #333;
     /* Color del texto */
-    min-height: 20px;
+    min-height: 40px;
     /* Igual altura para la descripción */
+    max-height: 80px;
+    /* Limita la altura máxima para evitar desbordamiento */
+    overflow: hidden;
+    /* Oculta el desbordamiento */
+    text-overflow: ellipsis;
+    /* Agrega puntos suspensivos si el texto es demasiado largo */
     margin-bottom: 0.2rem;
     /* Espaciado debajo de la descripción */
     text-align: center;
@@ -250,7 +257,10 @@ h2 {
     /* Botones uno encima del otro */
     gap: 0.3rem;
     /* Espaciado entre los botones */
-    /* Los botones ocupan todo el ancho */
+    margin-top: auto;
+    /* Empuja los botones hacia abajo */
+    width: 100%;
+    /* Asegura que el contenedor de botones ocupe todo el ancho */
 }
 
 .producto .btn {
