@@ -53,4 +53,16 @@ router.put('/:id/enviado', async (req, res) => {
     }
 });
 
+// Marcar pedido unitario como enviado
+router.put('/:id/enviadoUnitario', async (req, res) => {
+    const { id } = req.params;
+    try {
+        await pool.query('UPDATE pedidosunitarios SET enviado = true WHERE id = $1', [id]);
+        res.json({ message: 'Pedido unitario marcado como enviado' });
+    } catch (err) {
+        console.error('Error al actualizar pedido unitario:', err.message);
+        res.status(500).json({ message: 'Error al actualizar pedido unitario' });
+    }
+});
+
 module.exports = router;

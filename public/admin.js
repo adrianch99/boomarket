@@ -27,8 +27,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                     <td>
                       <ul>
                         ${productos.map(p =>
-                            `<li> id: ${p.id}, ${p.nombre} x ${p.cantidad} ($${p.precio})</li>`
-                        ).join('')}
+                    `<li> id: ${p.id}, ${p.nombre} x ${p.cantidad} ($${p.precio})</li>`
+                ).join('')}
                       </ul>
                     </td>
                     <td>
@@ -77,6 +77,9 @@ function cargarPedidosUnitarios() {
                         <td>${pedido.email}</td>
                         <td>${pedido.departamento}</td>
                         <td>${pedido.ciudad}</td>
+                         <td>
+                      ${pedido.enviado ? '✅ Enviado' : `<button onclick="marcarEnviadoUnitario(${pedido.id})">Marcar como enviado</button>`}
+                    </td>
                     </tr>
                 `;
             });
@@ -169,6 +172,14 @@ async function exportarExcel() {
         console.error('Error al exportar a Excel:', err);
         alert('Hubo un problema al exportar a Excel. Verifica la consola para más detalles.');
     }
+}
+
+async function marcarEnviadoUnitario(id) {
+    await fetch(`/api/pedidos/${id}/enviadoUnitario`, {
+        method: 'PUT'
+    });
+    alert('Pedido marcado como enviado');
+    location.reload();
 }
 
 async function marcarEnviado(id) {
