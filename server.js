@@ -279,7 +279,7 @@ app.get('/api/pedidos-unitarios', async (req, res) => {
 
 app.get('/api/productos/:id', (req, res) => {
     const productoId = req.params.id;
-    const producto = productos.find(p => p.id === parseInt(productoId));
+    const producto = producto.find(p => p.id === parseInt(productoId));
     if (producto) {
         res.json(producto);
     } else {
