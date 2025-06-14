@@ -179,7 +179,7 @@ h2 {
     /* Fondo blanco */
     padding: 1.5rem;
     /* Espaciado interno */
-    border-radius: 12px;
+    border-radius: 10px;
     /* Bordes redondeados */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     /* Sombra */
@@ -193,13 +193,13 @@ h2 {
 .producto img {
     width: 100%;
     /* Imagen ocupa todo el ancho */
-    height: auto;
-    /* Ajusta la altura automáticamente */
+    height: 180px;
+    /* Altura fija para todas las imágenes */
     object-fit: contain;
     /* Asegura que la imagen no se recorte */
     border-radius: 8px;
     /* Bordes redondeados */
-    margin-bottom: 1rem;
+    margin-bottom: 0.3rem;
     /* Espaciado debajo de la imagen */
 }
 
@@ -208,7 +208,9 @@ h2 {
     /* Tamaño del título */
     color: #1e3a8a;
     /* Color del texto */
-    margin-bottom: 0.5rem;
+    min-height: 20px;
+    /* Asegura que todos los títulos ocupen el mismo espacio */
+    margin-bottom: 0.2rem;
     /* Espaciado debajo del título */
     text-align: center;
     /* Centra el texto */
@@ -219,7 +221,9 @@ h2 {
     /* Tamaño de la descripción */
     color: #333;
     /* Color del texto */
-    margin-bottom: 0.5rem;
+    min-height: 20px;
+    /* Igual altura para la descripción */
+    margin-bottom: 0.2rem;
     /* Espaciado debajo de la descripción */
     text-align: center;
     /* Centra el texto */
@@ -232,7 +236,9 @@ h2 {
     /* Negrita */
     color: #1e3a8a;
     /* Color del texto */
-    margin-bottom: 1rem;
+    min-height: 20px;
+    /* Asegura que todos los precios ocupen el mismo espacio */
+    margin-bottom: 0.2rem;
     /* Espaciado debajo del precio */
     text-align: center;
     /* Centra el texto */
@@ -242,7 +248,7 @@ h2 {
     display: flex;
     flex-direction: column;
     /* Botones uno encima del otro */
-    gap: 0.5rem;
+    gap: 0.3rem;
     /* Espaciado entre los botones */
     width: 100%;
     /* Los botones ocupan todo el ancho */
