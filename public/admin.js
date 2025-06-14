@@ -63,7 +63,7 @@ function cargarPedidosUnitarios() {
                 return;
             }
 
-            let html = '<table border="1" cellpadding="10"><tr><th>ID</th><th>Producto</th><th>Precio</th><th>Nombre</th><th>Dirección</th><th>Teléfono</th><th>Email</th><th>Departamento</th><th>Ciudad</th></tr>';
+            let html = '<table border="1" cellpadding="10"><tr><th>ID</th><th>Producto</th><th>Precio</th><th>Nombre</th><th>Dirección</th><th>Teléfono</th><th>Email</th><th>Departamento</th><th>Ciudad</th><th>Estado</th></tr>';
 
             pedidos.forEach(pedido => {
                 html += `
