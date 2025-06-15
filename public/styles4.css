@@ -129,8 +129,6 @@ h2 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
-    /* Espacio entre los elementos dentro del enlace */
     height: 100%;
 }
 
@@ -152,8 +150,6 @@ h2 {
 .producto p {
     font-size: 1rem;
     color: #555;
-    margin: 0.5rem 0;
-    /* Espacio alrededor del texto */
     height: auto;
     /* Asegura que todas las descripciones tengan la misma altura */
     display: inline-block;
@@ -165,8 +161,6 @@ h2 {
     font-size: 1.2rem;
     color: #1e3a8a;
     /* Color del precio */
-    height: auto;
-    /* Altura fija para el precio */
     display: inline-block;
     /* Permite que el precio ocupe solo el espacio necesario */}
 
