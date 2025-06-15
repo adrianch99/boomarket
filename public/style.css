@@ -340,6 +340,10 @@ footer a:hover {
     border: 1px solid rgb(173, 173, 173);
 }
 
+.botonesDet-container p {
+    margin-bottom: 1rem; /* Agrega espacio debajo del enunciado */
+}
+
 .botonesDet-container .btn {
     width: 90%;
     padding: 0.8rem;
