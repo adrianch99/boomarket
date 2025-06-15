@@ -515,10 +515,6 @@ footer a:hover {
         /* Reducir el tamaño de la fuente */
     }
 
-    .btn:hover {
-        display: none;
-    }
-
     #carrito-container {
         flex-wrap: wrap;
         /* Permitir que los productos se ajusten en varias filas */

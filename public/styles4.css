@@ -324,10 +324,6 @@ footer a {
         font-size: 0.9rem;
     }
 
-    .btn:hover {
-        display: none;
-    }
-
     .productos-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -460,10 +456,6 @@ footer a {
         padding: 0.6rem;
         font-size: 0.8rem;
         /* Botones más compactos */
-    }
-
-    .btn:hover {
-        display: none;
     }
 
     .productos-grid {
