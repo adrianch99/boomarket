@@ -114,8 +114,9 @@ h2 {
     align-items: center;
     text-align: center;
     padding: 1rem;
-    margin: 1rem;
-}
+    height: 500px;
+    /* Altura fija para todas las tarjetas */
+    margin: 0.5rem;}
 
 .producto:hover {
     transform: translateY(-5px);
@@ -135,7 +136,8 @@ h2 {
 /* Estilo para la imagen del producto */
 .producto img {
     width: 200px;
-    height: auto;
+    height: 200px;
+    /* Tamaño fijo para todas las imágenes */
     object-fit: cover;
     border-radius: 8px;
     transition: transform 0.3s ease;
@@ -150,12 +152,18 @@ h2 {
     font-size: 1rem;
     color: #555;
     margin: 0.5rem 0;
+    /* Espacio alrededor del texto */
+    min-height: 40px;
+    /* Asegura que todas las descripciones tengan la misma altura */
 }
 
 /* Estilo para el precio del producto */
 .producto p strong {
     font-size: 1.2rem;
     color: #1e3a8a;
+    /* Color del precio */
+    height: 30px;
+    /* Asegura que todos los precios tengan la misma altura */
 }
 
 .producto .btn-container {
