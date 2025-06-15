@@ -502,7 +502,7 @@ footer a {
         /* Evitar que los productos se achiquen */
         width: 260px;
         /* Reducir el ancho para pantallas pequeñas */
-        height: 450px;
+        height: 350px;
         /* Ajustar altura uniforme */
         padding: 1rem;
         /* Ajustar el padding interno */
