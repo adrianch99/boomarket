@@ -271,7 +271,7 @@ footer a:hover {
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
+    height: 500px;
     background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
@@ -289,7 +289,7 @@ footer a:hover {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
     width: 100%;
     max-width: 500px;
-    max-height: 90vh;
+    max-height: 500px;
     overflow-y: auto;
     position: relative;
     display: flex;
