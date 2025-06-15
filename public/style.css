@@ -270,33 +270,41 @@ footer a:hover {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 500px;
+    width: 100%;
+    height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
+    /* Fondo semitransparente */
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    animation: fadeIn 0.3s ease;
-    overflow: visible;
+    /* Asegura que el modal esté por encima de otros elementos */
 }
 
 /* Estilos para el contenido del modal */
 .modal-content {
     background-color: #fff;
+    /* Fondo blanco */
     padding: 1.5rem;
+    /* Espaciado interno */
     border-radius: 12px;
+    /* Bordes redondeados */
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-    width: 100%;
-    max-width: 500px;
-    max-height: 500px;
-    overflow-y: auto;
+    /* Sombra */
+    width: 90%;
+    /* Ancho del modal */
+    max-width: 400px;
+    /* Ancho máximo */
+    max-height: 80%;
+    /* Limita la altura máxima del modal */
+    overflow: hidden;
+    /* Evita el scroll interno */
     position: relative;
+    /* Para posicionar el botón de cierre */
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    align-items: center;
-    box-sizing: border-box;
+    /* Espaciado entre los elementos */
 }
 
 /* Estilos para el botón de cierre */
@@ -315,6 +323,7 @@ footer a:hover {
 
 .close-btn:hover {
     color: #ff0000;
+    /* Cambia el color al pasar el mouse */
 }
 
 /* Ajustes para el formulario dentro del modal */
@@ -322,47 +331,79 @@ footer a:hover {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    /* Espaciado entre los elementos del formulario */
     width: 100%;
-    align-items: stretch;
 }
 
 /* Estilos para los inputs del formulario */
-.modal-content input,
-.modal-content form input {
+.modal-content input {
     width: 100%;
-    box-sizing: border-box;
     padding: 0.8rem;
-    margin: 0;
+    /* Espaciado interno */
     border: 1px solid #ccc;
+    /* Bordes */
     border-radius: 8px;
+    /* Bordes redondeados */
     font-size: 1rem;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    /* Tamaño de fuente */
 }
 
-.modal-content input:focus,
-.modal-content form input:focus {
+.modal-content input:focus {
     border-color: #003087;
+    /* Color del borde al enfocar */
     box-shadow: 0 0 5px rgba(0, 48, 135, 0.5);
+    /* Sombra al enfocar */
 }
 
 /* Estilos para el botón del formulario */
-.modal-content button,
-.modal-content form button {
+.modal-content button {
     width: 100%;
     padding: 0.8rem;
+    /* Espaciado interno */
     background-color: #1e3a8a;
+    /* Fondo azul */
     color: #fff;
+    /* Texto blanco */
     border: none;
     border-radius: 8px;
+    /* Bordes redondeados */
     font-size: 1rem;
+    /* Tamaño de fuente */
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.modal-content button:hover,
-.modal-content form button:hover {
+.modal-content button:hover {
     background-color: #0056b3;
+    /* Cambia el color al pasar el mouse */
     transform: scale(1.05);
+    /* Efecto de escala */
+}
+
+/* Responsividad para el modal */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        /* Ajusta el ancho en pantallas pequeñas */
+        padding: 1rem;
+        /* Reduce el espaciado interno */
+        max-height: 70%;
+        /* Ajusta la altura máxima en pantallas pequeñas */
+    }
+
+    .modal-content input {
+        font-size: 0.9rem;
+        /* Reduce el tamaño de la fuente */
+        padding: 0.6rem;
+        /* Ajusta el espaciado interno */
+    }
+
+    .modal-content button {
+        font-size: 0.9rem;
+        /* Reduce el tamaño de la fuente */
+        padding: 0.6rem;
+        /* Ajusta el espaciado interno */
+    }
 }
 
 /* Contenedor de notificaciones */
