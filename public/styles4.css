@@ -113,7 +113,7 @@ h2 {
     align-items: center;
     text-align: center;
     padding: 1rem;
-    height: 400px;
+    height: 350px;
     /* Altura fija para todas las tarjetas */
     margin: 0.5rem;}
 
@@ -149,7 +149,7 @@ h2 {
     color: #555;
     margin: 0.5rem 0;
     /* Espacio alrededor del texto */
-    height: 40px;
+    height: 20px;
     /* Asegura que todas las descripciones tengan la misma altura */
 }
 
@@ -158,7 +158,7 @@ h2 {
     font-size: 1.2rem;
     color: #1e3a8a;
     /* Color del precio */
-    height: 30px;
+    height: 20px;
     /* Asegura que todos los precios tengan la misma altura */
 }
 
