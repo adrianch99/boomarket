@@ -100,7 +100,7 @@ h2 {
     scroll-snap-align: start;
     flex: 0 0 auto;
     /* Impide que se achiquen */
-    width: 220px;
+    width: 300px;
 }
 /* Estilo general para las tarjetas de producto */
 .producto {
