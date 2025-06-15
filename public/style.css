@@ -342,7 +342,7 @@ footer a:hover {
 
 .botonesDet-container .btn {
     width: 90%;
-    gap: 0.5rem;
+    gap: 1.5rem;
     /* Reduce el espacio entre los botones */
     padding: 0.8rem;
     /* Ajusta el padding de los botones */
@@ -355,13 +355,9 @@ footer a:hover {
     /* Ajusta el tamaño de la fuente */
     font-weight: bold;
     /* Negrita para destacar el precio */
-    color: #1e3a8a;
-    /* Color azul oscuro */
-    margin: 0;
-    /* Elimina el margen para un mejor espaciado */
     text-align: center;
     /* Centra el texto */
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     /* Espacio debajo del precio */
 }
 
