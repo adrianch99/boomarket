@@ -102,92 +102,60 @@ h2 {
     /* Impide que se achiquen */
     width: 300px;
 }
-
+/* Estilo general para las tarjetas de producto */
 .producto {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
-    /* Asegura que los elementos estén en una columna */
-    justify-content: space-between;
-    /* Espaciado entre los elementos */
     align-items: center;
-    /* Centra los elementos horizontalmente */
-    width: 300px;
-    /* Ancho fijo para cada producto */
-    background: white;
-    /* Fondo blanco */
-    padding: 1.5rem;
-    /* Espaciado interno */
-    border-radius: 10px;
-    /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* Sombra */
-    transition: transform 0.4s ease,
-        box-shadow 0.4s ease;
-    /* Animación */
-    margin: 10px auto;
-    /* Centra el producto verticalmente */
-    height: auto;
-    /* Ajusta la altura automáticamente */
-}
-
-.producto img {
-    width: 110%;
-    /* Imagen ocupa todo el ancho */
-    height: 180px;
-    /* Altura fija para todas las imágenes 
-    object-fit: contain;
-    /* Asegura que la imagen no se recorte */
-    border-radius: 8px;
-    /* Bordes redondeados */
-    margin-bottom: 0.3rem;
-    /* Espaciado debajo de la imagen */
-}
-
-.producto h3 {
-    font-size: 1.2rem;
-    /* Tamaño del título */
-    color: #1e3a8a;
-    /* Color del texto */
-    min-height: 20px;
-    /* Asegura que todos los títulos ocupen el mismo espacio */
-    margin-bottom: 0.2rem;
-    /* Espaciado debajo del título */
     text-align: center;
-    /* Centra el texto */
+    padding: 1rem;
+    margin: 1rem;
 }
 
+.producto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo para el enlace que envuelve el producto */
+.producto-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Estilo para la imagen del producto */
+.producto img {
+    width: 200px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.producto img:hover {
+    transform: scale(1.05);
+}
+
+/* Estilo para la descripción del producto */
 .producto p {
     font-size: 1rem;
-    /* Tamaño de la descripción */
-    color: #333;
-    /* Color del texto */
-    min-height: 40px;
-    /* Igual altura para la descripción */
-    max-height: 80px;
-    /* Limita la altura máxima para evitar desbordamiento */
-    overflow: hidden;
-    /* Oculta el desbordamiento */
-    text-overflow: ellipsis;
-    /* Agrega puntos suspensivos si el texto es demasiado largo */
-    margin-bottom: 0.2rem;
-    /* Espaciado debajo de la descripción */
-    text-align: center;
-    /* Centra el texto */
+    color: #555;
+    margin: 0.5rem 0;
 }
 
-.producto .precio {
+/* Estilo para el precio del producto */
+.producto p strong {
     font-size: 1.2rem;
-    /* Tamaño del precio */
-    font-weight: bold;
-    /* Negrita */
     color: #1e3a8a;
-    /* Color del texto */
-    min-height: 20px;
-    /* Asegura que todos los precios ocupen el mismo espacio */
-    margin-bottom: 0.2rem;
-    /* Espaciado debajo del precio */
-    text-align: center;
-    /* Centra el texto */
 }
 
 .producto .btn-container {
