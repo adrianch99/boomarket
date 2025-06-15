@@ -49,6 +49,9 @@
             <!-- Los detalles del producto se cargarán dinámicamente aquí -->
         </div>
     </main>
+
+    <div id="notification-container"></div>
+
     <script>
         // Obtener el ID del producto desde la URL
         const urlParams = new URLSearchParams(window.location.search);
@@ -100,7 +103,7 @@
             }
 
             localStorage.setItem('carrito', JSON.stringify(carrito));
-            alert('Producto agregado al carrito exitosamente');
+            mostrarNotificacion('Producto agregado al carrito exitosamente', 'success');
         }
 
         function mostrarFormularioCompra(productoId, nombreProducto, precioProducto) {
@@ -142,7 +145,7 @@
             };
 
             if (Object.values(datosEnvio).some(value => !value)) {
-                alert('Por favor, completa todos los campos del formulario');
+                mostrarNotificacion('Por favor, completa todos los campos del formulario', 'info');
                 return;
             }
 
@@ -162,15 +165,15 @@
             })
                 .then(response => {
                     if (response.ok) {
-                        alert(`Compra realizada exitosamente para el producto: ${nombreProducto}`);
+                        mostrarNotificacion(`Compra realizada exitosamente para el producto: ${nombreProducto}`, 'success');
                         cerrarModal();
                     } else {
-                        alert('Error al realizar la compra.');
+                        mostrarNotificacion('Error al realizar la compra. Por favor, inténtalo de nuevo.', 'error');
                     }
                 })
                 .catch(err => {
                     console.error('Error al enviar la compra:', err);
-                    alert('Error al realizar la compra.');
+                    mostrarNotificacion('Error al realizar la compra. Por favor, inténtalo de nuevo.', 'error');
                 });
         }
     </script>
@@ -190,6 +193,26 @@
             }
         });
     </script>
+
+    <script>
+        // Función para mostrar notificaciones
+        function mostrarNotificacion(mensaje, tipo = 'info') {
+            const container = document.getElementById('notification-container');
+
+            const notificacion = document.createElement('div');
+            notificacion.className = `notification ${tipo}`;
+            notificacion.textContent = mensaje;
+
+            container.appendChild(notificacion);
+
+            // Eliminar la notificación después de 4 segundos
+            setTimeout(() => {
+                notificacion.remove();
+            }, 4000);
+        }
+    </script>
+
+
 
 </body>
 
