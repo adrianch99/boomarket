@@ -326,14 +326,14 @@ footer a:hover {
     background-color: white;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2rem;
     /* Reduce el espacio entre los botones */
     padding: 0.5rem;
     /* Espacio interno */
     align-items: center;
     /* Centra los botones */
     justify-content: center;
-    /* Centra verticalmente */
+    /* Centra verticalmente 
     flex: 0.5;
     /* Ajusta el tamaño relativo del contenedor */
     border-radius: 10px;
@@ -342,7 +342,7 @@ footer a:hover {
 
 .botonesDet-container .btn {
     width: 90%;
-    gap: 1.5rem;
+    gap: 3rem;
     /* Reduce el espacio entre los botones */
     padding: 0.8rem;
     /* Ajusta el padding de los botones */
@@ -351,10 +351,6 @@ footer a:hover {
 }
 
 .botonesDet-container p {
-    font-size: 1.2rem;
-    /* Ajusta el tamaño de la fuente */
-    font-weight: bold;
-    /* Negrita para destacar el precio */
     text-align: center;
     /* Centra el texto */
     margin-bottom: 2rem;
