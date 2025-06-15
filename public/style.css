@@ -277,6 +277,7 @@ footer a:hover {
     align-items: center;
     z-index: 1000;
     animation: fadeIn 0.3s ease;
+    overflow: visible; /* Elimina el scroll del fondo del modal */
 }
 
 /* Estilos para el contenido del modal */
@@ -287,8 +288,9 @@ footer a:hover {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
     width: 90%;
     max-width: 500px;
-    max-height: 80%;
-    overflow: auto;
+    /* Elimina restricciones de altura y scroll interno */
+    max-height: none;
+    overflow: visible;
     position: relative;
     display: flex;
     flex-direction: column;
