@@ -332,7 +332,7 @@ footer a:hover {
     flex-direction: column;
     gap: 1rem;
     /* Espaciado entre los elementos del formulario */
-    width: 100%;
+    width: 70%;
 }
 
 /* Estilos para los inputs del formulario */
@@ -380,31 +380,6 @@ footer a:hover {
     /* Efecto de escala */
 }
 
-/* Responsividad para el modal */
-@media (max-width: 768px) {
-    .modal-content {
-        width: 95%;
-        /* Ajusta el ancho en pantallas pequeñas */
-        padding: 1rem;
-        /* Reduce el espaciado interno */
-        max-height: 70%;
-        /* Ajusta la altura máxima en pantallas pequeñas */
-    }
-
-    .modal-content input {
-        font-size: 0.9rem;
-        /* Reduce el tamaño de la fuente */
-        padding: 0.6rem;
-        /* Ajusta el espaciado interno */
-    }
-
-    .modal-content button {
-        font-size: 0.9rem;
-        /* Reduce el tamaño de la fuente */
-        padding: 0.6rem;
-        /* Ajusta el espaciado interno */
-    }
-}
 
 /* Contenedor de notificaciones */
 #notification-container {

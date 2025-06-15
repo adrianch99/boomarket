@@ -71,7 +71,7 @@
                                 <p><strong>Precio: $${producto.precio}</strong></p>
                             </div>
                             <div class="botonesDet-container">
-                                <p><strong>Envios gratis</strong> a todo el pais, !Pide ya tu producto¡</p>
+                                <p>Envio gratis a todo el pais, !pidelo tu producto ya!</p>
                                 <button class="btn" onclick="agregarAlCarrito(${producto.id})">
                                     Añadir al carrito
                                 </button>
@@ -107,20 +107,22 @@
             const modal = document.createElement('div');
             modal.className = 'modal';
             modal.innerHTML = `
-        <div class="modal-content">
-          <span class="close-btn" onclick="cerrarModal()">×</span>
-          <h2>Comprar ${nombreProducto}</h2>
-          <form id="form-envio">
-            <input type="text" id="nombre" placeholder="Nombre y apellidos" required>
-            <input type="text" id="direccion" placeholder="Dirección, barrio..." required>
-            <input type="tel" id="telefono" placeholder="Teléfono" required>
-            <input type="email" id="email" placeholder="Email" required>
-            <input type="text" id="departamento" placeholder="Departamento" required>
-            <input type="text" id="ciudad" placeholder="Ciudad" required>
-            <button class="btn" type="button" onclick="realizarCompra(${productoId}, '${nombreProducto}', ${precioProducto})">Realizar compra</button>
-          </form>
-        </div>
-      `;
+                <div class="modal-content">
+                    <span class="close-btn" onclick="cerrarModal()">×</span>
+                    <h2>Comprar ${nombreProducto}</h2>
+                    <form id="form-envio">
+                        <input type="text" id="nombre" placeholder="Nombre y apellidos" required>
+                        <input type="text" id="direccion" placeholder="Dirección, barrio..." required>
+                        <input type="tel" id="telefono" placeholder="Teléfono" required>
+                        <input type="email" id="email" placeholder="Email" required>
+                        <input type="text" id="departamento" placeholder="Departamento" required>
+                        <input type="text" id="ciudad" placeholder="Ciudad" required>
+                        <button class="btn" type="button" onclick="realizarCompra(${productoId}, '${nombreProducto}', ${precioProducto})">
+                            Realizar compra
+                        </button>
+                    </form>
+                </div>
+            `;
             document.body.appendChild(modal);
         }
 
