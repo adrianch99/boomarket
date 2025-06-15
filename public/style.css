@@ -308,6 +308,17 @@ footer a:hover {
     /* Centra el contenedor */
 }
 
+.detalle-container img {
+    width: 300px;
+    /* Ancho fijo para las imágenes */
+    height: 300px;
+    /* Altura fija para las imágenes */
+    object-fit: cover;
+    /* Asegura que las imágenes se ajusten sin distorsión */
+    border-radius: 8px;
+    /* Bordes redondeados */
+}
+
 .descripcion-container {
     background-color: white;
     display: flex;
