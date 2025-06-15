@@ -159,7 +159,7 @@ document.getElementById('busquedaInput').addEventListener('input', (e) => {
   const productos = document.querySelectorAll('.producto');
 
   productos.forEach(producto => {
-    const nombre = producto.querySelector('h3').textContent.toLowerCase();
+    const nombre = producto.querySelector('p').textContent.toLowerCase();
     producto.style.display = nombre.includes(valor) ? 'block' : 'none';
   });
 });
