@@ -324,6 +324,10 @@ footer a {
         font-size: 0.9rem;
     }
 
+    .btn:hover {
+        display: none;
+    }
+
     .productos-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -458,6 +462,10 @@ footer a {
         /* Botones más compactos */
     }
 
+    .btn:hover {
+        display: none;
+    }
+
     .productos-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -534,11 +542,5 @@ footer a {
         /* Reducir el tamaño de la fuente en el footer */
         padding: 0.5rem;
         /* Ajustar el padding */
-    }
-}
-
-@media (hover: hover) and (pointer: fine) {
-    .btn:hover {
-        display: none;
     }
 }
