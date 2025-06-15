@@ -135,7 +135,7 @@ h2 {
 
 /* Estilo para la imagen del producto */
 .producto img {
-    width: 200px;
+    width: 100%;
     height: 200px;
     /* Tamaño fijo para todas las imágenes */
     object-fit: cover;
