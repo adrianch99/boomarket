@@ -690,3 +690,125 @@ footer a:hover {
         /* Ajustar el padding */
     }
 }
+
+/* --- Responsividad --- */
+
+/* Pantallas medianas (tablets y dispositivos similares) */
+@media (max-width: 768px) {
+    .detalle-container {
+        flex-direction: column;
+        /* Cambia a diseño vertical */
+        padding: 1rem;
+        /* Reduce el padding */
+        gap: 1rem;
+        /* Ajusta el espacio entre los elementos */
+    }
+
+    .detalle-container img {
+        width: 100%;
+        /* Imagen ocupa todo el ancho */
+        height: auto;
+        /* Ajusta la altura automáticamente */
+    }
+
+    .descripcion-container {
+        text-align: center;
+        /* Centra el texto */
+        padding: 1rem;
+        /* Ajusta el padding */
+    }
+
+    .botonesDet-container {
+        width: 100%;
+        /* Botones ocupan todo el ancho */
+        padding: 1rem;
+        /* Ajusta el padding */
+    }
+}
+
+/* Pantallas pequeñas (teléfonos móviles) */
+@media (max-width: 480px) {
+    .detalle-container {
+        flex-direction: column;
+        /* Diseño vertical */
+        padding: 0.5rem;
+        /* Reduce aún más el padding */
+        gap: 0.5rem;
+        /* Ajusta el espacio entre los elementos */
+    }
+
+    .detalle-container img {
+        width: 100%;
+        /* Imagen ocupa todo el ancho */
+        height: auto;
+        /* Ajusta la altura automáticamente */
+        border-radius: 8px;
+        /* Bordes más pequeños */
+    }
+
+    .descripcion-container {
+        text-align: center;
+        /* Centra el texto */
+        padding: 0.5rem;
+        /* Ajusta el padding */
+    }
+
+    .botonesDet-container {
+        width: 100%;
+        /* Botones ocupan todo el ancho */
+        padding: 0.5rem;
+        /* Ajusta el padding */
+        gap: 0.5rem;
+        /* Reduce el espacio entre botones */
+    }
+
+    .botonesDet-container .btn {
+        font-size: 0.8rem;
+        /* Reduce el tamaño de la fuente */
+        padding: 0.5rem;
+        /* Ajusta el padding de los botones */
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        /* Reduce el tamaño del título */
+    }
+
+    p {
+        font-size: 0.9rem;
+        /* Reduce el tamaño de la fuente */
+    }
+}
+
+/* Pantallas grandes (escritorios y dispositivos similares) */
+@media (min-width: 1024px) {
+    .detalle-container {
+        max-width: 1200px;
+        /* Limita el ancho máximo */
+        margin: 2rem auto;
+        /* Centra el contenedor */
+        gap: 2rem;
+        /* Espacio amplio entre los elementos */
+    }
+
+    .detalle-container img {
+        width: 350px;
+        /* Tamaño fijo para imágenes */
+        height: 350px;
+        /* Tamaño fijo para imágenes */
+    }
+
+    .descripcion-container {
+        text-align: left;
+        /* Alinea el texto a la izquierda */
+        padding: 2rem;
+        /* Espacio interno amplio */
+    }
+
+    .botonesDet-container {
+        width: 50%;
+        /* Ajusta el ancho del contenedor de botones */
+        padding: 2rem;
+        /* Espacio interno amplio */
+    }
+}
