@@ -280,16 +280,19 @@ footer a:hover {
     align-items: center;
     z-index: 1000;
     /* Asegura que el modal esté por encima de otros elementos */
+    animation: fadeIn 0.3s ease;
+    /* Animación de entrada */
 }
 
 /* Estilos para el contenido del modal */
 .modal-content {
     background-color: #fff;
     /* Fondo blanco */
-    padding: 20px;
-    border-radius: 8px;
+    padding: 2rem;
+    /* Espaciado interno */
+    border-radius: 12px;
     /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
     /* Sombra */
     width: 90%;
     /* Ancho del modal */
@@ -297,6 +300,10 @@ footer a:hover {
     /* Ancho máximo */
     position: relative;
     /* Para posicionar el botón de cierre */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    /* Espaciado entre los elementos */
 }
 
 /* Estilos para el botón de cierre */
@@ -310,6 +317,7 @@ footer a:hover {
     cursor: pointer;
     background: none;
     border: none;
+    transition: color 0.3s ease;
 }
 
 .close-btn:hover {
@@ -320,28 +328,62 @@ footer a:hover {
 /* Estilos para los inputs del formulario */
 .modal-content input {
     width: 100%;
-    padding: 10px;
-    margin: 10px 0;
+    padding: 0.8rem;
+    /* Espaciado interno */
+    margin: 0.5rem 0;
+    /* Espaciado entre inputs */
     border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
+    /* Bordes */
+    border-radius: 8px;
+    /* Bordes redondeados */
+    font-size: 1rem;
+    /* Tamaño de fuente */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modal-content input:focus {
+    border-color: #003087;
+    /* Color del borde al enfocar */
+    box-shadow: 0 0 5px rgba(0, 48, 135, 0.5);
+    /* Sombra al enfocar */
 }
 
 /* Estilos para el botón del formulario */
 .modal-content button {
     width: 100%;
-    padding: 10px;
+    padding: 0.8rem;
+    /* Espaciado interno */
     background-color: #1e3a8a;
+    /* Fondo azul */
     color: #fff;
+    /* Texto blanco */
     border: none;
-    border-radius: 4px;
-    font-size: 16px;
+    border-radius: 8px;
+    /* Bordes redondeados */
+    font-size: 1rem;
+    /* Tamaño de fuente */
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .modal-content button:hover {
     background-color: #0056b3;
     /* Cambia el color al pasar el mouse */
+    transform: scale(1.05);
+    /* Efecto de escala */
+}
+
+/* Animación de entrada para el modal */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 /* Contenedor de notificaciones */
@@ -411,7 +453,8 @@ footer a:hover {
 }
 
 .descripcion-container p {
-    margin-bottom: 1rem; /* Agrega espacio debajo del enunciado */
+    margin-bottom: 1rem;
+    /* Agrega espacio debajo del enunciado */
 }
 
 .botonesDet-container {
@@ -433,7 +476,8 @@ footer a:hover {
 }
 
 .botonesDet-container p {
-    margin-bottom: 0.5rem; /* Agrega espacio debajo del enunciado */
+    margin-bottom: 0.5rem;
+    /* Agrega espacio debajo del enunciado */
 }
 
 .botonesDet-container .btn {
