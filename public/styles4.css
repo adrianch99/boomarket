@@ -110,12 +110,16 @@ h2 {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
+    overflow: hidden;
+    /* Asegura que el contenido no se desborde */
     text-align: center;
     padding: 1rem;
-    height: 400px;
+    height: 365px;
     /* Altura fija para todas las tarjetas */
-    margin: 0.5rem;}
+    margin: 0.5rem;
+}
 
 /* Estilo para el enlace que envuelve el producto */
 .producto-link {
@@ -126,7 +130,7 @@ h2 {
     align-items: center;
     gap: 0.5rem;
     /* Espacio entre los elementos dentro del enlace */
-    height: 20px;
+    height: 100%;
 }
 
 /* Estilo para la imagen del producto */
