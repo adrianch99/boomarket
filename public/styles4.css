@@ -164,10 +164,11 @@ h2 {
     font-size: 1.2rem;
     color: #1e3a8a;
     /* Color del precio */
-    margin-top: auto;
-    height: auto;
-    /* Asegura que todos los precios tengan la misma altura */
-}
+    margin-top: 0.5rem;
+    height: 20px;
+    /* Altura fija para el precio */
+    display: inline-block;
+    /* Permite que el precio ocupe solo el espacio necesario */}
 
 .producto .btn-container {
     display: flex;
