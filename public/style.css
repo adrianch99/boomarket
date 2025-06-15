@@ -515,6 +515,10 @@ footer a:hover {
         /* Reducir el tamaño de la fuente */
     }
 
+    .btn:hover {
+        display: none;
+    }
+
     #carrito-container {
         flex-wrap: wrap;
         /* Permitir que los productos se ajusten en varias filas */
@@ -621,6 +625,7 @@ footer a:hover {
         font-size: 0.8rem;
         /* Reducir el tamaño de la fuente */
     }
+
 
     #carrito-container {
         gap: 0.5rem;
@@ -816,5 +821,11 @@ footer a:hover {
         /* Ajusta el ancho del contenedor de botones */
         padding: 2rem;
         /* Espacio interno amplio */
+    }
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .btn:hover {
+        display: none;
     }
 }

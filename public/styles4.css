@@ -103,6 +103,7 @@ h2 {
     /* Impide que se achiquen */
     width: 300px;
 }
+
 /* Estilo general para las tarjetas de producto */
 .producto {
     background-color: white;
@@ -164,7 +165,8 @@ h2 {
     color: #1e3a8a;
     /* Color del precio */
     display: inline-block;
-    /* Permite que el precio ocupe solo el espacio necesario */}
+    /* Permite que el precio ocupe solo el espacio necesario */
+}
 
 .producto .btn-container {
     display: flex;
@@ -532,5 +534,11 @@ footer a {
         /* Reducir el tamaño de la fuente en el footer */
         padding: 0.5rem;
         /* Ajustar el padding */
+    }
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .btn:hover {
+        display: none;
     }
 }
