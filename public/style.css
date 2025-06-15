@@ -323,14 +323,16 @@ footer a:hover {
     background-color: white;
     display: flex;
     flex-direction: column;
-    gap: 0.2rem;
-    /* Reduce el espacio entre los elementos */
     padding: 1rem;
     /* Espacio interno */
     flex: 1;
     /* Permite que este contenedor ocupe más espacio */
     text-align: left;
     /* Alinea el texto a la izquierda */
+}
+
+.descripcion-container p {
+    margin-bottom: 1rem; /* Agrega espacio debajo del enunciado */
 }
 
 .botonesDet-container {
