@@ -100,7 +100,7 @@ h2 {
     scroll-snap-align: start;
     flex: 0 0 auto;
     /* Impide que se achiquen */
-    width: 300px;
+    width: 250px;
 }
 /* Estilo general para las tarjetas de producto */
 .producto {
@@ -113,7 +113,7 @@ h2 {
     align-items: center;
     text-align: center;
     padding: 1rem;
-    height: 400px;
+    height: 350px;
     /* Altura fija para todas las tarjetas */
     margin: 0.5rem;}
 
@@ -125,6 +125,8 @@ h2 {
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
+    /* Espacio entre los elementos dentro del enlace */
+    height: 20px;
 }
 
 /* Estilo para la imagen del producto */
@@ -147,7 +149,7 @@ h2 {
     color: #555;
     margin: 0.5rem 0;
     /* Espacio alrededor del texto */
-    min-height: 40px;
+    height: 40px;
     /* Asegura que todas las descripciones tengan la misma altura */
 }
 
