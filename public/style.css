@@ -292,13 +292,13 @@ footer a:hover {
     background-color: white;
     display: flex;
     flex-direction: row;
-    border-radius: 5px;
+    border-radius: 8px;
     align-items: center;
     justify-content: space-between;
     /* Ajusta el espacio entre los elementos */
     padding: 2rem;
     /* Agrega espacio interno */
-    gap: 2rem;
+    gap: 1.5rem;
     /* Espacio entre los elementos */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     /* Sombra para un diseño más limpio */
@@ -326,9 +326,9 @@ footer a:hover {
     background-color: white;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    /* Reduce el espacio entre los botones */
-    padding: 0.5rem;
+    gap: 1.5rem;
+    /* Aumenta el espacio entre los botones */
+    padding: 1rem;
     /* Espacio interno */
     align-items: center;
     /* Centra los botones */
@@ -342,19 +342,12 @@ footer a:hover {
 
 .botonesDet-container .btn {
     width: 90%;
-    gap: 3rem;
-    /* Reduce el espacio entre los botones */
     padding: 0.8rem;
     /* Ajusta el padding de los botones */
     font-size: 1rem;
     /* Ajusta el tamaño de la fuente */
-}
-
-.botonesDet-container p {
-    text-align: center;
-    /* Centra el texto */
-    margin-bottom: 2rem;
-    /* Espacio debajo del precio */
+    margin-bottom: 0.5rem;
+    /* Agrega espacio debajo de cada botón */
 }
 
 /* --- ANIMACIONES --- */
