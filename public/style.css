@@ -309,9 +309,9 @@ footer a:hover {
 }
 
 .detalle-container img {
-    width: 300px;
+    width: 350px;
     /* Ancho fijo para las imágenes */
-    height: 300px;
+    height: 350px;
     /* Altura fija para las imágenes */
     object-fit: cover;
     /* Asegura que las imágenes se ajusten sin distorsión */
