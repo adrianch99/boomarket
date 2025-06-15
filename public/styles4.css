@@ -420,15 +420,6 @@ footer a {
         /* Sin bordes */
         border-radius: 10px;
         /* Bordes redondeados */
-        cursor: pointer;
-        /* Mostrar cursor de interacción */
-        transition: background 0.3s ease;
-        /* Transición suave */
-    }
-
-    .producto .btn:hover {
-        background: #0f256e;
-        /* Color de fondo al pasar el cursor */
     }
 
     footer {
