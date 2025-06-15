@@ -78,8 +78,7 @@ function agregarAlCarrito(productoId) {
 
   // Guardar el carrito actualizado en localStorage
   localStorage.setItem('carrito', JSON.stringify(carrito));
-
--}
+}
 
 // Función para mostrar el formulario de compra en un modal
 function mostrarFormularioCompra(productoId, nombreProducto, precioProducto) {
